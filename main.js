@@ -1,20 +1,34 @@
 // ============================================
-// NAVBAR SCROLL EFFECT
+// NAVBAR SCROLL EFFECT (OPTIMIZADO)
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    let ticking = false;
     
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
+    function updateNavbar() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+        
+        lastScroll = currentScroll;
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }, { passive: true });
 });
 
 // ============================================
-// SMOOTH SCROLL PARA ENLACES DE NAVEGACIÓN
+// SMOOTH SCROLL PARA ENLACES DE NAVEGACIÓN (MEJORADO)
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -26,15 +40,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const target = document.querySelector(href);
             
             if (target) {
-                const offsetTop = target.offsetTop - 80; // Ajuste para el navbar fijo
+                // Calcular el offset considerando el navbar
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = targetPosition - navbarHeight;
+                
+                // Usar scrollTo con smooth behavior
                 window.scrollTo({
-                    top: offsetTop,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
                 
                 // Cerrar el menú móvil si está abierto
                 const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                     if (bsCollapse) {
                         bsCollapse.hide();
@@ -111,20 +131,40 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// EFECTO PARALLAX SUAVE EN HERO
+// EFECTO PARALLAX SUAVE EN HERO (OPTIMIZADO)
 // ============================================
-window.addEventListener('scroll', function() {
+let ticking = false;
+let lastScrollY = 0;
+
+function updateParallax() {
     const scrolled = window.pageYOffset;
     const heroSection = document.querySelector('.hero-section');
     const heroImage = document.querySelector('.hero-image');
     
     if (heroSection && scrolled < heroSection.offsetHeight) {
         if (heroImage) {
-            heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
-            heroImage.style.opacity = 1 - (scrolled / heroSection.offsetHeight) * 0.5;
+            // Usar transform3d para mejor rendimiento
+            const translateY = scrolled * 0.3; // Reducido para menos movimiento
+            const opacity = Math.max(0.5, 1 - (scrolled / heroSection.offsetHeight) * 0.3);
+            
+            heroImage.style.transform = `translate3d(0, ${translateY}px, 0)`;
+            heroImage.style.opacity = opacity;
+            heroImage.style.willChange = 'transform, opacity';
         }
+    } else if (heroImage) {
+        heroImage.style.willChange = 'auto';
     }
-});
+    
+    lastScrollY = scrolled;
+    ticking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+    }
+}, { passive: true });
 
 // ============================================
 // VALIDACIÓN Y ENVÍO DE FORMULARIO (SI SE AGREGA)
