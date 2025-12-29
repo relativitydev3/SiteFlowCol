@@ -658,6 +658,21 @@ body {
     margin-top: 0.25rem;
 }
 
+.price-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.custom-price-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* Selector de divisa */
 .currency-selector {
     display: flex;
@@ -1284,6 +1299,10 @@ body {
     
     .price-display .currency-code {
         font-size: 0.875rem;
+    }
+    
+    .custom-price-text {
+        font-size: 1.5rem;
     }
     
     .btn-currency {
