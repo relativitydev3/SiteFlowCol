@@ -189,6 +189,12 @@
                 <span class="section-badge">Precios</span>
                 <h2 class="section-title">Planes y Precios</h2>
                 <p class="section-subtitle">Elige el plan perfecto para tu negocio</p>
+                <div class="currency-selector mt-4">
+                    <button id="currencyToggle" class="btn-currency" type="button" data-bs-toggle="modal" data-bs-target="#currencyModal">
+                        <i class="bi bi-currency-exchange me-2"></i>
+                        <span id="currencyLabel">Cambiar moneda</span>
+                    </button>
+                </div>
             </div>
             <div class="row g-4 justify-content-center">
                 <!-- Plan Básico -->
@@ -197,8 +203,11 @@
                         <div class="pricing-header">
                             <h3>Básico</h3>
                             <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">99.000</span>
+                                <div class="price-display">
+                                    <span class="currency">$</span>
+                                    <span class="amount" data-usd="24" data-cop="99000" data-eur="22">24</span>
+                                    <span class="currency-code">USD</span>
+                                </div>
                                 <span class="period">/mes</span>
                             </div>
                         </div>
@@ -224,8 +233,11 @@
                         <div class="pricing-header">
                             <h3>Profesional</h3>
                             <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">200.000</span>
+                                <div class="price-display">
+                                    <span class="currency">$</span>
+                                    <span class="amount" data-usd="48" data-cop="200000" data-eur="44">48</span>
+                                    <span class="currency-code">USD</span>
+                                </div>
                                 <span class="period">/mes</span>
                             </div>
                         </div>
@@ -252,8 +264,11 @@
                         <div class="pricing-header">
                             <h3>Premium</h3>
                             <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">299.000</span>
+                                <div class="price-display">
+                                    <span class="currency">$</span>
+                                    <span class="amount" data-usd="71" data-cop="299000" data-eur="65">71</span>
+                                    <span class="currency-code">USD</span>
+                                </div>
                                 <span class="period">/mes</span>
                             </div>
                         </div>
@@ -403,6 +418,48 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal de Cambio de Moneda -->
+    <div class="modal fade" id="currencyModal" tabindex="-1" aria-labelledby="currencyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="currencyModalLabel">
+                        <i class="bi bi-currency-exchange me-2"></i>Seleccionar Moneda
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="currency-options">
+                        <button class="currency-option" data-currency="USD" type="button">
+                            <div class="currency-flag">💵</div>
+                            <div class="currency-info">
+                                <div class="currency-name">Dólar</div>
+                                <div class="currency-code">USD</div>
+                            </div>
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+                        </button>
+                        <button class="currency-option" data-currency="COP" type="button">
+                            <div class="currency-flag">🇨🇴</div>
+                            <div class="currency-info">
+                                <div class="currency-name">Peso Colombiano</div>
+                                <div class="currency-code">COP</div>
+                            </div>
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+                        </button>
+                        <button class="currency-option" data-currency="EUR" type="button">
+                            <div class="currency-flag">💶</div>
+                            <div class="currency-info">
+                                <div class="currency-name">Euro</div>
+                                <div class="currency-code">EUR</div>
+                            </div>
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer py-5">

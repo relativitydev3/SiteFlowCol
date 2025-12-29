@@ -619,24 +619,165 @@ body {
 
 .price {
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.price .currency {
+.price-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.price-display .currency {
     font-size: 1.5rem;
     vertical-align: top;
     color: var(--text-light);
 }
 
-.price .amount {
+.price-display .amount {
     font-size: 3rem;
     font-weight: 800;
     color: var(--primary-blue);
+    line-height: 1;
+}
+
+.price-display .currency-code {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-left: 0.25rem;
 }
 
 .price .period {
     font-size: 1rem;
     color: var(--text-light);
-    margin-left: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+/* Selector de divisa */
+.currency-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-currency {
+    background: var(--white);
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-currency:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-currency i {
+    font-size: 1.1rem;
+}
+
+/* Modal de Moneda */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.currency-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.currency-option {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.currency-option:hover {
+    border-color: var(--primary-blue);
+    background: rgba(37, 99, 235, 0.05);
+    transform: translateX(5px);
+}
+
+.currency-option.active {
+    border-color: var(--primary-blue);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.currency-flag {
+    font-size: 2rem;
+    margin-right: 1rem;
+    width: 50px;
+    text-align: center;
+}
+
+.currency-info {
+    flex: 1;
+}
+
+.currency-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.currency-code {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.check-icon {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.currency-option.active .check-icon {
+    opacity: 1;
 }
 
 .pricing-features {
@@ -1085,8 +1226,21 @@ body {
         margin-bottom: 1rem;
     }
     
-    .price .amount {
-        font-size: 2.5rem;
+    .price-display .amount {
+        font-size: 2.25rem;
+    }
+    
+    .price-display .currency {
+        font-size: 1.25rem;
+    }
+    
+    .price-display .currency-code {
+        font-size: 0.875rem;
+    }
+    
+    .btn-currency {
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
     }
 }
 

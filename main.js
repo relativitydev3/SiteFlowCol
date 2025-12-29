@@ -94,13 +94,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 // CONTADOR ANIMADO PARA PRECIOS (OPCIONAL)
 // ============================================
-function animateValue(element, start, end, duration) {
+function animateValue(element, start, end, duration, currency = 'USD') {
     let startTimestamp = null;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
         const currentValue = Math.floor(progress * (end - start) + start);
-        element.textContent = currentValue.toLocaleString('es-CO');
+        // Formatear diferente según la moneda
+        if (currency === 'COP') {
+            element.textContent = currentValue.toLocaleString('es-CO');
+        } else {
+            element.textContent = currentValue.toString();
+        }
         if (progress < 1) {
             window.requestAnimationFrame(step);
         }
@@ -115,9 +120,20 @@ const priceObserver = new IntersectionObserver(function(entries) {
             entry.target.classList.add('animated');
             const priceElement = entry.target.querySelector('.amount');
             if (priceElement) {
-                const finalValue = parseInt(priceElement.textContent.replace(/\./g, ''));
-                priceElement.textContent = '0';
-                animateValue(priceElement, 0, finalValue, 2000);
+                const currentCurrency = localStorage.getItem('preferredCurrency') || 'USD';
+                let priceValue = '';
+                if (currentCurrency === 'USD') {
+                    priceValue = priceElement.getAttribute('data-usd');
+                } else if (currentCurrency === 'COP') {
+                    priceValue = priceElement.getAttribute('data-cop');
+                } else if (currentCurrency === 'EUR') {
+                    priceValue = priceElement.getAttribute('data-eur');
+                }
+                const finalValue = parseInt(priceValue);
+                if (!isNaN(finalValue)) {
+                    priceElement.textContent = '0';
+                    animateValue(priceElement, 0, finalValue, 2000, currentCurrency);
+                }
             }
         }
     });
@@ -321,6 +337,102 @@ function createScrollToTopButton() {
 
 // Crear el botón de scroll to top
 createScrollToTopButton();
+
+// ============================================
+// SELECTOR DE DIVISA
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const currencyLabel = document.getElementById('currencyLabel');
+    const priceAmounts = document.querySelectorAll('.price .amount');
+    const currencyCodes = document.querySelectorAll('.price .currency-code');
+    const currencyOptions = document.querySelectorAll('.currency-option');
+    const currencyModal = document.getElementById('currencyModal');
+    
+    // Obtener la divisa guardada o usar USD por defecto
+    let currentCurrency = localStorage.getItem('preferredCurrency') || 'USD';
+    
+    // Función para obtener el símbolo de moneda
+    function getCurrencySymbol(currency) {
+        switch(currency) {
+            case 'USD': return '$';
+            case 'COP': return '$';
+            case 'EUR': return '€';
+            default: return '$';
+        }
+    }
+    
+    // Función para cambiar la divisa
+    function changeCurrency(currency) {
+        currentCurrency = currency;
+        localStorage.setItem('preferredCurrency', currency);
+        
+        const currencySymbol = getCurrencySymbol(currency);
+        
+        priceAmounts.forEach(amountEl => {
+            const usdValue = amountEl.getAttribute('data-usd');
+            const copValue = amountEl.getAttribute('data-cop');
+            const eurValue = amountEl.getAttribute('data-eur');
+            
+            let displayValue = '';
+            if (currency === 'USD') {
+                displayValue = usdValue;
+            } else if (currency === 'COP') {
+                // Formatear COP con puntos de miles
+                displayValue = parseInt(copValue).toLocaleString('es-CO');
+            } else if (currency === 'EUR') {
+                displayValue = eurValue;
+            }
+            
+            amountEl.textContent = displayValue;
+        });
+        
+        // Actualizar símbolos de moneda
+        document.querySelectorAll('.price .currency').forEach(currencyEl => {
+            currencyEl.textContent = currencySymbol;
+        });
+        
+        currencyCodes.forEach(codeEl => {
+            codeEl.textContent = currency;
+        });
+        
+        // Actualizar opciones activas en el modal
+        currencyOptions.forEach(option => {
+            if (option.getAttribute('data-currency') === currency) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+        
+        // Cerrar el modal
+        const modalInstance = bootstrap.Modal.getInstance(currencyModal);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+    }
+    
+    // Aplicar la divisa guardada al cargar
+    changeCurrency(currentCurrency);
+    
+    // Event listeners para las opciones de moneda en el modal
+    currencyOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const selectedCurrency = this.getAttribute('data-currency');
+            changeCurrency(selectedCurrency);
+        });
+    });
+    
+    // Mostrar la opción activa cuando se abre el modal
+    currencyModal.addEventListener('show.bs.modal', function() {
+        currencyOptions.forEach(option => {
+            if (option.getAttribute('data-currency') === currentCurrency) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+    });
+});
 
 // ============================================
 // CONSOLE LOG PARA DESARROLLO
