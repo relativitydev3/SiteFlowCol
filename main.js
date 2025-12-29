@@ -342,6 +342,7 @@ createScrollToTopButton();
 // SELECTOR DE DIVISA
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
+    const currencyToggle = document.getElementById('currencyToggle');
     const currencyLabel = document.getElementById('currencyLabel');
     const priceAmounts = document.querySelectorAll('.price .amount');
     const currencyCodes = document.querySelectorAll('.price .currency-code');
@@ -350,6 +351,42 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Obtener la divisa guardada o usar USD por defecto
     let currentCurrency = localStorage.getItem('preferredCurrency') || 'USD';
+    
+    // Inicializar el modal de Bootstrap
+    let currencyModalInstance = null;
+    if (currencyModal && typeof bootstrap !== 'undefined') {
+        currencyModalInstance = new bootstrap.Modal(currencyModal, {
+            backdrop: true,
+            keyboard: true
+        });
+    }
+    
+    // Event listener para abrir el modal desde el botón
+    if (currencyToggle) {
+        currencyToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Asegurar que la opción activa esté marcada
+            currencyOptions.forEach(option => {
+                if (option.getAttribute('data-currency') === currentCurrency) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            
+            // Abrir el modal
+            if (currencyModalInstance) {
+                currencyModalInstance.show();
+            } else if (currencyModal) {
+                // Fallback si Bootstrap no está disponible
+                currencyModal.style.display = 'block';
+                currencyModal.classList.add('show');
+                document.body.classList.add('modal-open');
+            }
+        });
+    }
     
     // Función para obtener el símbolo de moneda
     function getCurrencySymbol(currency) {
@@ -405,9 +442,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Cerrar el modal
-        const modalInstance = bootstrap.Modal.getInstance(currencyModal);
-        if (modalInstance) {
-            modalInstance.hide();
+        if (currencyModalInstance) {
+            currencyModalInstance.hide();
+        } else if (currencyModal) {
+            // Fallback si Bootstrap no está disponible
+            currencyModal.style.display = 'none';
+            currencyModal.classList.remove('show');
+            document.body.classList.remove('modal-open');
         }
     }
     
@@ -416,22 +457,48 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Event listeners para las opciones de moneda en el modal
     currencyOptions.forEach(option => {
-        option.addEventListener('click', function() {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             const selectedCurrency = this.getAttribute('data-currency');
-            changeCurrency(selectedCurrency);
+            if (selectedCurrency) {
+                changeCurrency(selectedCurrency);
+            }
+        });
+        
+        // Mejorar la experiencia táctil en móviles
+        option.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        option.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
         });
     });
     
     // Mostrar la opción activa cuando se abre el modal
-    currencyModal.addEventListener('show.bs.modal', function() {
-        currencyOptions.forEach(option => {
-            if (option.getAttribute('data-currency') === currentCurrency) {
-                option.classList.add('active');
-            } else {
-                option.classList.remove('active');
-            }
+    if (currencyModal) {
+        currencyModal.addEventListener('show.bs.modal', function() {
+            currencyOptions.forEach(option => {
+                if (option.getAttribute('data-currency') === currentCurrency) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
         });
-    });
+        
+        // También actualizar cuando el modal está visible (para móviles)
+        currencyModal.addEventListener('shown.bs.modal', function() {
+            currencyOptions.forEach(option => {
+                if (option.getAttribute('data-currency') === currentCurrency) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+        });
+    }
 });
 
 // ============================================
