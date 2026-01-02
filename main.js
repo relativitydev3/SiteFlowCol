@@ -83,7 +83,7 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observar elementos con animación
 document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.service-card, .pricing-card, .why-card, .step-card, .testimonial-card');
+    const animatedElements = document.querySelectorAll('.service-card, .pricing-card, .why-card, .step-card, .testimonial-card, .about-card, .value-card, .about-stat-item');
     
     animatedElements.forEach(el => {
         el.classList.add('fade-in-up');
