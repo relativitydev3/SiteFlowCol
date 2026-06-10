@@ -1352,7 +1352,12 @@ section { position: relative; z-index: 1; }
   .section-wrap { width: 100%; max-width: 100%; }
   .compare-header div,
   .compare-row div { min-width: 0; word-break: break-word; }
-  .hero-title { font-size: clamp(1.75rem, 6.5vw, 2.35rem); }
+  .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero-title .line-2 {
+    font-size: 1em;
+    font-weight: 800;
+    margin-top: 0;
+  }
   .hfc { display: none; }
   .bento { grid-template-columns: 1fr; }
   .bento-card.span-2, .bento-card.span-3 { grid-column: span 1; }
