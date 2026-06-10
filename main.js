@@ -3,6 +3,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // ---- i18n ----
 if (window.SiteFlowI18n) SiteFlowI18n.init();
+if (window.SiteFlowSEO) SiteFlowSEO.init();
 
 // ---- Scroll Progress ----
 const progressBar = document.getElementById('scroll-progress');

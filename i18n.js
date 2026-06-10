@@ -6,8 +6,11 @@ window.SiteFlowI18n = (function () {
   const T = {
     es: {
       meta: {
-        title: 'SiteFlowCol — Tu Página Web Profesional, Siempre Activa',
-        description: 'SiteFlowCol — Páginas web profesionales para tu negocio. Hosting, dominio, mantenimiento y soporte incluidos. Tu presencia digital, siempre activa.'
+        title: 'Creación de Páginas Web y Landing Pages | SiteFlowCol Colombia',
+        description: 'Creamos páginas web, landing pages y sitios profesionales para tu negocio. Servicio de diseño web, desarrollo, hosting, dominio y mantenimiento. Colombia y Latinoamérica.',
+        keywords: 'creación de páginas web, landing page, desarrollo web, diseño web Colombia, página web para negocios, crear sitio web, servicio desarrollo web, hosting y dominio, SiteFlowCol',
+        ogTitle: 'SiteFlowCol — Creación de Páginas Web y Landing Pages',
+        ogDescription: 'Diseño, desarrollo, hosting y mantenimiento en un solo pago mensual. Cotiza tu página web o landing page hoy.'
       },
       nav: {
         aria: 'Navegación principal',
@@ -19,6 +22,7 @@ window.SiteFlowI18n = (function () {
         contact: '✉️ Contacto',
         cta: '💬 Cotizar',
         menu: 'Menú',
+        skip: 'Saltar al contenido',
         waMobile: '💬 Cotizar por WhatsApp',
         langAria: 'Seleccionar idioma'
       },
@@ -27,10 +31,10 @@ window.SiteFlowI18n = (function () {
         hfc2: 'Carga en < 2s',
         hfc3: '+47% más clientes',
         hfc4: 'Backup diario',
-        badge: 'Diseño · Hosting · Mantenimiento',
+        badge: 'Diseño Web · Landing Pages · Desarrollo',
         title1: 'Tu página web profesional,',
         title2: 'siempre activa y cuidada.',
-        sub: 'Nos ocupamos de todo — diseño, hosting, seguridad y mantenimiento — para que tú te enfoques en lo que realmente importa: hacer crecer tu negocio.',
+        sub: 'Creamos páginas web y landing pages para tu negocio — diseño, desarrollo, hosting, seguridad y mantenimiento — para que tú te enfoques en hacer crecer tu empresa.',
         ctaWa: 'Cotizar por WhatsApp',
         ctaPlans: 'Ver planes →',
         stat1: 'Páginas web',
@@ -271,8 +275,11 @@ window.SiteFlowI18n = (function () {
     },
     en: {
       meta: {
-        title: 'SiteFlowCol — Your Professional Website, Always Active',
-        description: 'SiteFlowCol — Professional websites for your business. Hosting, domain, maintenance and support included. Your digital presence, always active.'
+        title: 'Website & Landing Page Creation | SiteFlowCol Colombia',
+        description: 'We build professional websites and landing pages for your business. Web design, development, hosting, domain and maintenance. Colombia and Latin America.',
+        keywords: 'website creation, landing page design, web development services, professional web design Colombia, business website, create website, web development agency, SiteFlowCol',
+        ogTitle: 'SiteFlowCol — Website & Landing Page Creation',
+        ogDescription: 'Design, development, hosting and maintenance in one monthly payment. Get your website or landing page quote today.'
       },
       nav: {
         aria: 'Main navigation',
@@ -284,6 +291,7 @@ window.SiteFlowI18n = (function () {
         contact: '✉️ Contact',
         cta: '💬 Get a quote',
         menu: 'Menu',
+        skip: 'Skip to content',
         waMobile: '💬 Quote on WhatsApp',
         langAria: 'Select language'
       },
@@ -292,10 +300,10 @@ window.SiteFlowI18n = (function () {
         hfc2: 'Loads in < 2s',
         hfc3: '+47% more clients',
         hfc4: 'Daily backup',
-        badge: 'Design · Hosting · Maintenance',
+        badge: 'Web Design · Landing Pages · Development',
         title1: 'Your professional website,',
         title2: 'always active and cared for.',
-        sub: 'We handle everything — design, hosting, security and maintenance — so you can focus on what really matters: growing your business.',
+        sub: 'We build websites and landing pages for your business — design, development, hosting, security and maintenance — so you can focus on growing your company.',
         ctaWa: 'Quote on WhatsApp',
         ctaPlans: 'View plans →',
         stat1: 'Websites built',
@@ -566,9 +574,13 @@ window.SiteFlowI18n = (function () {
 
   function applyMeta() {
     document.documentElement.lang = lang;
-    document.title = t('meta.title');
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', t('meta.description'));
+    if (window.SiteFlowSEO) {
+      SiteFlowSEO.apply(lang);
+    } else {
+      document.title = t('meta.title');
+      const desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute('content', t('meta.description'));
+    }
   }
 
   function applyContent(animate) {
