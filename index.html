@@ -1,708 +1,761 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SiteFlowCol - Páginas web profesionales para tu negocio en Colombia. Hosting, dominio, mantenimiento y soporte incluidos. Pago mensual sin complicaciones.">
-    <meta name="keywords" content="páginas web Colombia, diseño web, hosting, dominio, mantenimiento web, sitio web profesional">
-    <title>SiteFlowCol - Tu Página Web Profesional, Siempre Activa y Cuidada</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SiteFlowCol — Páginas web profesionales para tu negocio. Hosting, dominio, mantenimiento y soporte incluidos. Tu presencia digital, siempre activa.">
+  <meta name="keywords" content="páginas web Colombia, diseño web premium, hosting, dominio, mantenimiento web">
+  <meta property="og:title" content="SiteFlowCol — Tu Página Web Profesional">
+  <meta property="og:description" content="Diseño, hosting y mantenimiento en un solo pago mensual.">
+  <title>SiteFlowCol — Tu Página Web Profesional, Siempre Activa</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#inicio">SiteFlowCol</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#quienes-somos">Quiénes somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#planes">Planes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#porque">¿Por qué nosotros?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#como-funciona">Cómo funciona</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-cta-nav" href="#contacto">Cotizar</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-section">
-        <div class="hero-background-pattern"></div>
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6">
-                    <!-- <div class="hero-badge mb-3 animate-fade-in">
-                        <span class="badge-text"><i class="bi bi-check-circle-fill me-2"></i>Sin contratos anuales</span>
-                    </div> -->
-                    <h1 class="hero-title mb-4 animate-fade-in">
-                        Tu página web profesional,<br>
-                        <span class="gradient-text">siempre activa y cuidada</span>
-                    </h1>
-                    <p class="hero-subtitle mb-4 animate-fade-in-delay">
-                        Nos encargamos de tu web para que tú te enfoques en tu negocio.<br>
-                        Hosting, dominio, seguridad y mantenimiento incluidos en un pago mensual simple.
-                    </p>
-                    <div class="hero-stats mb-4 animate-fade-in-delay-2">
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Páginas Web</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">Satisfacción</div>
-                        </div>
-                        <div class="stat-item">
-                            <!-- <div class="stat-number">24/7</div> -->
-                            <div class="stat-number">9:00am - 5:00pm</div>
-                            <div class="stat-label">Soporte</div>
-                        </div>
-                    </div>
-                    <div class="hero-buttons animate-fade-in-delay-2">
-                        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web" 
-                           class="btn btn-primary btn-lg me-3 mb-3 btn-hero-primary" 
-                           target="_blank">
-                            <i class="bi bi-whatsapp me-2"></i>Cotiza por WhatsApp
-                        </a>
-                        <a href="#planes" class="btn btn-outline-light btn-lg mb-3 btn-hero-secondary">
-                            <i class="bi bi-arrow-down-circle me-2"></i>Ver planes
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image animate-fade-in-delay-3">
-                        <div class="floating-card">
-                            <div class="card-glow"></div>
-                            <i class="bi bi-laptop"></i>
-                            <div class="floating-elements">
-                                <div class="float-element float-1"><i class="bi bi-shield-check"></i></div>
-                                <div class="float-element float-2"><i class="bi bi-lightning-charge"></i></div>
-                                <div class="float-element float-3"><i class="bi bi-graph-up"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z"></path>
-            </svg>
-        </div>
-    </section>
+<!-- Scroll progress -->
+<div id="scroll-progress"></div>
 
-    <!-- ¿Qué Hacemos? -->
-    <section id="servicios" class="services-section py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge">Servicios</span>
-                <h2 class="section-title">¿Qué Hacemos?</h2>
-                <p class="section-subtitle">Todo lo que necesitas para tener una presencia digital profesional</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-palette"></i>
-                        </div>
-                        <h4>Diseño Web</h4>
-                        <p>Creamos páginas web modernas, atractivas y optimizadas para convertir visitantes en clientes.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-server"></i>
-                        </div>
-                        <h4>Hosting y Dominio</h4>
-                        <p>Incluimos hosting rápido y seguro, más tu dominio personalizado. Todo listo desde el día uno.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h4>Seguridad</h4>
-                        <p>Protección SSL, copias de seguridad automáticas y monitoreo constante de tu sitio.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-tools"></i>
-                        </div>
-                        <h4>Mantenimiento Mensual</h4>
-                        <p>Actualizaciones, mejoras y ajustes regulares para mantener tu web siempre al día.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-headset"></i>
-                        </div>
-                        <h4>Soporte Técnico</h4>
-                        <p>Atención personalizada cuando la necesites. Estamos aquí para resolver cualquier duda.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-speedometer2"></i>
-                        </div>
-                        <h4>Optimización</h4>
-                        <p>Tu sitio web cargará rápido y se verá perfecto en cualquier dispositivo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===================================================
+     NAV
+=================================================== -->
+<nav id="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">SiteFlowCol</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#benefits">Servicios</a></li>
+      <li><a href="#features">Características</a></li>
+      <li><a href="#pricing">Planes</a></li>
+      <li><a href="#why">Por qué nosotros</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li>
+        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
+           class="nav-cta" target="_blank" rel="noopener">
+          💬 Cotizar
+        </a>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <!-- Quiénes Somos -->
-    <section id="quienes-somos" class="about-section py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="about-content">
-                        <span class="section-badge">Conócenos</span>
-                        <h2 class="section-title">Quiénes Somos</h2>
-                        <p class="section-subtitle mb-4">
-                            Somos un equipo apasionado por crear soluciones web profesionales que impulsen tu negocio.
-                        </p>
-                        <div class="about-text">
-                            <p>
-                                En <strong>SiteFlowCol</strong>, nos especializamos en diseñar y desarrollar páginas web 
-                                profesionales para negocios de todo el mundo. Nuestro objetivo es simple: crear sitios web 
-                                que no solo se vean increíbles, sino que también funcionen perfectamente y generen resultados.
-                            </p>
-                            <p>
-                                Entendemos que cada negocio es único, por eso ofrecemos soluciones personalizadas que se 
-                                adaptan a tus necesidades específicas. No nos limitamos a crear sitios web, nos convertimos 
-                                en tu partner tecnológico, encargándonos de todo el proceso desde el diseño hasta el 
-                                mantenimiento continuo.
-                            </p>
-                            <p>
-                                Creemos en la simplicidad, la transparencia y el compromiso. Por eso, nuestro modelo de 
-                                pago mensual incluye todo lo que necesitas: diseño, hosting, dominio, seguridad y 
-                                mantenimiento, sin contratos complicados ni sorpresas.
-                            </p>
-                        </div>
-                        <div class="about-stats mt-4">
-                            <div class="row g-3">
-                                <div class="col-6 col-md-3">
-                                    <div class="about-stat-item">
-                                        <div class="about-stat-number">50+</div>
-                                        <div class="about-stat-label">Proyectos</div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="about-stat-item">
-                                        <div class="about-stat-number">98%</div>
-                                        <div class="about-stat-label">Satisfacción</div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="about-stat-item">
-                                        <div class="about-stat-number">100%</div>
-                                        <div class="about-stat-label">Compromiso</div>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-6 col-md-3">
-                                    <div class="about-stat-item">
-                                        <div class="about-stat-number">24/7</div>
-                                        <div class="about-stat-label">Disponible</div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-image-wrapper">
-                        <div class="about-card">
-                            <div class="about-card-icon">
-                                <i class="bi bi-people-fill"></i>
-                            </div>
-                            <h4>Equipo Dedicado</h4>
-                            <p>Profesionales comprometidos con tu éxito</p>
-                        </div>
-                        <div class="about-card about-card-secondary">
-                            <div class="about-card-icon">
-                                <i class="bi bi-lightbulb-fill"></i>
-                            </div>
-                            <h4>Innovación Constante</h4>
-                            <p>Mantenemos tu web siempre actualizada</p>
-                        </div>
-                        <div class="about-card about-card-tertiary">
-                            <div class="about-card-icon">
-                                <i class="bi bi-heart-fill"></i>
-                            </div>
-                            <h4>Atención Personalizada</h4>
-                            <p>Cada cliente es importante para nosotros</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-12">
-                    <div class="plans-highlight-section">
-                        <div class="plans-highlight-box">
-                            <div class="row align-items-center">
-                                <div class="col-lg-2 text-center mb-4 mb-lg-0">
-                                    <div class="plans-icon-wrapper">
-                                        <i class="bi bi-box-seam-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-10">
-                                    <h3 class="plans-highlight-title">Lo que realmente ofrecemos</h3>
-                                    <p class="plans-highlight-text">
-                                        <strong>Nuestros planes no son solo una página web.</strong> Incluyen hosting empresarial, 
-                                        seguridad, mantenimiento, soporte y actualizaciones constantes.
-                                    </p>
-                                    <p class="plans-highlight-text mb-0">
-                                        El cliente no paga por una web, paga por <strong>tranquilidad</strong>, 
-                                        <strong>presencia digital</strong> y <strong>continuidad</strong>.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-12">
-                    <div class="values-section">
-                        <h3 class="values-title text-center mb-4">Nuestros Valores</h3>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="value-card">
-                                    <div class="value-icon">
-                                        <i class="bi bi-shield-check"></i>
-                                    </div>
-                                    <h4>Confianza</h4>
-                                    <p>Construimos relaciones basadas en la transparencia y el cumplimiento de nuestras promesas.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="value-card">
-                                    <div class="value-icon">
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                    <h4>Calidad</h4>
-                                    <p>Nos comprometemos a entregar siempre productos de la más alta calidad que superen tus expectativas.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="value-card">
-                                    <div class="value-icon">
-                                        <i class="bi bi-rocket-takeoff"></i>
-                                    </div>
-                                    <h4>Innovación</h4>
-                                    <p>Utilizamos las últimas tecnologías y mejores prácticas para mantener tu web a la vanguardia.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Mobile nav -->
+<nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="#benefits" class="mobile-link">Servicios</a>
+  <a href="#features" class="mobile-link">Características</a>
+  <a href="#pricing" class="mobile-link">Planes</a>
+  <a href="#why" class="mobile-link">Por qué nosotros</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
+     target="_blank" rel="noopener" style="color: var(--accent-soft);">💬 Cotizar por WhatsApp</a>
+</nav>
 
-    <!-- Planes y Precios -->
-    <section id="planes" class="pricing-section py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge">Precios</span>
-                <h2 class="section-title">Planes y Precios</h2>
-                <p class="section-subtitle">Elige el plan perfecto para tu negocio</p>
-                <div class="currency-selector mt-4">
-                    <button id="currencyToggle" class="btn-currency" type="button">
-                        <i class="bi bi-currency-exchange me-2"></i>
-                        <span id="currencyLabel">Elige tu moneda</span>
-                    </button>
-                </div>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <!-- Plan Básico -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Básico</h3>
-                            <div class="price">
-                                <div class="price-display">
-                                    <span class="currency">$</span>
-                                    <span class="amount" data-usd="40" data-cop="149000" data-eur="34">40</span>
-                                    <span class="currency-code">USD</span>
-                                </div>
-                                <span class="period">/mes</span>
-                            </div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="bi bi-check-circle-fill"></i> Página web hasta 5 secciones</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Diseño responsive</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Hosting y dominio incluidos</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Certificado SSL</li>
-                            <!-- <li><i class="bi bi-check-circle-fill"></i> Copias de seguridad</li> -->
-                            <li><i class="bi bi-check-circle-fill"></i> Soporte por email</li>
-                        </ul>
-                        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Básico" 
-                           class="btn btn-outline-primary w-100" 
-                           target="_blank">
-                            <i class="bi bi-whatsapp me-2"></i>Contratar Plan
-                        </a>
-                    </div>
-                </div>
-                <!-- Plan Profesional -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="pricing-card featured">
-                        <div class="badge-popular">Más Popular</div>
-                        <div class="pricing-header">
-                            <h3>Profesional</h3>
-                            <div class="price">
-                                <div class="price-display">
-                                    <span class="currency">$</span>
-                                    <span class="amount" data-usd="75" data-cop="279000" data-eur="63">75</span>
-                                    <span class="currency-code">USD</span>
-                                </div>
-                                <span class="period">/mes</span>
-                            </div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="bi bi-check-circle-fill"></i> Página web hasta 10 secciones</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Diseño personalizado</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Hosting y dominio incluidos</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Certificado SSL</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Copias de seguridad diarias</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Formulario de contacto</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Integración con redes sociales</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Soporte prioritario WhatsApp</li>
-                        </ul>
-                        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Profesional" 
-                           class="btn btn-primary w-100" 
-                           target="_blank">
-                            <i class="bi bi-whatsapp me-2"></i>Contratar Plan
-                        </a>
-                    </div>
-                </div>
-                <!-- Plan Premium -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Premium</h3>
-                            <div class="price">
-                                <div class="price-display">
-                                    <span class="currency">$</span>
-                                    <span class="amount" data-usd="106" data-cop="399000" data-eur="91">106</span>
-                                    <span class="currency-code">USD</span>
-                                </div>
-                                <span class="period">/mes</span>
-                            </div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="bi bi-check-circle-fill"></i> Página web 15</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Diseño premium personalizado</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Hosting y dominio incluidos</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Certificado SSL avanzado</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Copias de seguridad en tiempo real</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Tienda online básica</li>
-                            <li><i class="bi bi-check-circle-fill"></i> SEO optimizado</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Analytics integrado</li>
-                            <!-- <li><i class="bi bi-check-circle-fill"></i> Soporte 24/7 WhatsApp</li> -->
-                            <li><i class="bi bi-check-circle-fill"></i> Soporte prioritario WhatsApp</li>
-                            <!-- <li><i class="bi bi-check-circle-fill"></i> Actualizaciones ilimitadas</li> -->
-                            <li><i class="bi bi-check-circle-fill"></i>Actualizaciones 3 veces por mes</li>
-                        </ul>
-                        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Premium" 
-                           class="btn btn-outline-primary w-100" 
-                           target="_blank">
-                            <i class="bi bi-whatsapp me-2"></i>Contratar Plan
-                        </a>
-                    </div>
-                </div>
-                <!-- Plan Empresarial -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Empresarial</h3>
-                            <div class="price">
-                                <div class="price-display price-custom">
-                                    <span class="custom-price-text">Cotizar</span>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="bi bi-check-circle-fill"></i> Solución completamente personalizada</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Múltiples páginas y secciones</li>
-                            <li><i class="bi bi-check-circle-fill"></i> E-commerce avanzado</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Integraciones personalizadas</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Sistema de gestión a medida</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Hosting y dominio premium</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Certificado SSL avanzado</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Copias de seguridad automáticas</li>
-                            <!-- <li><i class="bi bi-check-circle-fill"></i> SEO y marketing digital</li> -->
-                            <li><i class="bi bi-check-circle-fill"></i> Soporte dedicado 9:00am - 5:00pm</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Desarrollo y mantenimiento continuo</li>
+<!-- ===================================================
+     HERO
+=================================================== -->
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-                        </ul>
-                        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20un%20plan%20Empresarial%20a%20la%20medida" 
-                           class="btn btn-primary w-100" 
-                           target="_blank">
-                            <i class="bi bi-whatsapp me-2"></i>Cotizar Plan
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Floating context cards -->
+  <div class="hero-float-cards" aria-hidden="true">
+    <div class="hfc hfc-1">
+      <span class="icon">🔒</span>
+      <span>SSL Activo — Seguro</span>
+    </div>
+    <div class="hfc hfc-2">
+      <span class="icon">⚡</span>
+      <span>Carga en &lt; 2s</span>
+    </div>
+    <div class="hfc hfc-3">
+      <span class="icon">📈</span>
+      <span>+47% más clientes</span>
+    </div>
+    <div class="hfc hfc-4">
+      <span class="icon">🛡️</span>
+      <span>Backup diario</span>
+    </div>
+  </div>
 
-    <!-- ¿Por qué SiteFlowCol? -->
-    <section id="porque" class="why-section py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge">Ventajas</span>
-                <h2 class="section-title">¿Por qué SiteFlowCol?</h2>
-                <p class="section-subtitle">La diferencia que marca la diferencia</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="bi bi-calendar-check"></i>
-                        </div>
-                        <h4>Pago Mensual Simple</h4>
-                        <p>Sin contratos complicados ni sorpresas. Un pago mensual que incluye todo lo que necesitas.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="bi bi-people"></i>
-                        </div>
-                        <h4>Soporte Real</h4>
-                        <p>No somos robots. Habla con personas reales que entienden tu negocio y están aquí para ayudarte.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="bi bi-shield-lock"></i>
-                        </div>
-                        <h4>Seguridad Garantizada</h4>
-                        <p>Tu sitio web está protegido con las mejores herramientas de seguridad del mercado.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="bi bi-globe"></i>
-                        </div>
-                        <h4>Soluciones globales</h4>
-                        <p>Diseñamos páginas web pensadas para negocios de cualquier país, adaptadas a distintos mercados y necesidades.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-4">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="bi bi-person-heart"></i>
-                        </div>
-                        <h4>Atención Personalizada</h4>
-                        <p>Cada cliente es único. Te tratamos como tal, con atención dedicada y soluciones a medida.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="why-card">
-                        <div class="why-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <h4>Crecimiento Continuo</h4>
-                        <p>No solo creamos tu web, la mejoramos constantemente para que crezca junto con tu negocio.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cómo Funciona -->
-    <section id="como-funciona" class="how-section py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-badge">Proceso</span>
-                <h2 class="section-title">Cómo Funciona</h2>
-                <p class="section-subtitle">El proceso es simple y rápido</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h4>Nos Escribes</h4>
-                        <p>Contáctanos por WhatsApp y cuéntanos sobre tu negocio y lo que necesitas.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h4>Diseñamos tu Web</h4>
-                        <p>Nuestro equipo crea una página web profesional adaptada a tu marca y objetivos.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h4>Publicamos y Mantenemos</h4>
-                        <p>Lanzamos tu sitio web y nos encargamos de mantenerlo siempre actualizado y seguro.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <h4>Tu Negocio Crece</h4>
-                        <p>Disfruta de una presencia digital profesional que atrae clientes y genera resultados.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-  
-    <!-- CTA Final -->
-    <section id="contacto" class="cta-section py-5">
-        <div class="container">
-            <div class="cta-box text-center">
-                <h2 class="cta-title mb-4">Empieza Hoy tu Página Web Profesional</h2>
-                <p class="cta-subtitle mb-4">Únete a los negocios que ya están creciendo con SiteFlowCol</p>
-                <a href="https://wa.me/573239428161?text=Hola,%20quiero%20empezar%20con%20mi%20página%20web%20profesional" 
-                   class="btn btn-primary btn-lg btn-cta-large" 
-                   target="_blank">
-                    <i class="bi bi-whatsapp me-2"></i>Hablar por WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal de Cambio de Moneda -->
-    <div class="modal fade" id="currencyModal" tabindex="-1" aria-labelledby="currencyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="currencyModalLabel">
-                        <i class="bi bi-currency-exchange me-2"></i>Seleccionar Moneda
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="currency-options">
-                        <button class="currency-option" data-currency="USD" type="button">
-                            <div class="currency-flag">💵</div>
-                            <div class="currency-info">
-                                <div class="currency-name">Dólar</div>
-                                <div class="currency-code">USD</div>
-                            </div>
-                            <i class="bi bi-check-circle-fill check-icon"></i>
-                        </button>
-                        <button class="currency-option" data-currency="COP" type="button">
-                            <div class="currency-flag">🇨🇴</div>
-                            <div class="currency-info">
-                                <div class="currency-name">Peso Colombiano</div>
-                                <div class="currency-code">COP</div>
-                            </div>
-                            <i class="bi bi-check-circle-fill check-icon"></i>
-                        </button>
-                        <button class="currency-option" data-currency="EUR" type="button">
-                            <div class="currency-flag">💶</div>
-                            <div class="currency-info">
-                                <div class="currency-name">Euro</div>
-                                <div class="currency-code">EUR</div>
-                            </div>
-                            <i class="bi bi-check-circle-fill check-icon"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="hero-content">
+    <div class="hero-badge" aria-hidden="true">
+      <span class="dot"></span>
+      Diseño · Hosting · Mantenimiento
     </div>
 
-    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h5 class="footer-brand mb-3">SiteFlowCol</h5>
-                    <p class="footer-text">
-                        Tu página web profesional, siempre activa y cuidada. Diseñada para negocios de cualquier lugar del mundo.
-                    </p>
-                </div>
-                
-                <div class="col-md-4">
-                    <h5 class="footer-title mb-3">Servicios</h5>
-                    <ul class="footer-links">
-                        <li><a href="#servicios">Diseño Web</a></li>
-                        <li><a href="#servicios">Hosting y Dominio</a></li>
-                        <li><a href="#servicios">Mantenimiento</a></li>
-                        <li><a href="#servicios">Soporte Técnico</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="footer-title mb-3">Contacto</h5>
-                    <ul class="footer-links">
-                        <li>
-                            <a href="https://wa.me/573239428161" target="_blank">
-                                <i class="bi bi-whatsapp me-2"></i>WhatsApp
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:siteflowcol@gmail.com">
-                                <i class="bi bi-envelope me-2"></i>siteflowcol@gmail.com
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="footer-copyright">&copy; 2024 SiteFlowCol. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="footer-legal">Aviso Legal</a> | 
-                    <a href="#" class="footer-legal">Política de Privacidad</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <h1 class="hero-title" id="hero-heading">
+      <span class="line-1">Tu página web profesional,</span>
+      <span class="line-2">siempre activa y cuidada.</span>
+    </h1>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="main.js"></script>
+    <p class="hero-sub">
+      Nos ocupamos de todo — diseño, hosting, seguridad y mantenimiento — 
+      para que tú te enfoques en lo que realmente importa: hacer crecer tu negocio.
+    </p>
+
+    <div class="hero-actions">
+      <div class="magnetic-wrap">
+        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
+           class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+      </div>
+      <div class="magnetic-wrap">
+        <a href="#pricing" class="btn-ghost">
+          Ver planes →
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num" data-target="50">0</span>
+        <span class="lbl">Páginas web</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num" data-target="98">0</span>
+        <span class="lbl">% satisfacción</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num" data-target="100">0</span>
+        <span class="lbl">% compromiso</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num" data-static="true">&#60;48h</span>
+        <span class="lbl">Tiempo respuesta</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     BENEFITS & PROBLEMS
+=================================================== -->
+<section id="benefits" aria-labelledby="benefits-heading">
+  <div class="section-wrap">
+    <div class="benefits-header">
+      <span class="s-eyebrow">El problema</span>
+      <h2 class="s-title" id="benefits-heading">¿Tu web trabaja para ti<br>o en tu contra?</h2>
+      <p class="s-subtitle reveal">
+        La mayoría de los negocios tienen webs lentas, desactualizadas o inexistentes.
+        Nosotros cambiamos eso.
+      </p>
+    </div>
+
+    <div class="pain-grid reveal">
+      <div class="pain-cell bad">
+        <div class="pain-label">Sin SiteFlowCol</div>
+        <h3>Web desactualizada y lenta</h3>
+        <p>Perdes clientes antes de que puedan contactarte. Una web lenta cuesta más del 7% de conversiones por segundo de demora.</p>
+      </div>
+      <div class="pain-cell good">
+        <div class="pain-label">Con SiteFlowCol</div>
+        <h3>Siempre rápida, siempre actualizada</h3>
+        <p>Tu web carga en menos de 2 segundos, está siempre al día y genera confianza desde el primer clic.</p>
+      </div>
+      <div class="pain-cell bad">
+        <div class="pain-label">Sin SiteFlowCol</div>
+        <h3>Tres proveedores distintos</h3>
+        <p>Hostings aquí, dominio allá, diseñador por otro lado. Múltiples facturas, múltiples responsables, múltiples problemas.</p>
+      </div>
+      <div class="pain-cell good">
+        <div class="pain-label">Con SiteFlowCol</div>
+        <h3>Todo en un solo pago mensual</h3>
+        <p>Diseño, hosting, dominio, seguridad y soporte. Un proveedor, una factura, cero complicaciones.</p>
+      </div>
+    </div>
+
+    <div class="bento reveal">
+      <div class="bento-card accent-card span-2">
+        <h3>Lo que realmente ofrecemos</h3>
+        <p>No vendemos páginas web. Vendemos <strong style="color:var(--text-primary)">tranquilidad digital</strong>: presencia profesional, continuidad de negocio y un equipo que cuida tu activo más importante en internet.</p>
+      </div>
+      <div class="bento-card">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Seguridad incluida</h4>
+        <p>SSL, backups automáticos y monitoreo constante.</p>
+      </div>
+      <div class="bento-card">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h4>Rendimiento premium</h4>
+        <p>Hosting optimizado para velocidad máxima.</p>
+      </div>
+      <div class="bento-card">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h4>Soporte real</h4>
+        <p>Personas reales que responden rápido.</p>
+      </div>
+      <div class="bento-card span-2">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4>Mantenimiento continuo</h4>
+        <p>Tu web no se congela en el tiempo. Actualizaciones regulares, ajustes de contenido y mejoras constantes mantienen tu presencia siempre fresca y relevante.</p>
+      </div>
+      <div class="bento-card">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h4>Alcance global</h4>
+        <p>Diseñamos para cualquier mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     FEATURES
+=================================================== -->
+<section id="features" aria-labelledby="features-heading">
+  <div class="section-wrap">
+    <div class="features-header reveal">
+      <span class="s-eyebrow">Características</span>
+      <h2 class="s-title" id="features-heading">Todo lo que necesitas,<br>nada de lo que no.</h2>
+      <p class="s-subtitle">Cada plan incluye una base sólida. Tú eliges hasta dónde llevar tu presencia digital.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-num">01</div>
+        <div class="feature-icon">🎨</div>
+        <h3>Diseño web a medida</h3>
+        <p>No usamos plantillas genéricas. Cada sitio refleja la identidad real de tu negocio: colores, tipografía, tono y estructura pensados para convertir visitas en clientes.</p>
+        <span class="feature-tag">Responsive 100%</span>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-num">02</div>
+        <div class="feature-icon">🖥️</div>
+        <h3>Hosting & Dominio incluidos</h3>
+        <p>Servidores rápidos, uptime del 99.9% y tu dominio personalizado desde el día uno. Sin cargos ocultos, sin migraciones complicadas.</p>
+        <span class="feature-tag">99.9% uptime</span>
+      </div>
+
+      <div class="feature-card large reveal">
+        <div>
+          <div class="feature-num">03</div>
+          <div class="feature-icon">🔒</div>
+          <h3>Seguridad de nivel empresarial</h3>
+          <p>Certificado SSL activo, firewall, copias de seguridad automáticas y monitoreo 24/7. Si algo pasa, lo detectamos y resolvemos antes de que tu cliente lo note.</p>
+          <span class="feature-tag">SSL · Firewall · Backups</span>
+        </div>
+        <div class="feature-visual" aria-hidden="true">
+          <div><span class="kw">status</span>: <span class="val">"active"</span></div>
+          <div><span class="kw">ssl</span>: <span class="val">true</span></div>
+          <div><span class="kw">backup</span>: <span class="str">"daily"</span></div>
+          <div><span class="kw">uptime</span>: <span class="val">99.97%</span></div>
+          <div><span class="kw">firewall</span>: <span class="val">true</span></div>
+          <div><span class="kw">response</span>: <span class="val">187ms</span></div>
+          <div><span class="kw">score</span>: <span class="val">98/100</span></div>
+        </div>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-num">04</div>
+        <div class="feature-icon">🛠️</div>
+        <h3>Mantenimiento mensual</h3>
+        <p>Actualizaciones, mejoras de contenido y ajustes técnicos sin costo adicional. Tu web evoluciona contigo.</p>
+        <span class="feature-tag">Actualizaciones incluidas</span>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-num">05</div>
+        <div class="feature-icon">📊</div>
+        <h3>SEO & Analytics</h3>
+        <p>Estructura optimizada para buscadores y métricas reales de visitantes. Sabe quién visita tu web y desde dónde.</p>
+        <span class="feature-tag">Plan Premium</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     STATS
+=================================================== -->
+<section id="stats" aria-label="Estadísticas">
+  <div class="section-wrap">
+    <div class="stats-inner">
+      <div class="stat-block">
+        <span class="big" data-count="50" data-suffix="+">0+</span>
+        <span class="label">Páginas entregadas</span>
+      </div>
+      <div class="stat-block">
+        <span class="big" data-count="98" data-suffix="%">0%</span>
+        <span class="label">Clientes satisfechos</span>
+      </div>
+      <div class="stat-block">
+        <span class="big" data-count="2" data-suffix="s">&lt;0s</span>
+        <span class="label">Tiempo de carga medio</span>
+      </div>
+      <div class="stat-block">
+        <span class="big" data-count="100" data-suffix="%">0%</span>
+        <span class="label">Compromiso total</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     PROCESS
+=================================================== -->
+<section id="process" aria-labelledby="process-heading">
+  <div class="section-wrap">
+    <div class="process-header reveal">
+      <span class="s-eyebrow">Proceso</span>
+      <h2 class="s-title" id="process-heading">De idea a online en días,<br>no en meses.</h2>
+      <p class="s-subtitle">Un proceso claro, sin sorpresas, diseñado para que estés listo lo antes posible.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step reveal">
+        <div class="step-dot">01</div>
+        <h4>Nos escribes</h4>
+        <p>Cuéntanos tu negocio por WhatsApp. Sin formularios complicados, solo una conversación.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot">02</div>
+        <h4>Diseñamos tu web</h4>
+        <p>Creamos un diseño personalizado alineado con tu marca y objetivos de negocio.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot">03</div>
+        <h4>Revisas y apruebas</h4>
+        <p>Tienes el control total. Ajustamos hasta que estés completamente satisfecho.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-dot">04</div>
+        <h4>Publicamos y crecemos</h4>
+        <p>Tu web va live y nosotros la cuidamos cada mes para que nunca pare de funcionar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     PRICING
+=================================================== -->
+<section id="pricing" aria-labelledby="pricing-heading">
+  <div class="section-wrap">
+    <div class="pricing-header reveal">
+      <span class="s-eyebrow">Planes</span>
+      <h2 class="s-title" id="pricing-heading">Precio justo,<br>valor claro.</h2>
+      <p class="s-subtitle">Sin contratos anuales obligatorios. Cancela cuando quieras.</p>
+    </div>
+
+    <div style="text-align:center">
+      <div class="currency-tabs" role="group" aria-label="Seleccionar moneda">
+        <button class="cur-btn active" data-cur="USD">💵 USD</button>
+        <button class="cur-btn" data-cur="COP">🇨🇴 COP</button>
+        <button class="cur-btn" data-cur="EUR">💶 EUR</button>
+      </div>
+    </div>
+
+    <div class="plans-grid reveal">
+      <!-- Básico -->
+      <div class="plan-card">
+        <div class="plan-name">Básico</div>
+        <div class="plan-price">
+          <div>
+            <span class="currency-sym">$</span><span class="amount" data-usd="40" data-cop="149.000" data-eur="34">40</span>
+            <span class="currency-lbl cur-code">USD</span>
+          </div>
+          <span class="period">/mes</span>
+        </div>
+        <ul class="plan-features">
+          <li>Página hasta 5 secciones</li>
+          <li>Diseño responsive</li>
+          <li>Hosting y dominio</li>
+          <li>Certificado SSL</li>
+          <li>Soporte por email</li>
+        </ul>
+        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Básico"
+           class="plan-btn plan-btn-outline" target="_blank" rel="noopener">
+          Contratar → 
+        </a>
+      </div>
+
+      <!-- Profesional -->
+      <div class="plan-card featured">
+        <div class="plan-popular">Más popular</div>
+        <div class="plan-name">Profesional</div>
+        <div class="plan-price">
+          <div>
+            <span class="currency-sym">$</span><span class="amount" data-usd="75" data-cop="279.000" data-eur="63">75</span>
+            <span class="currency-lbl cur-code">USD</span>
+          </div>
+          <span class="period">/mes</span>
+        </div>
+        <ul class="plan-features">
+          <li>Página hasta 10 secciones</li>
+          <li>Diseño personalizado</li>
+          <li>Hosting y dominio</li>
+          <li>SSL + Backups diarios</li>
+          <li>Formulario de contacto</li>
+          <li>Integración redes sociales</li>
+          <li>Soporte WhatsApp prioritario</li>
+        </ul>
+        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Profesional"
+           class="plan-btn plan-btn-solid" target="_blank" rel="noopener">
+          Contratar →
+        </a>
+      </div>
+
+      <!-- Premium -->
+      <div class="plan-card">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">
+          <div>
+            <span class="currency-sym">$</span><span class="amount" data-usd="106" data-cop="399.000" data-eur="91">106</span>
+            <span class="currency-lbl cur-code">USD</span>
+          </div>
+          <span class="period">/mes</span>
+        </div>
+        <ul class="plan-features">
+          <li>Hasta 15 secciones</li>
+          <li>Diseño premium</li>
+          <li>Hosting y dominio</li>
+          <li>SSL avanzado + Backups real-time</li>
+          <li>Tienda online básica</li>
+          <li>SEO optimizado</li>
+          <li>Analytics integrado</li>
+          <li>3 actualizaciones/mes</li>
+          <li>Soporte WhatsApp prioritario</li>
+        </ul>
+        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Premium"
+           class="plan-btn plan-btn-outline" target="_blank" rel="noopener">
+          Contratar →
+        </a>
+      </div>
+
+      <!-- Empresarial -->
+      <div class="plan-card">
+        <div class="plan-name">Empresarial</div>
+        <div class="plan-price">
+          <span class="custom-lbl">A medida</span>
+          <span class="period">Cotización personalizada</span>
+        </div>
+        <ul class="plan-features">
+          <li>Solución 100% personalizada</li>
+          <li>E-commerce avanzado</li>
+          <li>Integraciones a medida</li>
+          <li>Sistema de gestión propio</li>
+          <li>Hosting y dominio premium</li>
+          <li>Backups automáticos</li>
+          <li>Soporte dedicado 9am–5pm</li>
+          <li>Desarrollo continuo</li>
+        </ul>
+        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20un%20plan%20Empresarial"
+           class="plan-btn plan-btn-solid" target="_blank" rel="noopener">
+          Cotizar →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     WHY US
+=================================================== -->
+<section id="why" aria-labelledby="why-heading">
+  <div class="section-wrap">
+    <div class="why-split">
+      <div class="why-left reveal">
+        <span class="s-eyebrow">Ventajas</span>
+        <h2 class="s-title" id="why-heading">¿Por qué SiteFlowCol<br>y no otro?</h2>
+        <p class="s-subtitle">La diferencia está en los detalles, la atención y el modelo de trabajo.</p>
+
+        <div class="why-list" style="margin-top:2.5rem">
+          <div class="why-item">
+            <div class="why-icon">💳</div>
+            <div>
+              <h4>Pago mensual, sin sorpresas</h4>
+              <p>Un solo cargo al mes que incluye absolutamente todo. Sin facturas inesperadas de hosting, dominio o mantenimiento.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🧑‍💻</div>
+            <div>
+              <h4>Personas reales, no bots</h4>
+              <p>Cuando necesites ayuda, hablas con alguien que conoce tu proyecto de principio a fin. No con un ticket de soporte genérico.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🌍</div>
+            <div>
+              <h4>Soluciones para cualquier mercado</h4>
+              <p>Diseñamos para negocios de toda América Latina y el mundo, con precios en USD, COP y EUR.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📈</div>
+            <div>
+              <h4>Tu web crece contigo</h4>
+              <p>No entregamos y desaparecemos. Nos convertimos en tu partner digital a largo plazo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-right reveal">
+        <div class="why-compare">
+          <div class="compare-header">
+            <div>Característica</div>
+            <div class="ours">SiteFlowCol</div>
+            <div>Freelancer típico</div>
+          </div>
+          <div class="compare-row">
+            <div>Todo incluido</div>
+            <div class="ours">✓ Sí</div>
+            <div class="bad">✕ No</div>
+          </div>
+          <div class="compare-row">
+            <div>Mantenimiento mensual</div>
+            <div class="ours">✓ Incluido</div>
+            <div class="bad">✕ Costo extra</div>
+          </div>
+          <div class="compare-row">
+            <div>Soporte rápido</div>
+            <div class="ours">✓ &lt;48h</div>
+            <div class="mid">~ Variable</div>
+          </div>
+          <div class="compare-row">
+            <div>Precio predecible</div>
+            <div class="ours">✓ Mensual fijo</div>
+            <div class="bad">✕ Por proyecto</div>
+          </div>
+          <div class="compare-row">
+            <div>Sin contratos largos</div>
+            <div class="ours">✓ Mes a mes</div>
+            <div class="mid">~ Varía</div>
+          </div>
+          <div class="compare-row">
+            <div>Backups automáticos</div>
+            <div class="ours">✓ Incluido</div>
+            <div class="bad">✕ Costo extra</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     TESTIMONIALS
+=================================================== -->
+<section id="testimonials" aria-labelledby="testi-heading">
+  <div class="section-wrap">
+    <div class="testimonials-header reveal">
+      <span class="s-eyebrow">Testimonios</span>
+      <h2 class="s-title" id="testi-heading">Lo que dicen<br>nuestros clientes.</h2>
+      <p class="s-subtitle">Negocios reales que ya están creciendo con SiteFlowCol.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Antes tenía un sitio viejo que daba más miedo que confianza. En menos de una semana SiteFlowCol me entregó algo que realmente representa mi marca. Mis clientes notan la diferencia."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CM</div>
+          <div>
+            <div class="testi-name">Carlos Mejía</div>
+            <div class="testi-role">Dueño — Ferretería El Progreso</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Lo que más valoro es la tranquilidad. Antes tenía que preocuparme por el hosting, el dominio, las actualizaciones... Ahora pago un mes y ya. Simple."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, var(--violet) 0%, var(--teal) 100%)">LV</div>
+          <div>
+            <div class="testi-name">Laura Vargas</div>
+            <div class="testi-role">Directora — Clínica Dental Smile</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Necesitaba algo rápido para lanzar mi consultoría. En días tenía la web funcionando, con mi dominio y todo. El equipo es muy profesional y responde súper rápido."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, var(--teal) 0%, var(--accent) 100%)">JR</div>
+          <div>
+            <div class="testi-name">Juan Rodríguez</div>
+            <div class="testi-role">Consultor — JR Estrategia Digital</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     FAQ
+=================================================== -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="section-wrap">
+    <div class="faq-wrap">
+      <div class="faq-left reveal">
+        <span class="s-eyebrow">FAQ</span>
+        <h2 class="s-title" id="faq-heading">Preguntas<br>frecuentes.</h2>
+        <p class="s-subtitle">¿No encuentras tu respuesta? Escríbenos por WhatsApp.</p>
+        <a href="https://wa.me/573239428161?text=Tengo%20una%20pregunta%20sobre%20SiteFlowCol"
+           class="btn-ghost" style="margin-top:2rem;display:inline-flex" target="_blank" rel="noopener">
+          Preguntar → 
+        </a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q">
+            ¿Qué pasa si quiero cancelar?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">Puedes cancelar en cualquier momento sin penalización. Tu web seguirá activa hasta el final del período pagado. No hay contratos anuales ni cláusulas complicadas.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            ¿Cuánto tiempo tarda en estar lista mi web?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">Normalmente entre 5 y 10 días hábiles para proyectos estándar. Para planes empresariales con funcionalidades especiales, acordamos un timeline claro desde el inicio.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            ¿Puedo actualizar el contenido yo mismo?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">Sí. Según el plan, incluyes actualizaciones mensuales que nosotros hacemos por ti. Si prefieres un CMS para editarla tú solo, lo podemos configurar también.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            ¿El dominio me pertenece a mí?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">Absolutamente. El dominio queda registrado a tu nombre. Si algún día decides cambiar de proveedor, el dominio es tuyo y puedes llevártelo sin ningún problema.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            ¿Pueden hacer tiendas online?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">Sí. El plan Premium incluye una tienda básica. Para e-commerce avanzado con inventario, pasarelas de pago múltiples y gestión de pedidos, tenemos el plan Empresarial.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            ¿Trabajan con negocios fuera de Colombia?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">Sí, trabajamos con negocios de toda América Latina, España y otros países. Aceptamos pagos en USD, COP y EUR para mayor comodidad.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     CTA FINAL
+=================================================== -->
+<section id="cta-final" aria-labelledby="cta-heading">
+  <div class="section-wrap">
+    <div class="cta-box reveal">
+      <h2 id="cta-heading">Empieza hoy.<br>Tu web te espera.</h2>
+      <p>Únete a los negocios que ya confían en SiteFlowCol para su presencia digital.</p>
+      <div class="cta-actions">
+        <div class="magnetic-wrap">
+          <a href="https://wa.me/573239428161?text=Hola,%20quiero%20empezar%20con%20mi%20página%20web%20profesional"
+             class="btn-primary" target="_blank" rel="noopener" style="font-size:1.1rem;padding:1rem 2.5rem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Hablar por WhatsApp
+          </a>
+        </div>
+        <a href="#pricing" class="btn-ghost" style="font-size:1rem">Ver planes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     FOOTER
+=================================================== -->
+<footer id="footer" role="contentinfo">
+  <div class="section-wrap">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a href="#hero" class="footer-logo">SiteFlowCol</a>
+        <p>Tu página web profesional, siempre activa y cuidada. Partner digital para negocios de todo el mundo.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/573239428161" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+          <a href="mailto:siteflowcol@gmail.com" class="footer-social" aria-label="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#benefits">Diseño Web</a></li>
+          <li><a href="#benefits">Hosting & Dominio</a></li>
+          <li><a href="#benefits">Mantenimiento</a></li>
+          <li><a href="#features">SEO & Analytics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Empresa</h5>
+        <ul>
+          <li><a href="#why">Por qué nosotros</a></li>
+          <li><a href="#process">Cómo funciona</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>
+            <a href="https://wa.me/573239428161" target="_blank" rel="noopener">
+              💬 WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="mailto:siteflowcol@gmail.com">
+              ✉️ siteflowcol@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SiteFlowCol. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+ 
+<script src="main.js"></script>
 </body>
 </html>
-
