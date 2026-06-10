@@ -133,6 +133,19 @@ body::before {
   transform: translateY(-1px);
 }
 .nav-cta::after { display: none !important; }
+.nav-contact {
+  padding: .5rem 1.25rem;
+  border: 1px solid var(--border-accent);
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-full);
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.nav-contact:hover {
+  background: rgba(99, 102, 241, .12);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.nav-contact::after { display: none !important; }
 
 /* Language switcher */
 .lang-switch {
