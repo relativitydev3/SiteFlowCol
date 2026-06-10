@@ -51,11 +51,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
     let W, H, particles = [];
-    const mobile = () => window.innerWidth < 768;
+    const mqMobile = window.matchMedia('(max-width: 767px)');
+    const isMobile = () => mqMobile.matches;
+    const PARTICLE_CFG = {
+      desktop: { count: 190, link: 220, alpha: 0.42, width: 1.3 },
+      mobile:  { count: 35,  link: 150, alpha: 0.28, width: 1   }
+    };
+    let cfg = isMobile() ? PARTICLE_CFG.mobile : PARTICLE_CFG.desktop;
     let mouse = { x: null, y: null };
     const MOUSE_RADIUS = 180;
-    const LINK_RADIUS  = 220;
-    const LINE_ALPHA   = 0.42;
     const MOUSE_LINE   = 0.55;
   
     function resize() {
@@ -108,9 +112,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         ctx.fill();
       }
     }
-  
-    const count = mobile() ? 95 : 190;
-    for (let i = 0; i < count; i++) particles.push(new Particle());
+
+    function rebuildParticles() {
+      cfg = isMobile() ? PARTICLE_CFG.mobile : PARTICLE_CFG.desktop;
+      particles = [];
+      for (let i = 0; i < cfg.count; i++) particles.push(new Particle());
+    }
+
+    rebuildParticles();
+    mqMobile.addEventListener('change', rebuildParticles);
 
     function drawLink(x1, y1, x2, y2, maxDist, maxAlpha, width) {
       const dx = x1 - x2;
@@ -150,7 +160,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
           drawLink(
             particles[i].x, particles[i].y,
             particles[j].x, particles[j].y,
-            LINK_RADIUS, LINE_ALPHA, 1.3
+            cfg.link, cfg.alpha, cfg.width
           );
         }
       }
