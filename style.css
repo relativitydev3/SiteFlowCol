@@ -317,20 +317,28 @@ body::before {
 }
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 5.2vw, 4rem);
-  font-weight: 800; line-height: 1.1;
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  font-weight: 800; line-height: 1.08;
   letter-spacing: -.03em;
   margin-bottom: 1.5rem;
 }
 .hero-title .line-1 { display: block; color: var(--text-primary); }
 .hero-title .line-2 {
   display: block;
-  font-size: 0.72em;
-  font-weight: 700;
-  margin-top: 0.2em;
   background: linear-gradient(135deg, var(--accent-soft) 0%, var(--violet) 50%, var(--teal) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+@media (min-width: 769px) {
+  .hero-title {
+    font-size: clamp(2.1rem, 5.2vw, 4rem);
+    line-height: 1.1;
+  }
+  .hero-title .line-2 {
+    font-size: 0.72em;
+    font-weight: 700;
+    margin-top: 0.2em;
+  }
 }
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.2rem);
@@ -1352,12 +1360,6 @@ section { position: relative; z-index: 1; }
   .section-wrap { width: 100%; max-width: 100%; }
   .compare-header div,
   .compare-row div { min-width: 0; word-break: break-word; }
-  .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-title .line-2 {
-    font-size: 1em;
-    font-weight: 800;
-    margin-top: 0;
-  }
   .hfc { display: none; }
   .bento { grid-template-columns: 1fr; }
   .bento-card.span-2, .bento-card.span-3 { grid-column: span 1; }
