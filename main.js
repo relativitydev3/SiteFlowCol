@@ -1,6 +1,9 @@
 // ---- GSAP ScrollTrigger setup ----
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+// ---- i18n ----
+if (window.SiteFlowI18n) SiteFlowI18n.init();
+
 // ---- Scroll Progress ----
 const progressBar = document.getElementById('scroll-progress');
 window.addEventListener('scroll', () => {
@@ -62,7 +65,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     reset() {
       this.x = Math.random() * W;
       this.y = Math.random() * H;
-      this.r = Math.random() * 1.5 + .3;
+      this.r = Math.random() * 2.8 + .8;
       this.vx = (Math.random() - .5) * .3;
       this.vy = (Math.random() - .5) * .3;
       this.a = Math.random() * .5 + .1;
@@ -79,7 +82,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   }
 
-  const count = mobile() ? 40 : 90;
+  const count = mobile() ? 55 : 120;
   for (let i = 0; i < count; i++) particles.push(new Particle());
 
   function loop() {
@@ -91,12 +94,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 100) {
+        if (dist < 150) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(99,102,241,${.12 * (1 - dist/100)})`;
-          ctx.lineWidth = .5;
+          ctx.strokeStyle = `rgba(99,102,241,${.15 * (1 - dist/150)})`;
+          ctx.lineWidth = .8;
           ctx.stroke();
         }
       }
@@ -194,29 +197,118 @@ document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
 
 // ---- Currency switcher ----
 const curBtns = document.querySelectorAll('.cur-btn');
+const curIndicator = document.querySelector('.cur-indicator');
+const currencyTabs = document.querySelector('.currency-tabs');
 const amounts = document.querySelectorAll('.plan-price .amount');
 const curLabels = document.querySelectorAll('.cur-code');
 const symEls = document.querySelectorAll('.currency-sym');
+const priceValues = document.querySelectorAll('.plan-price .price-value');
+const plansGrid = document.querySelector('.plans-grid');
 
 const SYMBOLS = { USD: '$', COP: '$', EUR: '€' };
+let activeCurrency = 'USD';
+let currencyAnimating = false;
+
+function moveCurIndicator(btn, animate = true) {
+  if (!curIndicator || !btn || !currencyTabs) return;
+  const tabsRect = currencyTabs.getBoundingClientRect();
+  const btnRect = btn.getBoundingClientRect();
+  const x = btnRect.left - tabsRect.left;
+  const props = { x, width: btnRect.width, duration: animate ? 0.45 : 0, ease: 'power3.inOut' };
+  gsap.to(curIndicator, props);
+}
+
+function initCurIndicator() {
+  const activeBtn = document.querySelector('.cur-btn.active');
+  if (activeBtn) {
+    moveCurIndicator(activeBtn, false);
+    if (currencyTabs) currencyTabs.classList.add('ready');
+  }
+}
 
 function switchCurrency(cur) {
-  curBtns.forEach(b => b.classList.toggle('active', b.dataset.cur === cur));
-  amounts.forEach(el => {
-    const val = el.dataset[cur.toLowerCase()];
-    if (val !== undefined) {
-      gsap.fromTo(el, { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: .3, ease: 'power2.out',
-        onStart: () => { el.textContent = val; }
-      });
+  if (cur === activeCurrency || currencyAnimating) return;
+  currencyAnimating = true;
+
+  const activeBtn = [...curBtns].find(b => b.dataset.cur === cur);
+  curBtns.forEach(b => {
+    b.classList.toggle('active', b.dataset.cur === cur);
+    b.classList.add('switching');
+  });
+  moveCurIndicator(activeBtn);
+
+  document.querySelectorAll('.plan-price').forEach(el => el.classList.add('is-switching'));
+  if (plansGrid) plansGrid.classList.add('is-switching');
+
+  const tl = gsap.timeline({
+    onComplete() {
+      activeCurrency = cur;
+      currencyAnimating = false;
+      curBtns.forEach(b => b.classList.remove('switching'));
+      document.querySelectorAll('.plan-price').forEach(el => el.classList.remove('is-switching'));
+      if (plansGrid) plansGrid.classList.remove('is-switching');
     }
   });
-  curLabels.forEach(el => { el.textContent = cur; });
-  symEls.forEach(el => { el.textContent = SYMBOLS[cur]; });
+
+  tl.to(priceValues, {
+    opacity: 0,
+    y: -16,
+    scale: 0.88,
+    rotateX: -25,
+    duration: 0.22,
+    stagger: 0.05,
+    ease: 'power2.in',
+    transformPerspective: 600
+  });
+
+  tl.add(() => {
+    amounts.forEach(el => {
+      const val = el.dataset[cur.toLowerCase()];
+      if (val !== undefined) el.textContent = val;
+    });
+    curLabels.forEach(el => { el.textContent = cur; });
+    symEls.forEach(el => { el.textContent = SYMBOLS[cur]; });
+  });
+
+  tl.fromTo(priceValues,
+    { opacity: 0, y: 20, scale: 0.88, rotateX: 25 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      duration: 0.4,
+      stagger: 0.07,
+      ease: 'back.out(1.6)',
+      transformPerspective: 600
+    }
+  );
+
+  tl.to('.plan-card:not(:has(.custom-lbl))', {
+    y: -4,
+    duration: 0.18,
+    stagger: 0.04,
+    ease: 'power2.out'
+  }, '-=0.25');
+
+  tl.to('.plan-card:not(:has(.custom-lbl))', {
+    y: 0,
+    duration: 0.35,
+    stagger: 0.04,
+    ease: 'elastic.out(1, 0.6)'
+  });
 }
 
 curBtns.forEach(btn => {
   btn.addEventListener('click', () => switchCurrency(btn.dataset.cur));
 });
+
+initCurIndicator();
+window.addEventListener('load', initCurIndicator);
+window.addEventListener('resize', () => {
+  const activeBtn = document.querySelector('.cur-btn.active');
+  if (activeBtn) moveCurIndicator(activeBtn, false);
+}, { passive: true });
 
 // ---- FAQ accordion ----
 document.querySelectorAll('.faq-item').forEach(item => {

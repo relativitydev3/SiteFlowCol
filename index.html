@@ -8,6 +8,9 @@
   <meta property="og:title" content="SiteFlowCol — Tu Página Web Profesional">
   <meta property="og:description" content="Diseño, hosting y mantenimiento en un solo pago mensual.">
   <title>SiteFlowCol — Tu Página Web Profesional, Siempre Activa</title>
+  <script>
+    (function(){var l=localStorage.getItem('siteflow-lang');var n=(navigator.language||'es').toLowerCase();document.documentElement.lang=l==='en'||l==='es'?l:(n.startsWith('en')?'en':'es');})();
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,23 +32,30 @@
 <!-- ===================================================
      NAV
 =================================================== -->
-<nav id="nav" role="navigation" aria-label="Navegación principal">
+<nav id="nav" role="navigation" data-i18n-attr="aria-label:nav.aria">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">SiteFlowCol</a>
     <ul class="nav-links" role="list">
-      <li><a href="#benefits">Servicios</a></li>
-      <li><a href="#features">Características</a></li>
-      <li><a href="#pricing">Planes</a></li>
-      <li><a href="#why">Por qué nosotros</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#benefits" data-i18n="nav.services">Servicios</a></li>
+      <li><a href="#features" data-i18n="nav.features">Características</a></li>
+      <li><a href="#pricing" data-i18n="nav.pricing">Planes</a></li>
+      <li><a href="#why" data-i18n="nav.why">Por qué nosotros</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      <li>
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.langAria">
+          <span class="lang-indicator" aria-hidden="true"></span>
+          <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </li>
       <li>
         <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
-           class="nav-cta" target="_blank" rel="noopener">
+           class="nav-cta" data-wa="quote" target="_blank" rel="noopener" data-i18n="nav.cta">
           💬 Cotizar
         </a>
       </li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+    <button class="nav-hamburger" id="hamburger" data-i18n-attr="aria-label:nav.menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -53,13 +63,18 @@
 
 <!-- Mobile nav -->
 <nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
-  <a href="#benefits" class="mobile-link">Servicios</a>
-  <a href="#features" class="mobile-link">Características</a>
-  <a href="#pricing" class="mobile-link">Planes</a>
-  <a href="#why" class="mobile-link">Por qué nosotros</a>
-  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#benefits" class="mobile-link" data-i18n="nav.services">Servicios</a>
+  <a href="#features" class="mobile-link" data-i18n="nav.features">Características</a>
+  <a href="#pricing" class="mobile-link" data-i18n="nav.pricing">Planes</a>
+  <a href="#why" class="mobile-link" data-i18n="nav.why">Por qué nosotros</a>
+  <a href="#faq" class="mobile-link" data-i18n="nav.faq">FAQ</a>
+  <div class="lang-switch lang-switch-mobile" role="group" data-i18n-attr="aria-label:nav.langAria">
+    <span class="lang-indicator" aria-hidden="true"></span>
+    <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+  </div>
   <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
-     target="_blank" rel="noopener" style="color: var(--accent-soft);">💬 Cotizar por WhatsApp</a>
+     data-wa="quote" target="_blank" rel="noopener" style="color: var(--accent-soft);" data-i18n="nav.waMobile">💬 Cotizar por WhatsApp</a>
 </nav>
 
 <!-- ===================================================
@@ -70,40 +85,41 @@
   <div class="orb orb-1" aria-hidden="true"></div>
   <div class="orb orb-2" aria-hidden="true"></div>
   <div class="orb orb-3" aria-hidden="true"></div>
+
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
   <!-- Floating context cards -->
   <div class="hero-float-cards" aria-hidden="true">
     <div class="hfc hfc-1">
       <span class="icon">🔒</span>
-      <span>SSL Activo — Seguro</span>
+      <span data-i18n="hero.hfc1">SSL Activo — Seguro</span>
     </div>
     <div class="hfc hfc-2">
       <span class="icon">⚡</span>
-      <span>Carga en &lt; 2s</span>
+      <span data-i18n="hero.hfc2">Carga en &lt; 2s</span>
     </div>
     <div class="hfc hfc-3">
       <span class="icon">📈</span>
-      <span>+47% más clientes</span>
+      <span data-i18n="hero.hfc3">+47% más clientes</span>
     </div>
     <div class="hfc hfc-4">
       <span class="icon">🛡️</span>
-      <span>Backup diario</span>
+      <span data-i18n="hero.hfc4">Backup diario</span>
     </div>
   </div>
 
   <div class="hero-content">
     <div class="hero-badge" aria-hidden="true">
       <span class="dot"></span>
-      Diseño · Hosting · Mantenimiento
+      <span data-i18n="hero.badge">Diseño · Hosting · Mantenimiento</span>
     </div>
 
     <h1 class="hero-title" id="hero-heading">
-      <span class="line-1">Tu página web profesional,</span>
-      <span class="line-2">siempre activa y cuidada.</span>
+      <span class="line-1" data-i18n="hero.title1">Tu página web profesional,</span>
+      <span class="line-2" data-i18n="hero.title2">siempre activa y cuidada.</span>
     </h1>
 
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="hero.sub">
       Nos ocupamos de todo — diseño, hosting, seguridad y mantenimiento — 
       para que tú te enfoques en lo que realmente importa: hacer crecer tu negocio.
     </p>
@@ -111,13 +127,13 @@
     <div class="hero-actions">
       <div class="magnetic-wrap">
         <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
-           class="btn-primary" target="_blank" rel="noopener">
+           class="btn-primary" data-wa="quote" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Cotizar por WhatsApp
+          <span data-i18n="hero.ctaWa">Cotizar por WhatsApp</span>
         </a>
       </div>
       <div class="magnetic-wrap">
-        <a href="#pricing" class="btn-ghost">
+        <a href="#pricing" class="btn-ghost" data-i18n="hero.ctaPlans">
           Ver planes →
         </a>
       </div>
@@ -126,19 +142,19 @@
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="num" data-target="50">0</span>
-        <span class="lbl">Páginas web</span>
+        <span class="lbl" data-i18n="hero.stat1">Páginas web</span>
       </div>
       <div class="hero-stat">
         <span class="num" data-target="98">0</span>
-        <span class="lbl">% satisfacción</span>
+        <span class="lbl" data-i18n="hero.stat2">% satisfacción</span>
       </div>
       <div class="hero-stat">
         <span class="num" data-target="100">0</span>
-        <span class="lbl">% compromiso</span>
+        <span class="lbl" data-i18n="hero.stat3">% compromiso</span>
       </div>
       <div class="hero-stat">
         <span class="num" data-static="true">&#60;48h</span>
-        <span class="lbl">Tiempo respuesta</span>
+        <span class="lbl" data-i18n="hero.stat4">Tiempo respuesta</span>
       </div>
     </div>
   </div>
@@ -150,9 +166,9 @@
 <section id="benefits" aria-labelledby="benefits-heading">
   <div class="section-wrap">
     <div class="benefits-header">
-      <span class="s-eyebrow">El problema</span>
-      <h2 class="s-title" id="benefits-heading">¿Tu web trabaja para ti<br>o en tu contra?</h2>
-      <p class="s-subtitle reveal">
+      <span class="s-eyebrow" data-i18n="benefits.eyebrow">El problema</span>
+      <h2 class="s-title" id="benefits-heading" data-i18n-html="benefits.title">¿Tu web trabaja para ti<br>o en tu contra?</h2>
+      <p class="s-subtitle reveal" data-i18n="benefits.sub">
         La mayoría de los negocios tienen webs lentas, desactualizadas o inexistentes.
         Nosotros cambiamos eso.
       </p>
@@ -160,66 +176,66 @@
 
     <div class="pain-grid reveal">
       <div class="pain-cell bad">
-        <div class="pain-label">Sin SiteFlowCol</div>
-        <h3>Web desactualizada y lenta</h3>
-        <p>Perdes clientes antes de que puedan contactarte. Una web lenta cuesta más del 7% de conversiones por segundo de demora.</p>
+        <div class="pain-label" data-i18n="benefits.without">Sin SiteFlowCol</div>
+        <h3 data-i18n="benefits.bad1t">Web desactualizada y lenta</h3>
+        <p data-i18n="benefits.bad1p">Perdes clientes antes de que puedan contactarte. Una web lenta cuesta más del 7% de conversiones por segundo de demora.</p>
       </div>
       <div class="pain-cell good">
-        <div class="pain-label">Con SiteFlowCol</div>
-        <h3>Siempre rápida, siempre actualizada</h3>
-        <p>Tu web carga en menos de 2 segundos, está siempre al día y genera confianza desde el primer clic.</p>
+        <div class="pain-label" data-i18n="benefits.with">Con SiteFlowCol</div>
+        <h3 data-i18n="benefits.good1t">Siempre rápida, siempre actualizada</h3>
+        <p data-i18n="benefits.good1p">Tu web carga en menos de 2 segundos, está siempre al día y genera confianza desde el primer clic.</p>
       </div>
       <div class="pain-cell bad">
-        <div class="pain-label">Sin SiteFlowCol</div>
-        <h3>Tres proveedores distintos</h3>
-        <p>Hostings aquí, dominio allá, diseñador por otro lado. Múltiples facturas, múltiples responsables, múltiples problemas.</p>
+        <div class="pain-label" data-i18n="benefits.without">Sin SiteFlowCol</div>
+        <h3 data-i18n="benefits.bad2t">Tres proveedores distintos</h3>
+        <p data-i18n="benefits.bad2p">Hostings aquí, dominio allá, diseñador por otro lado. Múltiples facturas, múltiples responsables, múltiples problemas.</p>
       </div>
       <div class="pain-cell good">
-        <div class="pain-label">Con SiteFlowCol</div>
-        <h3>Todo en un solo pago mensual</h3>
-        <p>Diseño, hosting, dominio, seguridad y soporte. Un proveedor, una factura, cero complicaciones.</p>
+        <div class="pain-label" data-i18n="benefits.with">Con SiteFlowCol</div>
+        <h3 data-i18n="benefits.good2t">Todo en un solo pago mensual</h3>
+        <p data-i18n="benefits.good2p">Diseño, hosting, dominio, seguridad y soporte. Un proveedor, una factura, cero complicaciones.</p>
       </div>
     </div>
 
     <div class="bento reveal">
       <div class="bento-card accent-card span-2">
-        <h3>Lo que realmente ofrecemos</h3>
-        <p>No vendemos páginas web. Vendemos <strong style="color:var(--text-primary)">tranquilidad digital</strong>: presencia profesional, continuidad de negocio y un equipo que cuida tu activo más importante en internet.</p>
+        <h3 data-i18n="benefits.bentoTitle">Lo que realmente ofrecemos</h3>
+        <p data-i18n-html="benefits.bentoP">No vendemos páginas web. Vendemos <strong style="color:var(--text-primary)">tranquilidad digital</strong>: presencia profesional, continuidad de negocio y un equipo que cuida tu activo más importante en internet.</p>
       </div>
       <div class="bento-card">
         <div class="b-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h4>Seguridad incluida</h4>
-        <p>SSL, backups automáticos y monitoreo constante.</p>
+        <h4 data-i18n="benefits.b1t">Seguridad incluida</h4>
+        <p data-i18n="benefits.b1p">SSL, backups automáticos y monitoreo constante.</p>
       </div>
       <div class="bento-card">
         <div class="b-icon">
           <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <h4>Rendimiento premium</h4>
-        <p>Hosting optimizado para velocidad máxima.</p>
+        <h4 data-i18n="benefits.b2t">Rendimiento premium</h4>
+        <p data-i18n="benefits.b2p">Hosting optimizado para velocidad máxima.</p>
       </div>
       <div class="bento-card">
         <div class="b-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
-        <h4>Soporte real</h4>
-        <p>Personas reales que responden rápido.</p>
+        <h4 data-i18n="benefits.b3t">Soporte real</h4>
+        <p data-i18n="benefits.b3p">Personas reales que responden rápido.</p>
       </div>
       <div class="bento-card span-2">
         <div class="b-icon">
           <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <h4>Mantenimiento continuo</h4>
-        <p>Tu web no se congela en el tiempo. Actualizaciones regulares, ajustes de contenido y mejoras constantes mantienen tu presencia siempre fresca y relevante.</p>
+        <h4 data-i18n="benefits.b4t">Mantenimiento continuo</h4>
+        <p data-i18n="benefits.b4p">Tu web no se congela en el tiempo. Actualizaciones regulares, ajustes de contenido y mejoras constantes mantienen tu presencia siempre fresca y relevante.</p>
       </div>
       <div class="bento-card">
         <div class="b-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <h4>Alcance global</h4>
-        <p>Diseñamos para cualquier mercado.</p>
+        <h4 data-i18n="benefits.b5t">Alcance global</h4>
+        <p data-i18n="benefits.b5p">Diseñamos para cualquier mercado.</p>
       </div>
     </div>
   </div>
@@ -231,35 +247,35 @@
 <section id="features" aria-labelledby="features-heading">
   <div class="section-wrap">
     <div class="features-header reveal">
-      <span class="s-eyebrow">Características</span>
-      <h2 class="s-title" id="features-heading">Todo lo que necesitas,<br>nada de lo que no.</h2>
-      <p class="s-subtitle">Cada plan incluye una base sólida. Tú eliges hasta dónde llevar tu presencia digital.</p>
+      <span class="s-eyebrow" data-i18n="features.eyebrow">Características</span>
+      <h2 class="s-title" id="features-heading" data-i18n-html="features.title">Todo lo que necesitas,<br>nada de lo que no.</h2>
+      <p class="s-subtitle" data-i18n="features.sub">Cada plan incluye una base sólida. Tú eliges hasta dónde llevar tu presencia digital.</p>
     </div>
 
     <div class="features-grid">
       <div class="feature-card reveal">
         <div class="feature-num">01</div>
         <div class="feature-icon">🎨</div>
-        <h3>Diseño web a medida</h3>
-        <p>No usamos plantillas genéricas. Cada sitio refleja la identidad real de tu negocio: colores, tipografía, tono y estructura pensados para convertir visitas en clientes.</p>
-        <span class="feature-tag">Responsive 100%</span>
+        <h3 data-i18n="features.f1t">Diseño web a medida</h3>
+        <p data-i18n="features.f1p">No usamos plantillas genéricas. Cada sitio refleja la identidad real de tu negocio: colores, tipografía, tono y estructura pensados para convertir visitas en clientes.</p>
+        <span class="feature-tag" data-i18n="features.f1tag">Responsive 100%</span>
       </div>
 
       <div class="feature-card reveal">
         <div class="feature-num">02</div>
         <div class="feature-icon">🖥️</div>
-        <h3>Hosting & Dominio incluidos</h3>
-        <p>Servidores rápidos, uptime del 99.9% y tu dominio personalizado desde el día uno. Sin cargos ocultos, sin migraciones complicadas.</p>
-        <span class="feature-tag">99.9% uptime</span>
+        <h3 data-i18n="features.f2t">Hosting & Dominio incluidos</h3>
+        <p data-i18n="features.f2p">Servidores rápidos, uptime del 99.9% y tu dominio personalizado desde el día uno. Sin cargos ocultos, sin migraciones complicadas.</p>
+        <span class="feature-tag" data-i18n="features.f2tag">99.9% uptime</span>
       </div>
 
       <div class="feature-card large reveal">
         <div>
           <div class="feature-num">03</div>
           <div class="feature-icon">🔒</div>
-          <h3>Seguridad de nivel empresarial</h3>
-          <p>Certificado SSL activo, firewall, copias de seguridad automáticas y monitoreo 24/7. Si algo pasa, lo detectamos y resolvemos antes de que tu cliente lo note.</p>
-          <span class="feature-tag">SSL · Firewall · Backups</span>
+          <h3 data-i18n="features.f3t">Seguridad de nivel empresarial</h3>
+          <p data-i18n="features.f3p">Certificado SSL activo, firewall, copias de seguridad automáticas y monitoreo 24/7. Si algo pasa, lo detectamos y resolvemos antes de que tu cliente lo note.</p>
+          <span class="feature-tag" data-i18n="features.f3tag">SSL · Firewall · Backups</span>
         </div>
         <div class="feature-visual" aria-hidden="true">
           <div><span class="kw">status</span>: <span class="val">"active"</span></div>
@@ -275,17 +291,17 @@
       <div class="feature-card reveal">
         <div class="feature-num">04</div>
         <div class="feature-icon">🛠️</div>
-        <h3>Mantenimiento mensual</h3>
-        <p>Actualizaciones, mejoras de contenido y ajustes técnicos sin costo adicional. Tu web evoluciona contigo.</p>
-        <span class="feature-tag">Actualizaciones incluidas</span>
+        <h3 data-i18n="features.f4t">Mantenimiento mensual</h3>
+        <p data-i18n="features.f4p">Actualizaciones, mejoras de contenido y ajustes técnicos sin costo adicional. Tu web evoluciona contigo.</p>
+        <span class="feature-tag" data-i18n="features.f4tag">Actualizaciones incluidas</span>
       </div>
 
       <div class="feature-card reveal">
         <div class="feature-num">05</div>
         <div class="feature-icon">📊</div>
-        <h3>SEO & Analytics</h3>
-        <p>Estructura optimizada para buscadores y métricas reales de visitantes. Sabe quién visita tu web y desde dónde.</p>
-        <span class="feature-tag">Plan Premium</span>
+        <h3 data-i18n="features.f5t">SEO & Analytics</h3>
+        <p data-i18n="features.f5p">Estructura optimizada para buscadores y métricas reales de visitantes. Sabe quién visita tu web y desde dónde.</p>
+        <span class="feature-tag" data-i18n="features.f5tag">Plan Premium</span>
       </div>
     </div>
   </div>
@@ -294,24 +310,24 @@
 <!-- ===================================================
      STATS
 =================================================== -->
-<section id="stats" aria-label="Estadísticas">
+<section id="stats" data-i18n-attr="aria-label:stats.aria">
   <div class="section-wrap">
     <div class="stats-inner">
       <div class="stat-block">
         <span class="big" data-count="50" data-suffix="+">0+</span>
-        <span class="label">Páginas entregadas</span>
+        <span class="label" data-i18n="stats.s1">Páginas entregadas</span>
       </div>
       <div class="stat-block">
         <span class="big" data-count="98" data-suffix="%">0%</span>
-        <span class="label">Clientes satisfechos</span>
+        <span class="label" data-i18n="stats.s2">Clientes satisfechos</span>
       </div>
       <div class="stat-block">
         <span class="big" data-count="2" data-suffix="s">&lt;0s</span>
-        <span class="label">Tiempo de carga medio</span>
+        <span class="label" data-i18n="stats.s3">Tiempo de carga medio</span>
       </div>
       <div class="stat-block">
         <span class="big" data-count="100" data-suffix="%">0%</span>
-        <span class="label">Compromiso total</span>
+        <span class="label" data-i18n="stats.s4">Compromiso total</span>
       </div>
     </div>
   </div>
@@ -323,30 +339,30 @@
 <section id="process" aria-labelledby="process-heading">
   <div class="section-wrap">
     <div class="process-header reveal">
-      <span class="s-eyebrow">Proceso</span>
-      <h2 class="s-title" id="process-heading">De idea a online en días,<br>no en meses.</h2>
-      <p class="s-subtitle">Un proceso claro, sin sorpresas, diseñado para que estés listo lo antes posible.</p>
+      <span class="s-eyebrow" data-i18n="process.eyebrow">Proceso</span>
+      <h2 class="s-title" id="process-heading" data-i18n-html="process.title">De idea a online en días,<br>no en meses.</h2>
+      <p class="s-subtitle" data-i18n="process.sub">Un proceso claro, sin sorpresas, diseñado para que estés listo lo antes posible.</p>
     </div>
     <div class="process-timeline">
       <div class="process-step reveal">
         <div class="step-dot">01</div>
-        <h4>Nos escribes</h4>
-        <p>Cuéntanos tu negocio por WhatsApp. Sin formularios complicados, solo una conversación.</p>
+        <h4 data-i18n="process.s1t">Nos escribes</h4>
+        <p data-i18n="process.s1p">Cuéntanos tu negocio por WhatsApp. Sin formularios complicados, solo una conversación.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-dot">02</div>
-        <h4>Diseñamos tu web</h4>
-        <p>Creamos un diseño personalizado alineado con tu marca y objetivos de negocio.</p>
+        <h4 data-i18n="process.s2t">Diseñamos tu web</h4>
+        <p data-i18n="process.s2p">Creamos un diseño personalizado alineado con tu marca y objetivos de negocio.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-dot">03</div>
-        <h4>Revisas y apruebas</h4>
-        <p>Tienes el control total. Ajustamos hasta que estés completamente satisfecho.</p>
+        <h4 data-i18n="process.s3t">Revisas y apruebas</h4>
+        <p data-i18n="process.s3p">Tienes el control total. Ajustamos hasta que estés completamente satisfecho.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-dot">04</div>
-        <h4>Publicamos y crecemos</h4>
-        <p>Tu web va live y nosotros la cuidamos cada mes para que nunca pare de funcionar.</p>
+        <h4 data-i18n="process.s4t">Publicamos y crecemos</h4>
+        <p data-i18n="process.s4p">Tu web va live y nosotros la cuidamos cada mes para que nunca pare de funcionar.</p>
       </div>
     </div>
   </div>
@@ -358,13 +374,14 @@
 <section id="pricing" aria-labelledby="pricing-heading">
   <div class="section-wrap">
     <div class="pricing-header reveal">
-      <span class="s-eyebrow">Planes</span>
-      <h2 class="s-title" id="pricing-heading">Precio justo,<br>valor claro.</h2>
-      <p class="s-subtitle">Sin contratos anuales obligatorios. Cancela cuando quieras.</p>
+      <span class="s-eyebrow" data-i18n="pricing.eyebrow">Planes</span>
+      <h2 class="s-title" id="pricing-heading" data-i18n-html="pricing.title">Precio justo,<br>valor claro.</h2>
+      <p class="s-subtitle" data-i18n="pricing.sub">Sin contratos anuales obligatorios. Cancela cuando quieras.</p>
     </div>
 
     <div style="text-align:center">
-      <div class="currency-tabs" role="group" aria-label="Seleccionar moneda">
+      <div class="currency-tabs" role="group" data-i18n-attr="aria-label:pricing.currencyAria">
+        <span class="cur-indicator" aria-hidden="true"></span>
         <button class="cur-btn active" data-cur="USD">💵 USD</button>
         <button class="cur-btn" data-cur="COP">🇨🇴 COP</button>
         <button class="cur-btn" data-cur="EUR">💶 EUR</button>
@@ -374,99 +391,99 @@
     <div class="plans-grid reveal">
       <!-- Básico -->
       <div class="plan-card">
-        <div class="plan-name">Básico</div>
+        <div class="plan-name" data-i18n="pricing.basic">Básico</div>
         <div class="plan-price">
-          <div>
+          <div class="price-value">
             <span class="currency-sym">$</span><span class="amount" data-usd="40" data-cop="149.000" data-eur="34">40</span>
             <span class="currency-lbl cur-code">USD</span>
           </div>
-          <span class="period">/mes</span>
+          <span class="period" data-i18n="pricing.period">/mes</span>
         </div>
         <ul class="plan-features">
-          <li>Página hasta 5 secciones</li>
-          <li>Diseño responsive</li>
-          <li>Hosting y dominio</li>
-          <li>Certificado SSL</li>
-          <li>Soporte por email</li>
+          <li data-i18n="pricing.b1">Página hasta 5 secciones</li>
+          <li data-i18n="pricing.b2">Diseño responsive</li>
+          <li data-i18n="pricing.b3">Hosting y dominio</li>
+          <li data-i18n="pricing.b4">Certificado SSL</li>
+          <li data-i18n="pricing.b5">Soporte por email</li>
         </ul>
         <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Básico"
-           class="plan-btn plan-btn-outline" target="_blank" rel="noopener">
+           class="plan-btn plan-btn-outline" data-wa="basic" target="_blank" rel="noopener" data-i18n="pricing.hire">
           Contratar → 
         </a>
       </div>
 
       <!-- Profesional -->
       <div class="plan-card featured">
-        <div class="plan-popular">Más popular</div>
-        <div class="plan-name">Profesional</div>
+        <div class="plan-popular" data-i18n="pricing.popular">Más popular</div>
+        <div class="plan-name" data-i18n="pricing.pro">Profesional</div>
         <div class="plan-price">
-          <div>
+          <div class="price-value">
             <span class="currency-sym">$</span><span class="amount" data-usd="75" data-cop="279.000" data-eur="63">75</span>
             <span class="currency-lbl cur-code">USD</span>
           </div>
-          <span class="period">/mes</span>
+          <span class="period" data-i18n="pricing.period">/mes</span>
         </div>
         <ul class="plan-features">
-          <li>Página hasta 10 secciones</li>
-          <li>Diseño personalizado</li>
-          <li>Hosting y dominio</li>
-          <li>SSL + Backups diarios</li>
-          <li>Formulario de contacto</li>
-          <li>Integración redes sociales</li>
-          <li>Soporte WhatsApp prioritario</li>
+          <li data-i18n="pricing.p1">Página hasta 10 secciones</li>
+          <li data-i18n="pricing.p2">Diseño personalizado</li>
+          <li data-i18n="pricing.p3">Hosting y dominio</li>
+          <li data-i18n="pricing.p4">SSL + Backups diarios</li>
+          <li data-i18n="pricing.p5">Formulario de contacto</li>
+          <li data-i18n="pricing.p6">Integración redes sociales</li>
+          <li data-i18n="pricing.p7">Soporte WhatsApp prioritario</li>
         </ul>
         <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Profesional"
-           class="plan-btn plan-btn-solid" target="_blank" rel="noopener">
+           class="plan-btn plan-btn-solid" data-wa="pro" target="_blank" rel="noopener" data-i18n="pricing.hire">
           Contratar →
         </a>
       </div>
 
       <!-- Premium -->
       <div class="plan-card">
-        <div class="plan-name">Premium</div>
+        <div class="plan-name" data-i18n="pricing.premium">Premium</div>
         <div class="plan-price">
-          <div>
+          <div class="price-value">
             <span class="currency-sym">$</span><span class="amount" data-usd="106" data-cop="399.000" data-eur="91">106</span>
             <span class="currency-lbl cur-code">USD</span>
           </div>
-          <span class="period">/mes</span>
+          <span class="period" data-i18n="pricing.period">/mes</span>
         </div>
         <ul class="plan-features">
-          <li>Hasta 15 secciones</li>
-          <li>Diseño premium</li>
-          <li>Hosting y dominio</li>
-          <li>SSL avanzado + Backups real-time</li>
-          <li>Tienda online básica</li>
-          <li>SEO optimizado</li>
-          <li>Analytics integrado</li>
-          <li>3 actualizaciones/mes</li>
-          <li>Soporte WhatsApp prioritario</li>
+          <li data-i18n="pricing.pr1">Hasta 15 secciones</li>
+          <li data-i18n="pricing.pr2">Diseño premium</li>
+          <li data-i18n="pricing.pr3">Hosting y dominio</li>
+          <li data-i18n="pricing.pr4">SSL avanzado + Backups real-time</li>
+          <li data-i18n="pricing.pr5">Tienda online básica</li>
+          <li data-i18n="pricing.pr6">SEO optimizado</li>
+          <li data-i18n="pricing.pr7">Analytics integrado</li>
+          <li data-i18n="pricing.pr8">3 actualizaciones/mes</li>
+          <li data-i18n="pricing.pr9">Soporte WhatsApp prioritario</li>
         </ul>
         <a href="https://wa.me/573239428161?text=Hola,%20quiero%20el%20plan%20Premium"
-           class="plan-btn plan-btn-outline" target="_blank" rel="noopener">
+           class="plan-btn plan-btn-outline" data-wa="premium" target="_blank" rel="noopener" data-i18n="pricing.hire">
           Contratar →
         </a>
       </div>
 
       <!-- Empresarial -->
       <div class="plan-card">
-        <div class="plan-name">Empresarial</div>
+        <div class="plan-name" data-i18n="pricing.enterprise">Empresarial</div>
         <div class="plan-price">
-          <span class="custom-lbl">A medida</span>
-          <span class="period">Cotización personalizada</span>
+          <span class="custom-lbl" data-i18n="pricing.custom">A medida</span>
+          <span class="period" data-i18n="pricing.customSub">Cotización personalizada</span>
         </div>
         <ul class="plan-features">
-          <li>Solución 100% personalizada</li>
-          <li>E-commerce avanzado</li>
-          <li>Integraciones a medida</li>
-          <li>Sistema de gestión propio</li>
-          <li>Hosting y dominio premium</li>
-          <li>Backups automáticos</li>
-          <li>Soporte dedicado 9am–5pm</li>
-          <li>Desarrollo continuo</li>
+          <li data-i18n="pricing.e1">Solución 100% personalizada</li>
+          <li data-i18n="pricing.e2">E-commerce avanzado</li>
+          <li data-i18n="pricing.e3">Integraciones a medida</li>
+          <li data-i18n="pricing.e4">Sistema de gestión propio</li>
+          <li data-i18n="pricing.e5">Hosting y dominio premium</li>
+          <li data-i18n="pricing.e6">Backups automáticos</li>
+          <li data-i18n="pricing.e7">Soporte dedicado 9am–5pm</li>
+          <li data-i18n="pricing.e8">Desarrollo continuo</li>
         </ul>
         <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20un%20plan%20Empresarial"
-           class="plan-btn plan-btn-solid" target="_blank" rel="noopener">
+           class="plan-btn plan-btn-solid" data-wa="enterprise" target="_blank" rel="noopener" data-i18n="pricing.quote">
           Cotizar →
         </a>
       </div>
@@ -481,37 +498,37 @@
   <div class="section-wrap">
     <div class="why-split">
       <div class="why-left reveal">
-        <span class="s-eyebrow">Ventajas</span>
-        <h2 class="s-title" id="why-heading">¿Por qué SiteFlowCol<br>y no otro?</h2>
-        <p class="s-subtitle">La diferencia está en los detalles, la atención y el modelo de trabajo.</p>
+        <span class="s-eyebrow" data-i18n="why.eyebrow">Ventajas</span>
+        <h2 class="s-title" id="why-heading" data-i18n-html="why.title">¿Por qué SiteFlowCol<br>y no otro?</h2>
+        <p class="s-subtitle" data-i18n="why.sub">La diferencia está en los detalles, la atención y el modelo de trabajo.</p>
 
         <div class="why-list" style="margin-top:2.5rem">
           <div class="why-item">
             <div class="why-icon">💳</div>
             <div>
-              <h4>Pago mensual, sin sorpresas</h4>
-              <p>Un solo cargo al mes que incluye absolutamente todo. Sin facturas inesperadas de hosting, dominio o mantenimiento.</p>
+              <h4 data-i18n="why.w1t">Pago mensual, sin sorpresas</h4>
+              <p data-i18n="why.w1p">Un solo cargo al mes que incluye absolutamente todo. Sin facturas inesperadas de hosting, dominio o mantenimiento.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-icon">🧑‍💻</div>
             <div>
-              <h4>Personas reales, no bots</h4>
-              <p>Cuando necesites ayuda, hablas con alguien que conoce tu proyecto de principio a fin. No con un ticket de soporte genérico.</p>
+              <h4 data-i18n="why.w2t">Personas reales, no bots</h4>
+              <p data-i18n="why.w2p">Cuando necesites ayuda, hablas con alguien que conoce tu proyecto de principio a fin. No con un ticket de soporte genérico.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-icon">🌍</div>
             <div>
-              <h4>Soluciones para cualquier mercado</h4>
-              <p>Diseñamos para negocios de toda América Latina y el mundo, con precios en USD, COP y EUR.</p>
+              <h4 data-i18n="why.w3t">Soluciones para cualquier mercado</h4>
+              <p data-i18n="why.w3p">Diseñamos para negocios de toda América Latina y el mundo, con precios en USD, COP y EUR.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-icon">📈</div>
             <div>
-              <h4>Tu web crece contigo</h4>
-              <p>No entregamos y desaparecemos. Nos convertimos en tu partner digital a largo plazo.</p>
+              <h4 data-i18n="why.w4t">Tu web crece contigo</h4>
+              <p data-i18n="why.w4p">No entregamos y desaparecemos. Nos convertimos en tu partner digital a largo plazo.</p>
             </div>
           </div>
         </div>
@@ -520,39 +537,39 @@
       <div class="why-right reveal">
         <div class="why-compare">
           <div class="compare-header">
-            <div>Característica</div>
-            <div class="ours">SiteFlowCol</div>
-            <div>Freelancer típico</div>
+            <div data-i18n="why.colFeature">Característica</div>
+            <div class="ours" data-i18n="why.colUs">SiteFlowCol</div>
+            <div data-i18n="why.colThem">Freelancer típico</div>
           </div>
           <div class="compare-row">
-            <div>Todo incluido</div>
-            <div class="ours">✓ Sí</div>
-            <div class="bad">✕ No</div>
+            <div data-i18n="why.r1">Todo incluido</div>
+            <div class="ours" data-i18n="why.r1y">✓ Sí</div>
+            <div class="bad" data-i18n="why.r1n">✕ No</div>
           </div>
           <div class="compare-row">
-            <div>Mantenimiento mensual</div>
-            <div class="ours">✓ Incluido</div>
-            <div class="bad">✕ Costo extra</div>
+            <div data-i18n="why.r2">Mantenimiento mensual</div>
+            <div class="ours" data-i18n="why.r2y">✓ Incluido</div>
+            <div class="bad" data-i18n="why.r2n">✕ Costo extra</div>
           </div>
           <div class="compare-row">
-            <div>Soporte rápido</div>
-            <div class="ours">✓ &lt;48h</div>
-            <div class="mid">~ Variable</div>
+            <div data-i18n="why.r3">Soporte rápido</div>
+            <div class="ours" data-i18n="why.r3y">✓ &lt;48h</div>
+            <div class="mid" data-i18n="why.r3m">~ Variable</div>
           </div>
           <div class="compare-row">
-            <div>Precio predecible</div>
-            <div class="ours">✓ Mensual fijo</div>
-            <div class="bad">✕ Por proyecto</div>
+            <div data-i18n="why.r4">Precio predecible</div>
+            <div class="ours" data-i18n="why.r4y">✓ Mensual fijo</div>
+            <div class="bad" data-i18n="why.r4n">✕ Por proyecto</div>
           </div>
           <div class="compare-row">
-            <div>Sin contratos largos</div>
-            <div class="ours">✓ Mes a mes</div>
-            <div class="mid">~ Varía</div>
+            <div data-i18n="why.r5">Sin contratos largos</div>
+            <div class="ours" data-i18n="why.r5y">✓ Mes a mes</div>
+            <div class="mid" data-i18n="why.r5m">~ Varía</div>
           </div>
           <div class="compare-row">
-            <div>Backups automáticos</div>
-            <div class="ours">✓ Incluido</div>
-            <div class="bad">✕ Costo extra</div>
+            <div data-i18n="why.r6">Backups automáticos</div>
+            <div class="ours" data-i18n="why.r6y">✓ Incluido</div>
+            <div class="bad" data-i18n="why.r6n">✕ Costo extra</div>
           </div>
         </div>
       </div>
@@ -566,41 +583,41 @@
 <section id="testimonials" aria-labelledby="testi-heading">
   <div class="section-wrap">
     <div class="testimonials-header reveal">
-      <span class="s-eyebrow">Testimonios</span>
-      <h2 class="s-title" id="testi-heading">Lo que dicen<br>nuestros clientes.</h2>
-      <p class="s-subtitle">Negocios reales que ya están creciendo con SiteFlowCol.</p>
+      <span class="s-eyebrow" data-i18n="testi.eyebrow">Testimonios</span>
+      <h2 class="s-title" id="testi-heading" data-i18n-html="testi.title">Lo que dicen<br>nuestros clientes.</h2>
+      <p class="s-subtitle" data-i18n="testi.sub">Negocios reales que ya están creciendo con SiteFlowCol.</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Antes tenía un sitio viejo que daba más miedo que confianza. En menos de una semana SiteFlowCol me entregó algo que realmente representa mi marca. Mis clientes notan la diferencia."</p>
+        <p class="testi-text" data-i18n="testi.t1">"Antes tenía un sitio viejo que daba más miedo que confianza. En menos de una semana SiteFlowCol me entregó algo que realmente representa mi marca. Mis clientes notan la diferencia."</p>
         <div class="testi-author">
           <div class="testi-avatar">CM</div>
           <div>
             <div class="testi-name">Carlos Mejía</div>
-            <div class="testi-role">Dueño — Ferretería El Progreso</div>
+            <div class="testi-role" data-i18n="testi.t1role">Dueño — Ferretería El Progreso</div>
           </div>
         </div>
       </div>
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Lo que más valoro es la tranquilidad. Antes tenía que preocuparme por el hosting, el dominio, las actualizaciones... Ahora pago un mes y ya. Simple."</p>
+        <p class="testi-text" data-i18n="testi.t2">"Lo que más valoro es la tranquilidad. Antes tenía que preocuparme por el hosting, el dominio, las actualizaciones... Ahora pago un mes y ya. Simple."</p>
         <div class="testi-author">
           <div class="testi-avatar" style="background: linear-gradient(135deg, var(--violet) 0%, var(--teal) 100%)">LV</div>
           <div>
             <div class="testi-name">Laura Vargas</div>
-            <div class="testi-role">Directora — Clínica Dental Smile</div>
+            <div class="testi-role" data-i18n="testi.t2role">Directora — Clínica Dental Smile</div>
           </div>
         </div>
       </div>
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Necesitaba algo rápido para lanzar mi consultoría. En días tenía la web funcionando, con mi dominio y todo. El equipo es muy profesional y responde súper rápido."</p>
+        <p class="testi-text" data-i18n="testi.t3">"Necesitaba algo rápido para lanzar mi consultoría. En días tenía la web funcionando, con mi dominio y todo. El equipo es muy profesional y responde súper rápido."</p>
         <div class="testi-author">
           <div class="testi-avatar" style="background: linear-gradient(135deg, var(--teal) 0%, var(--accent) 100%)">JR</div>
           <div>
             <div class="testi-name">Juan Rodríguez</div>
-            <div class="testi-role">Consultor — JR Estrategia Digital</div>
+            <div class="testi-role" data-i18n="testi.t3role">Consultor — JR Estrategia Digital</div>
           </div>
         </div>
       </div>
@@ -615,56 +632,56 @@
   <div class="section-wrap">
     <div class="faq-wrap">
       <div class="faq-left reveal">
-        <span class="s-eyebrow">FAQ</span>
-        <h2 class="s-title" id="faq-heading">Preguntas<br>frecuentes.</h2>
-        <p class="s-subtitle">¿No encuentras tu respuesta? Escríbenos por WhatsApp.</p>
+        <span class="s-eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+        <h2 class="s-title" id="faq-heading" data-i18n-html="faq.title">Preguntas<br>frecuentes.</h2>
+        <p class="s-subtitle" data-i18n="faq.sub">¿No encuentras tu respuesta? Escríbenos por WhatsApp.</p>
         <a href="https://wa.me/573239428161?text=Tengo%20una%20pregunta%20sobre%20SiteFlowCol"
-           class="btn-ghost" style="margin-top:2rem;display:inline-flex" target="_blank" rel="noopener">
+           class="btn-ghost" data-wa="question" style="margin-top:2rem;display:inline-flex" target="_blank" rel="noopener" data-i18n="faq.ask">
           Preguntar → 
         </a>
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
           <button class="faq-q">
-            ¿Qué pasa si quiero cancelar?
+            <span data-i18n="faq.q1">¿Qué pasa si quiero cancelar?</span>
             <span class="faq-arrow">+</span>
           </button>
-          <div class="faq-a">Puedes cancelar en cualquier momento sin penalización. Tu web seguirá activa hasta el final del período pagado. No hay contratos anuales ni cláusulas complicadas.</div>
+          <div class="faq-a" data-i18n="faq.a1">Puedes cancelar en cualquier momento sin penalización. Tu web seguirá activa hasta el final del período pagado. No hay contratos anuales ni cláusulas complicadas.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">
-            ¿Cuánto tiempo tarda en estar lista mi web?
+            <span data-i18n="faq.q2">¿Cuánto tiempo tarda en estar lista mi web?</span>
             <span class="faq-arrow">+</span>
           </button>
-          <div class="faq-a">Normalmente entre 5 y 10 días hábiles para proyectos estándar. Para planes empresariales con funcionalidades especiales, acordamos un timeline claro desde el inicio.</div>
+          <div class="faq-a" data-i18n="faq.a2">Normalmente entre 5 y 10 días hábiles para proyectos estándar. Para planes empresariales con funcionalidades especiales, acordamos un timeline claro desde el inicio.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">
-            ¿Puedo actualizar el contenido yo mismo?
+            <span data-i18n="faq.q3">¿Puedo actualizar el contenido yo mismo?</span>
             <span class="faq-arrow">+</span>
           </button>
-          <div class="faq-a">Sí. Según el plan, incluyes actualizaciones mensuales que nosotros hacemos por ti. Si prefieres un CMS para editarla tú solo, lo podemos configurar también.</div>
+          <div class="faq-a" data-i18n="faq.a3">Sí. Según el plan, incluyes actualizaciones mensuales que nosotros hacemos por ti. Si prefieres un CMS para editarla tú solo, lo podemos configurar también.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">
-            ¿El dominio me pertenece a mí?
+            <span data-i18n="faq.q4">¿El dominio me pertenece a mí?</span>
             <span class="faq-arrow">+</span>
           </button>
-          <div class="faq-a">Absolutamente. El dominio queda registrado a tu nombre. Si algún día decides cambiar de proveedor, el dominio es tuyo y puedes llevártelo sin ningún problema.</div>
+          <div class="faq-a" data-i18n="faq.a4">Absolutamente. El dominio queda registrado a tu nombre. Si algún día decides cambiar de proveedor, el dominio es tuyo y puedes llevártelo sin ningún problema.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">
-            ¿Pueden hacer tiendas online?
+            <span data-i18n="faq.q5">¿Pueden hacer tiendas online?</span>
             <span class="faq-arrow">+</span>
           </button>
-          <div class="faq-a">Sí. El plan Premium incluye una tienda básica. Para e-commerce avanzado con inventario, pasarelas de pago múltiples y gestión de pedidos, tenemos el plan Empresarial.</div>
+          <div class="faq-a" data-i18n="faq.a5">Sí. El plan Premium incluye una tienda básica. Para e-commerce avanzado con inventario, pasarelas de pago múltiples y gestión de pedidos, tenemos el plan Empresarial.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q">
-            ¿Trabajan con negocios fuera de Colombia?
+            <span data-i18n="faq.q6">¿Trabajan con negocios fuera de Colombia?</span>
             <span class="faq-arrow">+</span>
           </button>
-          <div class="faq-a">Sí, trabajamos con negocios de toda América Latina, España y otros países. Aceptamos pagos en USD, COP y EUR para mayor comodidad.</div>
+          <div class="faq-a" data-i18n="faq.a6">Sí, trabajamos con negocios de toda América Latina, España y otros países. Aceptamos pagos en USD, COP y EUR para mayor comodidad.</div>
         </div>
       </div>
     </div>
@@ -677,17 +694,17 @@
 <section id="cta-final" aria-labelledby="cta-heading">
   <div class="section-wrap">
     <div class="cta-box reveal">
-      <h2 id="cta-heading">Empieza hoy.<br>Tu web te espera.</h2>
-      <p>Únete a los negocios que ya confían en SiteFlowCol para su presencia digital.</p>
+      <h2 id="cta-heading" data-i18n-html="cta.title">Empieza hoy.<br>Tu web te espera.</h2>
+      <p data-i18n="cta.sub">Únete a los negocios que ya confían en SiteFlowCol para su presencia digital.</p>
       <div class="cta-actions">
         <div class="magnetic-wrap">
           <a href="https://wa.me/573239428161?text=Hola,%20quiero%20empezar%20con%20mi%20página%20web%20profesional"
-             class="btn-primary" target="_blank" rel="noopener" style="font-size:1.1rem;padding:1rem 2.5rem">
+             class="btn-primary" data-wa="start" target="_blank" rel="noopener" style="font-size:1.1rem;padding:1rem 2.5rem">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Hablar por WhatsApp
+            <span data-i18n="cta.wa">Hablar por WhatsApp</span>
           </a>
         </div>
-        <a href="#pricing" class="btn-ghost" style="font-size:1rem">Ver planes</a>
+        <a href="#pricing" class="btn-ghost" style="font-size:1rem" data-i18n="cta.plans">Ver planes</a>
       </div>
     </div>
   </div>
@@ -701,7 +718,7 @@
     <div class="footer-top">
       <div class="footer-brand-col">
         <a href="#hero" class="footer-logo">SiteFlowCol</a>
-        <p>Tu página web profesional, siempre activa y cuidada. Partner digital para negocios de todo el mundo.</p>
+        <p data-i18n="footer.tagline">Tu página web profesional, siempre activa y cuidada. Partner digital para negocios de todo el mundo.</p>
         <div class="footer-socials">
           <a href="https://wa.me/573239428161" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -712,25 +729,25 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Servicios</h5>
+        <h5 data-i18n="footer.services">Servicios</h5>
         <ul>
-          <li><a href="#benefits">Diseño Web</a></li>
-          <li><a href="#benefits">Hosting & Dominio</a></li>
-          <li><a href="#benefits">Mantenimiento</a></li>
-          <li><a href="#features">SEO & Analytics</a></li>
+          <li><a href="#benefits" data-i18n="footer.f1">Diseño Web</a></li>
+          <li><a href="#benefits" data-i18n="footer.f2">Hosting & Dominio</a></li>
+          <li><a href="#benefits" data-i18n="footer.f3">Mantenimiento</a></li>
+          <li><a href="#features" data-i18n="footer.f4">SEO & Analytics</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Empresa</h5>
+        <h5 data-i18n="footer.company">Empresa</h5>
         <ul>
-          <li><a href="#why">Por qué nosotros</a></li>
-          <li><a href="#process">Cómo funciona</a></li>
-          <li><a href="#testimonials">Testimonios</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#why" data-i18n="footer.c1">Por qué nosotros</a></li>
+          <li><a href="#process" data-i18n="footer.c2">Cómo funciona</a></li>
+          <li><a href="#testimonials" data-i18n="footer.c3">Testimonios</a></li>
+          <li><a href="#faq" data-i18n="footer.c4">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contacto</h5>
+        <h5 data-i18n="footer.contact">Contacto</h5>
         <ul>
           <li>
             <a href="https://wa.me/573239428161" target="_blank" rel="noopener">
@@ -746,16 +763,17 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 SiteFlowCol. Todos los derechos reservados.</p>
+      <p data-i18n="footer.copy">© 2025 SiteFlowCol. Todos los derechos reservados.</p>
       <div class="footer-legal">
-        <a href="#">Aviso legal</a>
-        <a href="#">Privacidad</a>
+        <a href="#" data-i18n="footer.legal">Aviso legal</a>
+        <a href="#" data-i18n="footer.privacy">Privacidad</a>
       </div>
     </div>
   </div>
 </footer>
 
  
+<script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
