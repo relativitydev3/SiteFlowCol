@@ -994,6 +994,91 @@ section { position: relative; z-index: 1; }
 .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.25rem; }
 
 /* ===================================================
+   CONTACTO
+=================================================== */
+#contact {
+  padding: 8rem 0;
+  background: var(--bg-base);
+}
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.contact-intro .s-subtitle { margin-bottom: 0; }
+.contact-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+}
+.form-group {
+  margin-bottom: 1.25rem;
+}
+.form-group label {
+  display: block;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: .5rem;
+  letter-spacing: .02em;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: .875rem 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, .15);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-honey {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+.contact-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: .5rem;
+  border: none;
+  cursor: pointer;
+}
+.contact-submit:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+.form-status {
+  margin-top: 1rem;
+  font-size: .875rem;
+  text-align: center;
+  min-height: 1.25rem;
+}
+.form-status.success { color: var(--teal); }
+.form-status.error { color: #f87171; }
+
+/* ===================================================
    CTA FINAL
 =================================================== */
 #cta-final {
@@ -1152,6 +1237,8 @@ section { position: relative; z-index: 1; }
   .nav-hamburger { display: flex; }
   .hero-stats { gap: 1.5rem; }
   .cta-box { padding: 3rem 1.5rem; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-form { padding: 1.5rem; }
 }
 @media (max-width: 480px) {
   .stats-inner { grid-template-columns: 1fr; }

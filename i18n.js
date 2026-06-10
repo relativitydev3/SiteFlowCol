@@ -212,6 +212,24 @@ window.SiteFlowI18n = (function () {
         q6: '¿Trabajan con negocios fuera de Colombia?',
         a6: 'Sí, trabajamos con negocios de toda América Latina, España y otros países. Aceptamos pagos en USD, COP y EUR para mayor comodidad.'
       },
+      contact: {
+        eyebrow: 'Contacto',
+        title: 'Escríbenos',
+        sub: 'Déjanos tu mensaje y te respondemos pronto a tu correo.',
+        emailLbl: 'Tu correo',
+        emailPh: 'tu@email.com',
+        phoneLbl: 'Tu número',
+        phonePh: '+57 300 000 0000',
+        msgLbl: 'Mensaje',
+        msgPh: 'Cuéntanos qué necesitas...',
+        send: 'Enviar mensaje',
+        sending: 'Enviando...',
+        success: '¡Mensaje enviado! Te responderemos pronto.',
+        error: 'No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.',
+        noConfig: 'Formulario sin configurar. Pega tu Access Key de web3forms.com en contact-config.js.',
+        fillAll: 'Completa tu correo, número y mensaje.',
+        formLink: 'Formulario de contacto'
+      },
       cta: {
         title: 'Empieza hoy.<br>Tu web te espera.',
         sub: 'Únete a los negocios que ya confían en SiteFlowCol para su presencia digital.',
@@ -452,6 +470,24 @@ window.SiteFlowI18n = (function () {
         a5: 'Yes. The Premium plan includes a basic store. For advanced e-commerce with inventory, multiple payment gateways and order management, we have the Enterprise plan.',
         q6: 'Do you work with businesses outside Colombia?',
         a6: 'Yes, we work with businesses across Latin America, Spain and other countries. We accept payments in USD, COP and EUR for your convenience.'
+      },
+      contact: {
+        eyebrow: 'Contact',
+        title: 'Write to us',
+        sub: 'Leave your message and we\'ll reply to your email soon.',
+        emailLbl: 'Your email',
+        emailPh: 'you@email.com',
+        phoneLbl: 'Your phone number',
+        phonePh: '+1 555 000 0000',
+        msgLbl: 'Message',
+        msgPh: 'Tell us what you need...',
+        send: 'Send message',
+        sending: 'Sending...',
+        success: 'Message sent! We\'ll get back to you soon.',
+        error: 'Could not send. Try again or message us on WhatsApp.',
+        noConfig: 'Form not configured. Add your Web3Forms Access Key in contact-config.js.',
+        fillAll: 'Please fill in your email, phone number and message.',
+        formLink: 'Contact form'
       },
       cta: {
         title: 'Start today.<br>Your site is waiting.',

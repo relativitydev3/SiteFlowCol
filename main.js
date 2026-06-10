@@ -374,6 +374,64 @@ window.addEventListener('resize', () => {
   if (activeBtn) moveCurIndicator(activeBtn, false);
 }, { passive: true });
 
+// ---- Formulario de contacto (Web3Forms — POST nativo) ----
+const contactForm = document.getElementById('contact-form');
+const contactStatus = document.getElementById('contact-status');
+
+if (contactForm) {
+  const redirectInput = document.getElementById('contact-redirect');
+  const nameInput = document.getElementById('contact-name');
+  const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+  const configKey = window.CONTACT_CONFIG?.accessKey?.trim();
+
+  if (configKey && accessKeyInput) accessKeyInput.value = configKey;
+
+  function contactReturnUrl() {
+    const base = window.location.href.split(/[?#]/)[0];
+    return `${base}?sent=1#contact`;
+  }
+
+  if (redirectInput) {
+    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+      redirectInput.value = contactReturnUrl();
+    } else {
+      redirectInput.removeAttribute('name');
+    }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === '1' && contactStatus) {
+    const t = window.SiteFlowI18n ? SiteFlowI18n.t.bind(SiteFlowI18n) : k => k;
+    contactStatus.className = 'form-status success';
+    contactStatus.textContent = t('contact.success');
+    history.replaceState(null, '', window.location.pathname + '#contact');
+  }
+
+  contactForm.addEventListener('submit', e => {
+    const email = contactForm.email.value.trim();
+    const phone = contactForm.phone.value.trim();
+    const message = contactForm.message.value.trim();
+    const t = window.SiteFlowI18n ? SiteFlowI18n.t.bind(SiteFlowI18n) : k => k;
+
+    if (!email || !phone || !message) {
+      e.preventDefault();
+      contactStatus.className = 'form-status error';
+      contactStatus.textContent = t('contact.fillAll');
+      return;
+    }
+
+    if (nameInput) nameInput.value = email;
+    if (redirectInput?.name === 'redirect') redirectInput.value = contactReturnUrl();
+
+    const btn = document.getElementById('contact-submit');
+    if (btn) btn.disabled = true;
+    if (contactStatus) {
+      contactStatus.className = 'form-status';
+      contactStatus.textContent = t('contact.sending');
+    }
+  });
+}
+
 // ---- FAQ accordion ----
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {

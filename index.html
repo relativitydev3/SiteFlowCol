@@ -689,6 +689,52 @@
 </section>
 
 <!-- ===================================================
+     CONTACTO
+=================================================== -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="section-wrap">
+    <div class="contact-wrap reveal">
+      <div class="contact-intro">
+        <span class="s-eyebrow" data-i18n="contact.eyebrow">Contacto</span>
+        <h2 class="s-title" id="contact-heading" data-i18n="contact.title">Escríbenos</h2>
+        <p class="s-subtitle" data-i18n="contact.sub">Déjanos tu mensaje y te respondemos pronto a tu correo.</p>
+      </div>
+      <form id="contact-form" class="contact-form"
+            action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="5cef9e65-f96a-4369-be32-4eae2165a616">
+        <input type="hidden" name="subject" value="Nuevo mensaje — SiteFlowCol">
+        <input type="hidden" name="from_name" value="SiteFlowCol Web">
+        <input type="hidden" name="name" id="contact-name" value="Visitante">
+        <input type="hidden" name="redirect" id="contact-redirect" value="">
+        <div class="form-group">
+          <label for="contact-email" data-i18n="contact.emailLbl">Tu correo</label>
+          <input type="email" id="contact-email" name="email" required
+                 autocomplete="email" placeholder="tu@email.com"
+                 data-i18n-attr="placeholder:contact.emailPh">
+        </div>
+        <div class="form-group">
+          <label for="contact-phone" data-i18n="contact.phoneLbl">Tu número</label>
+          <input type="tel" id="contact-phone" name="phone" required
+                 autocomplete="tel" placeholder="+57 300 000 0000"
+                 data-i18n-attr="placeholder:contact.phonePh">
+        </div>
+        <div class="form-group">
+          <label for="contact-message" data-i18n="contact.msgLbl">Mensaje</label>
+          <textarea id="contact-message" name="message" rows="5" required
+                    placeholder="Cuéntanos qué necesitas..."
+                    data-i18n-attr="placeholder:contact.msgPh"></textarea>
+        </div>
+        <input type="checkbox" name="botcheck" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn-primary contact-submit" id="contact-submit">
+          <span data-i18n="contact.send">Enviar mensaje</span>
+        </button>
+        <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
      CTA FINAL
 =================================================== -->
 <section id="cta-final" aria-labelledby="cta-heading">
@@ -755,6 +801,9 @@
             </a>
           </li>
           <li>
+            <a href="#contact" data-i18n="contact.formLink">Formulario de contacto</a>
+          </li>
+          <li>
             <a href="mailto:siteflowcol@gmail.com">
               ✉️ siteflowcol@gmail.com
             </a>
@@ -773,6 +822,7 @@
 </footer>
 
  
+<script src="contact-config.js"></script>
 <script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
