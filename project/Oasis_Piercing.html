@@ -3,11 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Oasis Piercing — Piercings de alta calidad en Titanio G23 y Acero 316L. Diseños exclusivos, envíos seguros a todo Colombia. Asesoría personalizada por WhatsApp.">
-<meta name="keywords" content="piercings colombia, piercings titanio, helix, nariz, ombligo, joyería corporal, piercing medellín">
-<meta property="og:title" content="Oasis Piercing — Piercings Premium Colombia">
-<meta property="og:description" content="Materiales implant-grade, diseños exclusivos y envíos a todo el país.">
-<title>Oasis Piercing — Alta Joyería Corporal</title>
+<meta name="description" content="Oasis Piercing: piercings en Titanio G23 y Acero 316L. +160 diseños, envío gratis en Colombia desde $80.000 COP. Asesoría por WhatsApp y garantía 30 días.">
+<meta name="keywords" content="piercings colombia, joyería corporal colombia, piercing titanio g23, comprar piercings online, piercing helix, piercing septum, envío gratis colombia, oasis piercing">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Oasis Piercing">
+<meta name="theme-color" content="#050507">
+<meta name="geo.region" content="CO">
+<meta name="geo.placename" content="Colombia">
+<meta name="format-detection" content="telephone=yes">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oasis Piercing">
+<meta property="og:title" content="Oasis Piercing | Piercings Titanio G23 — Envío Gratis Colombia">
+<meta property="og:description" content="+160 diseños en Titanio G23 y Acero 316L. Envío gratis desde $80.000 COP. Asesoría por WhatsApp.">
+<meta property="og:url" content="https://siteflowcol.com/project/Oasis_Piercing.html">
+<meta property="og:locale" content="es_CO">
+<meta property="og:image" content="https://siteflowcol.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Oasis Piercing — Piercings premium en Colombia">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Oasis Piercing | Piercings Titanio G23 — Envío Gratis Colombia">
+<meta name="twitter:description" content="+160 diseños. Envío gratis desde $80.000 COP. Compra por WhatsApp.">
+<meta name="twitter:image" content="https://siteflowcol.com/og-image.png">
+<title>Oasis Piercing | Piercings Titanio G23 — Envío Gratis Colombia</title>
+<link rel="canonical" href="https://siteflowcol.com/project/Oasis_Piercing.html">
+<link rel="alternate" hreflang="es" href="https://siteflowcol.com/project/Oasis_Piercing.html">
+<link rel="alternate" hreflang="x-default" href="https://siteflowcol.com/project/Oasis_Piercing.html">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +39,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<link rel="preload" href="oasis-piercing.css" as="style">
 <link rel="stylesheet" href="oasis-piercing.css">
 
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
 <!-- PROGRESS BAR -->
 <div id="scroll-progress"></div>
@@ -79,6 +103,7 @@
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-footer" id="cartFooter" hidden>
+      <p class="cart-shipping-note" id="cartShippingNote"></p>
       <div class="cart-total-row">
         <span class="cart-total-lbl">Total</span>
         <span class="cart-total-val" id="cartTotal">$0</span>
@@ -92,6 +117,8 @@
   </aside>
 </div>
 <div class="cart-toast" id="cartToast" role="status" aria-live="polite"></div>
+
+<main id="main-content">
 
 <!-- ============================================================
      HERO
@@ -113,7 +140,7 @@
     <span class="gem">🔮</span>
   </div>
 
-  <div class="hero-inner" role="main">
+  <div class="hero-inner">
     <div class="hero-eyebrow" id="heroEyebrow">
       <div class="hero-eyebrow-dot"></div>
       Nueva Colección 2025
@@ -121,7 +148,7 @@
     <h1 class="hero-h1" id="heroH1">
       Joyería corporal<br>que <span class="line-italic">te define.</span>
     </h1>
-    <p class="hero-sub" id="heroSub">Piercings implant-grade en Titanio G23 y Acero 316L. Diseños exclusivos, asesoría personalizada y envíos seguros a toda Colombia.</p>
+    <p class="hero-sub" id="heroSub">Piercings implant-grade en Titanio G23 y Acero 316L. +160 diseños, envío gratis desde $80.000 COP y asesoría personalizada por WhatsApp en toda Colombia.</p>
     <div class="hero-actions" id="heroActions">
       <a href="#productos" class="btn-primary btn-magnetic">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -134,7 +161,7 @@
     </div>
     <div class="hero-trust" id="heroTrust">
       <div class="trust-item"><div class="trust-icon">✓</div>Titanio G23 implant-grade</div>
-      <div class="trust-item"><div class="trust-icon">✓</div>Envío a todo Colombia</div>
+      <div class="trust-item"><div class="trust-icon">✓</div>Envío gratis desde $80.000 COP</div>
       <div class="trust-item"><div class="trust-icon">✓</div>Garantía 30 días</div>
     </div>
   </div>
@@ -151,6 +178,7 @@
     <div class="marquee-item gold"><div class="marquee-dot"></div>Titanio G23</div>
     <div class="marquee-item">Acero 316L</div>
     <div class="marquee-item gold"><div class="marquee-dot"></div>Sin alérgenos</div>
+    <div class="marquee-item gold"><div class="marquee-dot"></div>Envío gratis +$80k</div>
     <div class="marquee-item">Envíos Colombia</div>
     <div class="marquee-item gold"><div class="marquee-dot"></div>+400 Diseños</div>
     <div class="marquee-item">Garantía 30 días</div>
@@ -159,11 +187,166 @@
     <div class="marquee-item gold"><div class="marquee-dot"></div>Titanio G23</div>
     <div class="marquee-item">Acero 316L</div>
     <div class="marquee-item gold"><div class="marquee-dot"></div>Sin alérgenos</div>
+    <div class="marquee-item gold"><div class="marquee-dot"></div>Envío gratis +$80k</div>
     <div class="marquee-item">Envíos Colombia</div>
     <div class="marquee-item gold"><div class="marquee-dot"></div>+400 Diseños</div>
     <div class="marquee-item">Garantía 30 días</div>
     <div class="marquee-item gold"><div class="marquee-dot"></div>Oro PVD 18k</div>
     <div class="marquee-item">Asesoría gratis</div>
+  </div>
+</div>
+
+<div class="shipping-strip" role="note" aria-label="Envío gratis en Colombia">
+  <span class="shipping-strip-icon" aria-hidden="true">🚚</span>
+  <span><strong>Envío gratis en Colombia</strong> en compras desde <strong>$80.000 COP</strong></span>
+</div>
+
+<!-- ============================================================
+     CATEGORIES
+     ============================================================ -->
+<section class="cat-section" id="categorias" aria-labelledby="cat-title">
+  <div class="container text-center">
+    <span class="s-eyebrow">Colecciones</span>
+    <h2 class="s-title" id="cat-title">Encuentra tu<br><em>estilo perfecto</em></h2>
+    <p class="s-sub">Cada zona, una historia. 160 piezas en catálogo.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card" data-delay="0" data-cat="oreja" role="button" tabindex="0" aria-label="Filtrar productos de Oreja">
+      <div class="cat-bg-emoji" aria-hidden="true">👂</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Oreja</div>
+        <div class="cat-count">20 diseños · Helix, Tragus, Conch</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0.1" data-cat="nariz" role="button" tabindex="0" aria-label="Filtrar productos de Nariz">
+      <div class="cat-bg-emoji" aria-hidden="true">💎</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Nariz</div>
+        <div class="cat-count">20 diseños · Nostril, Septum</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0.2" data-cat="ombligo" role="button" tabindex="0" aria-label="Filtrar productos de Ombligo">
+      <div class="cat-bg-emoji" aria-hidden="true">🌊</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Ombligo</div>
+        <div class="cat-count">20 diseños · Curved Barbell</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0.1" data-cat="ceja" role="button" tabindex="0" aria-label="Filtrar productos de Ceja">
+      <div class="cat-bg-emoji" aria-hidden="true">✨</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Ceja</div>
+        <div class="cat-count">20 diseños · Curved y Straight</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0.2" data-cat="labio" role="button" tabindex="0" aria-label="Filtrar productos de Labio">
+      <div class="cat-bg-emoji" aria-hidden="true">🌟</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Labio</div>
+        <div class="cat-count">20 diseños · Labret, Monroe</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0.3" data-cat="industrial" role="button" tabindex="0" aria-label="Filtrar productos Industrial">
+      <div class="cat-bg-emoji" aria-hidden="true">⚡</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Industrial</div>
+        <div class="cat-count">20 diseños · Straight Barbell</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0" data-cat="lengua" role="button" tabindex="0" aria-label="Filtrar productos de Lengua">
+      <div class="cat-bg-emoji" aria-hidden="true">👅</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Lengua</div>
+        <div class="cat-count">20 diseños · Barbell y gemas</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+    <div class="cat-card" data-delay="0.1" data-cat="pesones" role="button" tabindex="0" aria-label="Filtrar productos de Pesones">
+      <div class="cat-bg-emoji" aria-hidden="true">💎</div>
+      <div class="cat-grad"></div><div class="cat-shine"></div>
+      <div class="cat-body">
+        <div class="cat-name">Pesones</div>
+        <div class="cat-count">20 diseños · Barbell, aro y escudo</div>
+        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS
+     ============================================================ -->
+<section class="prod-section" id="productos" aria-labelledby="prod-title">
+  <div class="container text-center">
+    <span class="s-eyebrow">Catálogo</span>
+    <h2 class="s-title" id="prod-title">Los favoritos de<br><em>nuestros clientes</em></h2>
+    <p class="s-sub">Filtra por categoría y encuentra el piercing ideal para ti.</p>
+    <p class="shipping-note">🚚 Envío gratis a todo Colombia en pedidos desde $80.000 COP</p>
+  </div>
+  <div class="prod-filters-wrap">
+    <div class="prod-filters" id="prodFilters" role="tablist" aria-label="Filtrar por categoría"></div>
+    <p class="prod-filter-count" id="prodFilterCount" aria-live="polite"></p>
+  </div>
+  <div class="prod-grid" id="prodGrid"></div>
+  <p class="prod-empty" id="prodEmpty" hidden>No hay productos en esta categoría por ahora.</p>
+  <nav class="prod-pagination" id="prodPagination" aria-label="Paginación de productos" hidden></nav>
+</section>
+
+<!-- Product detail modal -->
+<div class="prod-modal" id="prodModal" aria-hidden="true">
+  <div class="prod-modal-overlay" data-close-modal></div>
+  <div class="prod-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="prodModalTitle">
+    <button type="button" class="prod-modal-close" id="prodModalClose" aria-label="Cerrar detalle">×</button>
+    <div class="prod-modal-layout">
+      <div class="prod-modal-gallery">
+        <div class="prod-modal-main-wrap" id="prodModalMainWrap">
+          <img class="prod-modal-main-img" id="prodModalMainImg" src="" alt="">
+          <span class="prod-modal-main-fallback" id="prodModalMainFallback" hidden aria-hidden="true"></span>
+        </div>
+        <div class="prod-modal-thumbs" id="prodModalThumbs"></div>
+      </div>
+      <div class="prod-modal-info">
+        <span class="prod-modal-sku" id="prodModalSku"></span>
+        <span class="prod-modal-badge" id="prodModalBadge"></span>
+        <div class="prod-modal-cat" id="prodModalCat"></div>
+        <h3 class="prod-modal-title" id="prodModalTitle"></h3>
+        <div class="prod-modal-mat" id="prodModalMat"></div>
+        <p class="prod-modal-desc" id="prodModalDesc"></p>
+        <div class="prod-modal-meta">
+          <div class="prod-modal-meta-item">
+            <div class="prod-modal-meta-lbl">Categoría</div>
+            <div class="prod-modal-meta-val" id="prodModalMetaCat"></div>
+          </div>
+          <div class="prod-modal-meta-item">
+            <div class="prod-modal-meta-lbl">Tipo</div>
+            <div class="prod-modal-meta-val" id="prodModalMetaType"></div>
+          </div>
+          <div class="prod-modal-meta-item">
+            <div class="prod-modal-meta-lbl">Código</div>
+            <div class="prod-modal-meta-val" id="prodModalMetaSku"></div>
+          </div>
+          <div class="prod-modal-meta-item">
+            <div class="prod-modal-meta-lbl">Material</div>
+            <div class="prod-modal-meta-val" id="prodModalMetaMat"></div>
+          </div>
+        </div>
+        <div class="prod-modal-price" id="prodModalPrice"></div>
+        <div class="prod-modal-actions" id="prodModalActions"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -278,153 +461,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     CATEGORIES
-     ============================================================ -->
-<section class="cat-section" id="categorias" aria-labelledby="cat-title">
-  <div class="container text-center">
-    <span class="s-eyebrow">Colecciones</span>
-    <h2 class="s-title" id="cat-title">Encuentra tu<br><em>estilo perfecto</em></h2>
-    <p class="s-sub">Cada zona, una historia. 160 piezas en catálogo.</p>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card" data-delay="0" data-cat="oreja" role="button" tabindex="0" aria-label="Filtrar productos de Oreja">
-      <div class="cat-bg-emoji" aria-hidden="true">👂</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Oreja</div>
-        <div class="cat-count">20 diseños · Helix, Tragus, Conch</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0.1" data-cat="nariz" role="button" tabindex="0" aria-label="Filtrar productos de Nariz">
-      <div class="cat-bg-emoji" aria-hidden="true">💎</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Nariz</div>
-        <div class="cat-count">20 diseños · Nostril, Septum</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0.2" data-cat="ombligo" role="button" tabindex="0" aria-label="Filtrar productos de Ombligo">
-      <div class="cat-bg-emoji" aria-hidden="true">🌊</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Ombligo</div>
-        <div class="cat-count">20 diseños · Curved Barbell</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0.1" data-cat="ceja" role="button" tabindex="0" aria-label="Filtrar productos de Ceja">
-      <div class="cat-bg-emoji" aria-hidden="true">✨</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Ceja</div>
-        <div class="cat-count">20 diseños · Curved y Straight</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0.2" data-cat="labio" role="button" tabindex="0" aria-label="Filtrar productos de Labio">
-      <div class="cat-bg-emoji" aria-hidden="true">🌟</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Labio</div>
-        <div class="cat-count">20 diseños · Labret, Monroe</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0.3" data-cat="industrial" role="button" tabindex="0" aria-label="Filtrar productos Industrial">
-      <div class="cat-bg-emoji" aria-hidden="true">⚡</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Industrial</div>
-        <div class="cat-count">20 diseños · Straight Barbell</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0" data-cat="lengua" role="button" tabindex="0" aria-label="Filtrar productos de Lengua">
-      <div class="cat-bg-emoji" aria-hidden="true">👅</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Lengua</div>
-        <div class="cat-count">20 diseños · Barbell y gemas</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-    <div class="cat-card" data-delay="0.1" data-cat="pesones" role="button" tabindex="0" aria-label="Filtrar productos de Pesones">
-      <div class="cat-bg-emoji" aria-hidden="true">💎</div>
-      <div class="cat-grad"></div><div class="cat-shine"></div>
-      <div class="cat-body">
-        <div class="cat-name">Pesones</div>
-        <div class="cat-count">20 diseños · Barbell, aro y escudo</div>
-        <span class="cat-link">Ver productos <span class="cat-link-arrow">→</span></span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     PRODUCTS
-     ============================================================ -->
-<section class="prod-section" id="productos" aria-labelledby="prod-title">
-  <div class="container text-center">
-    <span class="s-eyebrow">Catálogo</span>
-    <h2 class="s-title" id="prod-title">Los favoritos de<br><em>nuestros clientes</em></h2>
-    <p class="s-sub">Filtra por categoría y encuentra el piercing ideal para ti.</p>
-  </div>
-  <div class="prod-filters-wrap">
-    <div class="prod-filters" id="prodFilters" role="tablist" aria-label="Filtrar por categoría"></div>
-    <p class="prod-filter-count" id="prodFilterCount" aria-live="polite"></p>
-  </div>
-  <div class="prod-grid" id="prodGrid"></div>
-  <p class="prod-empty" id="prodEmpty" hidden>No hay productos en esta categoría por ahora.</p>
-  <nav class="prod-pagination" id="prodPagination" aria-label="Paginación de productos" hidden></nav>
-</section>
-
-<!-- Product detail modal -->
-<div class="prod-modal" id="prodModal" aria-hidden="true">
-  <div class="prod-modal-overlay" data-close-modal></div>
-  <div class="prod-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="prodModalTitle">
-    <button type="button" class="prod-modal-close" id="prodModalClose" aria-label="Cerrar detalle">×</button>
-    <div class="prod-modal-layout">
-      <div class="prod-modal-gallery">
-        <div class="prod-modal-main-wrap" id="prodModalMainWrap">
-          <img class="prod-modal-main-img" id="prodModalMainImg" src="" alt="">
-          <span class="prod-modal-main-fallback" id="prodModalMainFallback" hidden aria-hidden="true"></span>
-        </div>
-        <div class="prod-modal-thumbs" id="prodModalThumbs"></div>
-      </div>
-      <div class="prod-modal-info">
-        <span class="prod-modal-sku" id="prodModalSku"></span>
-        <span class="prod-modal-badge" id="prodModalBadge"></span>
-        <div class="prod-modal-cat" id="prodModalCat"></div>
-        <h3 class="prod-modal-title" id="prodModalTitle"></h3>
-        <div class="prod-modal-mat" id="prodModalMat"></div>
-        <p class="prod-modal-desc" id="prodModalDesc"></p>
-        <div class="prod-modal-meta">
-          <div class="prod-modal-meta-item">
-            <div class="prod-modal-meta-lbl">Categoría</div>
-            <div class="prod-modal-meta-val" id="prodModalMetaCat"></div>
-          </div>
-          <div class="prod-modal-meta-item">
-            <div class="prod-modal-meta-lbl">Tipo</div>
-            <div class="prod-modal-meta-val" id="prodModalMetaType"></div>
-          </div>
-          <div class="prod-modal-meta-item">
-            <div class="prod-modal-meta-lbl">Código</div>
-            <div class="prod-modal-meta-val" id="prodModalMetaSku"></div>
-          </div>
-          <div class="prod-modal-meta-item">
-            <div class="prod-modal-meta-lbl">Material</div>
-            <div class="prod-modal-meta-val" id="prodModalMetaMat"></div>
-          </div>
-        </div>
-        <div class="prod-modal-price" id="prodModalPrice"></div>
-        <div class="prod-modal-actions" id="prodModalActions"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ============================================================
      STATS
@@ -618,7 +655,7 @@
         ¿Cuánto tiempo tarda el envío?
         <span class="faq-toggle" aria-hidden="true">+</span>
       </button>
-      <div class="faq-body" role="region"><p>Enviamos a toda Colombia en 2–5 días hábiles. Ciudades principales como Bogotá, Medellín, Cali y Barranquilla reciben en 2–3 días. Cada pedido incluye número de seguimiento y empaque discreto para mayor privacidad.</p></div>
+      <div class="faq-body" role="region"><p>Enviamos a toda Colombia en 2–5 días hábiles. Ciudades principales como Bogotá, Medellín, Cali y Barranquilla reciben en 2–3 días. El envío es <strong>gratis en pedidos desde $80.000 COP</strong>. Cada pedido incluye número de seguimiento y empaque discreto para mayor privacidad.</p></div>
     </div>
     <div class="faq-item" role="listitem" data-delay="0.14">
       <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
@@ -660,13 +697,15 @@
   <div class="cta-inner reveal" id="ctaContent">
     <span class="s-eyebrow">Tu estilo te espera</span>
     <h2 class="cta-title">Encuentra el piercing<br><em>perfecto para ti.</em></h2>
-    <p class="cta-sub">+400 diseños disponibles · Asesoría gratis · Envío seguro a Colombia</p>
+    <p class="cta-sub">+160 diseños · Envío gratis desde $80.000 COP · Asesoría gratis por WhatsApp</p>
     <a href="https://wa.me/573156819093?text=Hola Oasis Piercing! Quiero ver el catálogo completo 💎" class="cta-wa-big btn-magnetic" target="_blank" rel="noopener" aria-label="Abrir catálogo en WhatsApp">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 01-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
       <span>Hablar por WhatsApp ahora</span>
     </a>
   </div>
 </section>
+
+</main>
 
 <!-- ============================================================
      FOOTER
@@ -725,6 +764,8 @@
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 01-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 
+<script src="oasis-config.js"></script>
+<script src="oasis-seo.js"></script>
 <script src="oasis-piercing.js" defer></script>
 
 </body>

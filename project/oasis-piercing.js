@@ -427,6 +427,7 @@ function initProductModal() {
    SHOPPING CART
    ----------------------------------------------------------- */
 const CART_STORAGE_KEY = 'oasis-piercing-cart';
+const FREE_SHIPPING_MIN = 80000;
 let cart = [];
 let cartToastTimer;
 
@@ -507,7 +508,26 @@ function buildCartWhatsAppMessage() {
     return block;
   }).filter(Boolean);
 
-  return `¡Hola! Quiero hacer el siguiente pedido en Oasis Piercing:\n\n${blocks.join('\n\n')}\n\n*Total pedido: ${formatPrice(getCartTotal())}*\n\n¿Podrían confirmar disponibilidad y forma de pago? ¡Gracias!`;
+  const total = getCartTotal();
+  const shippingLine = total >= FREE_SHIPPING_MIN
+    ? '\n🚚 *Envío gratis en Colombia*'
+    : `\n🚚 Envío gratis desde ${formatPrice(FREE_SHIPPING_MIN)}`;
+
+  return `¡Hola! Quiero hacer el siguiente pedido en Oasis Piercing:\n\n${blocks.join('\n\n')}\n\n*Total pedido: ${formatPrice(total)}*${shippingLine}\n\n¿Podrían confirmar disponibilidad y forma de pago? ¡Gracias!`;
+}
+
+function updateCartShippingNote() {
+  const note = document.getElementById('cartShippingNote');
+  if (!note) return;
+  const total = getCartTotal();
+  if (total >= FREE_SHIPPING_MIN) {
+    note.innerHTML = '🚚 <strong>¡Envío gratis en Colombia!</strong> Tu pedido califica.';
+    note.classList.add('is-free');
+  } else {
+    const remaining = FREE_SHIPPING_MIN - total;
+    note.innerHTML = `🚚 Envío gratis desde <strong>${formatPrice(FREE_SHIPPING_MIN)}</strong> · Te faltan <strong>${formatPrice(remaining)}</strong>`;
+    note.classList.remove('is-free');
+  }
 }
 
 function sendCartToWhatsApp() {
@@ -540,6 +560,7 @@ function renderCart() {
   emptyEl.hidden = true;
   footerEl.hidden = false;
   if (totalEl) totalEl.textContent = formatPrice(getCartTotal());
+  updateCartShippingNote();
 
   itemsEl.innerHTML = cart.map(item => {
     const p = PRODUCTS_BY_SKU[item.sku];
