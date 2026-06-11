@@ -132,11 +132,11 @@ No hace falta configurar nada en Google para que exista; Google lo encuentra sol
 
 ### ¿Para qué sirve?
 
-**Mapa del sitio** en formato XML. Le dice a Google qué URLs existen, en qué idiomas y cuándo se actualizaron.
+**Mapa del sitio** en formato XML. Le dice a Google qué páginas tienes, en qué idiomas están y cuándo se actualizaron. Sin enviarlo a Google, el archivo existe pero **Google no lo usa automáticamente** para indexarte más rápido.
 
 ### Contenido actual
 
-Una sola página (landing):
+Una sola página (tu landing principal):
 
 - `https://siteflowcol.com/`
 - Idiomas: `es`, `en`, `x-default`
@@ -146,16 +146,111 @@ Una sola página (landing):
 
 https://siteflowcol.com/sitemap.xml
 
-### ¿Cuándo editarlo?
+---
 
-Si añades páginas nuevas (blog, aviso legal, privacidad, etc.), agrega un bloque `<url>` por cada una.
+## Qué tienes que hacer con `sitemap.xml` (paso a paso)
 
-### Registro en Google (obligatorio para aprovecharlo)
+### Paso 1 — Subir el archivo a producción
 
-1. Entra a [Google Search Console](https://search.google.com/search-console)
-2. Añade la propiedad `siteflowcol.com` (verifica dominio o DNS)
-3. Menú **Sitemaps** → pega: `https://siteflowcol.com/sitemap.xml`
-4. Clic en **Enviar**
+El archivo ya está en tu proyecto. Solo debes **subirlo a GitHub** junto con el resto del sitio:
+
+```bash
+git add sitemap.xml
+git commit -m "Añadir sitemap para SEO"
+git push
+```
+
+Espera 1–2 minutos y abre en el navegador:
+
+**https://siteflowcol.com/sitemap.xml**
+
+Si ves código XML (no un error 404), está bien desplegado. **No tienes que editar nada más** mientras solo tengas una página.
+
+---
+
+### Paso 2 — Registrar el sitio en Google Search Console (solo la primera vez)
+
+1. Entra a **[Google Search Console](https://search.google.com/search-console)** con tu cuenta de Google.
+2. Clic en **Añadir propiedad**.
+3. Elige **Prefijo de URL** y escribe: `https://siteflowcol.com`
+4. Google te pedirá **verificar** que el sitio es tuyo. Opciones habituales:
+   - **Etiqueta HTML** — copias un código y lo pegas en `index.html` (dentro de `<head>`), subes el cambio y pulsas Verificar.
+   - **DNS** — si tienes acceso al dominio, añades un registro TXT que Google te indique.
+5. Cuando diga **Propiedad verificada**, ya puedes usar Search Console.
+
+---
+
+### Paso 3 — Enviar el sitemap a Google (lo importante)
+
+1. Dentro de Search Console, selecciona la propiedad **siteflowcol.com**.
+2. En el menú lateral izquierdo, entra a **Sitemaps** (o *Mapas del sitio*).
+3. En el campo **Añadir un sitemap nuevo**, escribe solo esto:
+
+   ```
+   sitemap.xml
+   ```
+
+   (No hace falta pegar la URL completa; Google ya conoce tu dominio.)
+
+4. Clic en **Enviar**.
+5. En unos minutos el estado debería pasar a **Correcto** o **Éxito**.
+
+**Eso es todo.** Google empezará a usar el mapa para rastrear e indexar tu página. Puede tardar **días o semanas** en aparecer en búsquedas.
+
+---
+
+### Paso 4 — Comprobar que funcionó
+
+En Search Console revisa:
+
+| Sección | Qué buscar |
+|---------|------------|
+| **Sitemaps** | Estado "Correcto", 1 URL detectada |
+| **Páginas** | Tu URL indexada (puede tardar) |
+| **Rendimiento** | Impresiones y clics cuando empieces a salir en Google |
+
+También puedes buscar en Google:
+
+```
+site:siteflowcol.com
+```
+
+Si aparece tu página, Google ya la indexó.
+
+---
+
+### ¿Cuándo editar `sitemap.xml`?
+
+**Ahora mismo: no toques nada.** El archivo ya está bien para una sola landing.
+
+**Edítalo solo si** añades páginas nuevas, por ejemplo:
+
+- `https://siteflowcol.com/blog.html`
+- `https://siteflowcol.com/aviso-legal.html`
+
+Copia este bloque por cada página nueva y pégalo dentro de `<urlset>`:
+
+```xml
+<url>
+  <loc>https://siteflowcol.com/nueva-pagina.html</loc>
+  <lastmod>2026-06-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+```
+
+Cambia la fecha en `<lastmod>` y vuelve a hacer **push**. En Search Console, Google detectará el cambio solo (no hace falta reenviar el sitemap cada vez).
+
+---
+
+### Errores frecuentes
+
+| Problema | Solución |
+|----------|----------|
+| `sitemap.xml` da 404 | No está subido a GitHub o el deploy no terminó |
+| Google dice "No se ha podido obtener" | Espera unos minutos y vuelve a enviar |
+| Llevo semanas y no aparezco en Google | Normal al inicio; revisa que Search Console no muestre errores |
+| Cambié de dominio | Actualiza todas las URLs dentro de `sitemap.xml` y `robots.txt` |
 
 ---
 
