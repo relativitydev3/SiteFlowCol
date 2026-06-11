@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oasis Piercing — Piercings de Alta Calidad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #8B6F35;
+    --silver: #A8B8C8;
+    --neon: #4FC8FF;
+    --neon-dim: #1A6A99;
+    --bg: #080A0E;
+    --bg2: #0D1018;
+    --bg3: #111520;
+    --surface: rgba(255,255,255,0.03);
+    --surface2: rgba(255,255,255,0.06);
+    --border: rgba(201,168,76,0.15);
+    --text: #F0EDE8;
+    --text-dim: #8A8880;
+    --text-mid: #C8C4BE;
+    --radius: 16px;
+    --radius-lg: 24px;
+    --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CURSOR */
+  .cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.3s var(--transition), height 0.3s var(--transition), background 0.3s;
+    mix-blend-mode: screen;
+  }
+  .cursor-follower {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s var(--transition), width 0.3s, height 0.3s, border-color 0.3s;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(8,10,14,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    transition: all 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(8,10,14,0.97);
+    border-bottom-color: rgba(201,168,76,0.12);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .logo span {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s var(--transition);
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: var(--bg) !important;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    transition: all 0.3s !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3) !important;
+  }
+
+  /* SECTIONS BASE */
+  section { position: relative; overflow: hidden; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 80px;
+    background: var(--bg);
+    position: relative;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(79,200,255,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 30% at 85% 15%, rgba(201,168,76,0.05) 0%, transparent 50%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+  @keyframes heroGlow {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+  }
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+  .hero-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 100px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s var(--transition) both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.15s var(--transition) both;
+  }
+  h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--neon) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    max-width: 480px;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.25s var(--transition) both;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+    animation: fadeUp 0.8s 0.35s var(--transition) both;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: #080A0E;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 100px;
+    border: none;
+    cursor: none;
+    transition: all 0.4s var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .btn-primary:hover::before { opacity: 1; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(201,168,76,0.35); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: none;
+    transition: all 0.4s var(--transition);
+    backdrop-filter: blur(10px);
+  }
+  .btn-wa:hover {
+    background: rgba(37,211,102,0.12);
+    border-color: rgba(37,211,102,0.4);
+    color: #25D366;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(37,211,102,0.15);
+  }
+  .btn-wa svg, .btn-primary svg { width: 18px; height: 18px; position: relative; z-index: 1; }
+  .trust-badges {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s var(--transition) both;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+  }
+  .trust-check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .trust-check::after {
+    content: '✓';
+    font-size: 9px;
+    color: var(--gold);
+  }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+  .hero-visual-inner {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #111520 0%, #0D1525 50%, #0A1020 100%);
+  }
+  .hero-rings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ring-group {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    animation: ringRotate 20s linear infinite;
+  }
+  .ring:nth-child(1) {
+    inset: 0;
+    border-color: rgba(201,168,76,0.2);
+    animation-duration: 25s;
+  }
+  .ring:nth-child(2) {
+    inset: 40px;
+    border-color: rgba(79,200,255,0.15);
+    animation-duration: 18s;
+    animation-direction: reverse;
+  }
+  .ring:nth-child(3) {
+    inset: 80px;
+    border-color: rgba(201,168,76,0.1);
+    animation-duration: 30s;
+  }
+  .ring-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(201,168,76,0.5);
+  }
+  @keyframes ringRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .piercing-display {
+    position: absolute;
+    inset: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, rgba(79,200,255,0.05) 50%, transparent 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  .hero-visual-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+  }
+  .floating-card {
+    position: absolute;
+    background: rgba(13,16,24,0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    padding: 14px 20px;
+    font-size: 12px;
+    animation: floatCard 5s ease-in-out infinite;
+  }
+  .floating-card:nth-child(1) {
+    top: 25%;
+    right: 8%;
+    animation-delay: 0s;
+  }
+  .floating-card:nth-child(2) {
+    bottom: 28%;
+    right: 15%;
+    animation-delay: 2.5s;
+  }
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-12px) rotate(1deg); }
+  }
+  .card-label { color: var(--text-dim); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .card-value { color: var(--gold-light); font-weight: 600; font-size: 15px; }
+
+  /* SCROLL INDICATOR */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s both;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* STATS */
+  .stats-section {
+    padding: 100px 40px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .stat-item {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s var(--transition);
+  }
+  .stat-item.visible { opacity: 1; transform: translateY(0); }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(54px, 8vw, 80px);
+    font-weight: 300;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(180deg, transparent, var(--border), transparent);
+    margin: 0 auto;
+  }
+  .stars-display {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .star { color: var(--gold); font-size: 20px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s var(--transition);
+  }
+  .section-header.visible { opacity: 1; transform: translateY(0); }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  h2 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* CATEGORIES */
+  .categories-section {
+    padding: 120px 40px;
+    background: var(--bg);
+  }
+  .categories-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .cat-card {
+    position: relative;
+    height: 280px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: none;
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    transition: all 0.7s var(--transition), box-shadow 0.4s;
+    background: var(--bg3);
+  }
+  .cat-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+  .cat-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,168,76,0.2);
+    transform: translateY(-8px) scale(1.01) !important;
+  }
+  .cat-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cat-card:hover .cat-bg { transform: scale(1.08); }
+  .cat-emoji {
+    font-size: 72px;
+    filter: drop-shadow(0 0 30px rgba(201,168,76,0.3));
+    transition: transform 0.4s var(--transition), filter 0.4s;
+  }
+  .cat-card:hover .cat-emoji {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 50px rgba(201,168,76,0.5));
+  }
+  .cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(8,10,14,0.95) 100%);
+  }
+  .cat-overlay-hover {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(79,200,255,0.04));
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .cat-card:hover .cat-overlay-hover { opacity: 1; }
+  .cat-content {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    padding: 28px;
+    transform: translateY(8px);
+    transition: transform 0.4s var(--transition);
+  }
+  .cat-card:hover .cat-content { transform: translateY(0); }
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cat-count { font-size: 12px; color: var(--text-dim); letter-spacing: 1px; margin-bottom: 16px; }
+  .cat-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s 0.05s var(--transition);
+    text-decoration: none;
+  }
+  .cat-card:hover .cat-btn { opacity: 1; transform: translateY(0); }
+  .cat-btn::after { content: '→'; transition: transform 0.3s; }
+  .cat-btn:hover::after { transform: translateX(4px); }
+  .cat-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.5s var(--transition);
+  }
+  .cat-card:hover .cat-accent { transform: scaleX(1); }
+  .cat-bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+
+  /* PRODUCTS */
+  .products-section {
+    padding: 120px 40px;
+    background: var(--bg2);
+  }
+  .products-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .product-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: none;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s var(--transition), transform 0.7s var(--transition),
+                box-shadow 0.4s, border-color 0.4s;
+    position: relative;
+  }
+  .product-card.visible { opacity: 1; transform: translateY(0); }
+  .product-card:hover {
+    border-color: rgba(201,168,76,0.35);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    transform: translateY(-6px) !important;
+  }
+  .product-img {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(79,200,255,0.03));
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+  .product-card:hover .product-img { background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(79,200,255,0.05)); }
+  .product-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: var(--bg);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+  .product-info { padding: 20px; }
+  .product-category {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .product-material {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .product-price {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .product-price span {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+  .product-actions { display: flex; gap: 10px; }
+  .prod-btn-buy {
+    flex: 1;
+    padding: 11px 16px;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px;
+    cursor: none;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+  }
+  .prod-btn-buy:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    box-shadow: 0 8px 25px rgba(201,168,76,0.3);
+  }
+  .prod-btn-wa {
+    padding: 11px 16px;
+    background: rgba(37,211,102,0.1);
+    color: #25D366;
+    font-size: 12px;
+    border: 1px solid rgba(37,211,102,0.25);
+    border-radius: 100px;
+    cursor: none;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .prod-btn-wa:hover {
+    background: rgba(37,211,102,0.2);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.15);
+  }
+
+  /* BENEFITS */
+  .benefits-section {
+    padding: 120px 40px;
+    background: var(--bg);
+  }
+  .benefits-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  .benefit-card {
+    padding: 36px 28px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s var(--transition), box-shadow 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .benefit-card.visible { opacity: 1; transform: translateY(0); }
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.5s var(--transition);
+  }
+  .benefit-card:hover::before { transform: scaleX(1); }
+  .benefit-card:hover {
+    border-color: rgba(201,168,76,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    transform: translateY(-6px) !important;
+  }
+  .benefit-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 24px;
+    transition: all 0.4s;
+  }
+  .benefit-card:hover .benefit-icon {
+    background: rgba(201,168,76,0.12);
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 0 30px rgba(201,168,76,0.2);
+  }
+  .benefit-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .benefit-text { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+
+  /* TESTIMONIALS */
+  .testimonials-section {
+    padding: 120px 40px;
+    background: var(--bg2);
+    overflow: hidden;
+  }
+  .testimonials-track {
+    display: flex;
+    gap: 24px;
+    margin-top: 60px;
+    animation: testimonialScroll 30s linear infinite;
+    width: max-content;
+  }
+  .testimonials-track:hover { animation-play-state: paused; }
+  @keyframes testimonialScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .testimonial-card {
+    width: 340px;
+    flex-shrink: 0;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .testimonial-card:hover { border-color: rgba(201,168,76,0.3); }
+  .testimonial-quote {
+    font-size: 40px;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 0.8;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 2px solid rgba(201,168,76,0.3);
+  }
+  .testimonial-name { font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 2px; }
+  .testimonial-location { font-size: 12px; color: var(--text-dim); }
+  .testimonial-stars { color: var(--gold); font-size: 12px; margin-top: 2px; }
+
+  /* GALLERY */
+  .gallery-section {
+    padding: 120px 40px;
+    background: var(--bg);
+  }
+  .gallery-masonry {
+    max-width: 1100px;
+    margin: 0 auto;
+    columns: 4;
+    column-gap: 16px;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+    cursor: none;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.6s var(--transition);
+    background: var(--bg3);
+  }
+  .gallery-item.visible { opacity: 1; transform: scale(1); }
+  .gallery-item:hover { border-color: rgba(201,168,76,0.3); }
+  .gallery-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(79,200,255,0.03));
+    transition: transform 0.5s var(--transition);
+  }
+  .gallery-item:hover .gallery-img { transform: scale(1.05); }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8,10,14,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-icon { color: var(--gold); font-size: 24px; }
+  .gallery-h1 { height: 220px; }
+  .gallery-h2 { height: 160px; }
+  .gallery-h3 { height: 280px; }
+  .gallery-h4 { height: 190px; }
+
+  /* FAQ */
+  .faq-section {
+    padding: 120px 40px;
+    background: var(--bg2);
+  }
+  .faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s var(--transition), transform 0.5s var(--transition);
+  }
+  .faq-item.visible { opacity: 1; transform: translateX(0); }
+  .faq-question {
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    cursor: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text);
+    transition: color 0.3s;
+    list-style: none;
+  }
+  .faq-item.open .faq-question { color: var(--gold-light); }
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 18px;
+    transition: all 0.4s var(--transition);
+    line-height: 1;
+  }
+  .faq-item.open .faq-icon {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.4);
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s var(--transition), padding 0.4s;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 24px; }
+  .faq-answer p {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* CTA FINAL */
+  .cta-section {
+    padding: 140px 40px;
+    background: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(79,200,255,0.05) 0%, transparent 60%);
+    animation: heroGlow 6s ease-in-out infinite alternate;
+  }
+  .cta-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  .cta-content h2 {
+    font-size: clamp(44px, 6vw, 72px);
+    margin-bottom: 20px;
+  }
+  .cta-sub {
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-bottom: 50px;
+    font-weight: 300;
+  }
+  .cta-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 50px;
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 100px;
+    cursor: none;
+    transition: all 0.4s var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(37,211,102,0.25);
+  }
+  .cta-wa-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #25D366, #34D978);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .cta-wa-btn:hover::before { opacity: 1; }
+  .cta-wa-btn:hover { transform: translateY(-4px); box-shadow: 0 30px 80px rgba(37,211,102,0.35); }
+  .cta-wa-btn span, .cta-wa-btn svg { position: relative; z-index: 1; }
+  .cta-wa-btn svg { width: 24px; height: 24px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 60px 40px 40px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .footer-brand .logo { display: block; margin-bottom: 16px; }
+  .footer-desc { font-size: 14px; color: var(--text-dim); line-height: 1.8; margin-bottom: 24px; font-weight: 300; }
+  .footer-socials { display: flex; gap: 12px; }
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: none;
+  }
+  .social-btn:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-3px);
+  }
+  .footer-col h4 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a {
+    font-size: 14px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 300;
+  }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .footer-love { color: var(--gold); }
+
+  /* ANIMATE UTILITIES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* GLASSMORPHISM DIVIDER */
+  .glass-divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* MOBILE NAV */
+  .nav-hamburger { display: none; }
+
+  /* NEON ACCENT LINE */
+  .neon-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon), transparent);
+    opacity: 0.4;
+    animation: neonPulse 3s ease-in-out infinite;
+  }
+  @keyframes neonPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    text-decoration: none;
+    z-index: 90;
+    cursor: none;
+    transition: all 0.3s;
+    animation: waPulseRing 3s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.12); box-shadow: 0 15px 50px rgba(37,211,102,0.5); }
+  .wa-float svg { width: 28px; height: 28px; color: white; }
+  @keyframes waPulseRing {
+    0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
+    50% { box-shadow: 0 8px 30px rgba(37,211,102,0.4), 0 0 0 15px rgba(37,211,102,0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .hero-visual { display: none; }
+    .hero-content { max-width: 100%; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .gallery-masonry { columns: 3; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 80px; }
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-wa { justify-content: center; }
+    .stats-inner { grid-template-columns: 1fr; gap: 40px; }
+    .stat-divider { width: 80px; height: 1px; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .gallery-masonry { columns: 2; }
+    .footer-top { grid-template-columns: 1fr; gap: 30px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    section { padding-left: 24px !important; padding-right: 24px !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">Oasis <span>Piercing</span></a>
+  <ul class="nav-links">
+    <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://wa.me/573001234567" class="nav-cta">WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Nueva Colección 2025</div>
+    <h1>Piercings que<br><em>reflejan</em><br>tu estilo.</h1>
+    <p class="hero-sub">Calidad premium, diseños exclusivos y envíos seguros a todo el país. Encuentra el piercing que siempre imaginaste.</p>
+    <div class="hero-ctas">
+      <a href="#productos" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span>Comprar Ahora</span>
+      </a>
+      <a href="https://wa.me/573001234567" class="btn-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Hablar por WhatsApp
+      </a>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-item"><div class="trust-check"></div>Envíos nacionales</div>
+      <div class="trust-item"><div class="trust-check"></div>Materiales de alta calidad</div>
+      <div class="trust-item"><div class="trust-check"></div>Atención personalizada</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-inner"></div>
+    <div class="hero-rings">
+      <div class="ring-group">
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="ring"><div class="ring-dot"></div></div>
+        <div class="piercing-display">💎</div>
+      </div>
+    </div>
+    <div class="floating-card">
+      <div class="card-label">Material</div>
+      <div class="card-value">Titanio G23</div>
+    </div>
+    <div class="floating-card">
+      <div class="card-label">Satisfacción</div>
+      <div class="card-value">★★★★★</div>
+    </div>
+    <div class="hero-visual-overlay"></div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stat-item" data-animate>
+      <div class="stat-number" data-count="500">0</div>
+      <div class="stat-label">Clientes Felices</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item" data-animate style="transition-delay:0.15s">
+      <div class="stat-number" data-count="1000">0</div>
+      <div class="stat-label">Productos Vendidos</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item" data-animate style="transition-delay:0.3s">
+      <div class="stars-display">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="stat-label">Satisfacción garantizada</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categorias">
+  <div class="section-header" data-animate>
+    <span class="section-eyebrow">✦ Colecciones</span>
+    <h2>Encuentra tu<br><em>estilo perfecto</em></h2>
+    <p class="section-sub">Cada categoría diseñada para resaltar tu personalidad única.</p>
+  </div>
+  <div class="categories-grid" style="max-width:1200px;margin:0 auto">
+    <div class="cat-card" data-animate>
+      <div class="cat-bg"><div class="cat-bg-gradient"></div><div class="cat-emoji">👂</div></div>
+      <div class="cat-overlay"></div><div class="cat-overlay-hover"></div><div class="cat-accent"></div>
+      <div class="cat-content">
+        <div class="cat-name">Oreja</div>
+        <div class="cat-count">+120 diseños disponibles</div>
+        <a href="https://wa.me/573001234567" class="cat-btn">Ver colección</a>
+      </div>
+    </div>
+    <div class="cat-card" data-animate style="transition-delay:0.1s">
+      <div class="cat-bg"><div class="cat-bg-gradient"></div><div class="cat-emoji">💎</div></div>
+      <div class="cat-overlay"></div><div class="cat-overlay-hover"></div><div class="cat-accent"></div>
+      <div class="cat-content">
+        <div class="cat-name">Nariz</div>
+        <div class="cat-count">+85 diseños disponibles</div>
+        <a href="https://wa.me/573001234567" class="cat-btn">Ver colección</a>
+      </div>
+    </div>
+    <div class="cat-card" data-animate style="transition-delay:0.2s">
+      <div class="cat-bg"><div class="cat-bg-gradient"></div><div class="cat-emoji">🌊</div></div>
+      <div class="cat-overlay"></div><div class="cat-overlay-hover"></div><div class="cat-accent"></div>
+      <div class="cat-content">
+        <div class="cat-name">Ombligo</div>
+        <div class="cat-count">+60 diseños disponibles</div>
+        <a href="https://wa.me/573001234567" class="cat-btn">Ver colección</a>
+      </div>
+    </div>
+    <div class="cat-card" data-animate style="transition-delay:0.1s">
+      <div class="cat-bg"><div class="cat-bg-gradient"></div><div class="cat-emoji">✨</div></div>
+      <div class="cat-overlay"></div><div class="cat-overlay-hover"></div><div class="cat-accent"></div>
+      <div class="cat-content">
+        <div class="cat-name">Ceja</div>
+        <div class="cat-count">+45 diseños disponibles</div>
+        <a href="https://wa.me/573001234567" class="cat-btn">Ver colección</a>
+      </div>
+    </div>
+    <div class="cat-card" data-animate style="transition-delay:0.2s">
+      <div class="cat-bg"><div class="cat-bg-gradient"></div><div class="cat-emoji">🌟</div></div>
+      <div class="cat-overlay"></div><div class="cat-overlay-hover"></div><div class="cat-accent"></div>
+      <div class="cat-content">
+        <div class="cat-name">Labio</div>
+        <div class="cat-count">+55 diseños disponibles</div>
+        <a href="https://wa.me/573001234567" class="cat-btn">Ver colección</a>
+      </div>
+    </div>
+    <div class="cat-card" data-animate style="transition-delay:0.3s">
+      <div class="cat-bg"><div class="cat-bg-gradient"></div><div class="cat-emoji">⚡</div></div>
+      <div class="cat-overlay"></div><div class="cat-overlay-hover"></div><div class="cat-accent"></div>
+      <div class="cat-content">
+        <div class="cat-name">Industrial</div>
+        <div class="cat-count">+35 diseños disponibles</div>
+        <a href="https://wa.me/573001234567" class="cat-btn">Ver colección</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="productos">
+  <div class="section-header" data-animate>
+    <span class="section-eyebrow">✦ Más Vendidos</span>
+    <h2>Nuestros<br><em>favoritos</em></h2>
+    <p class="section-sub">Los piercings que nuestros clientes más aman, ahora con envío seguro.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card" data-animate>
+      <div class="product-img"><span class="product-badge">🔥 Top 1</span>💎</div>
+      <div class="product-info">
+        <div class="product-category">Oreja</div>
+        <div class="product-name">Helix de Titanio con Cristal</div>
+        <div class="product-material">Titanio G23 implant-grade · Libre de alérgenos</div>
+        <div class="product-price">$35.000 <span>$48.000</span></div>
+        <div class="product-actions">
+          <button class="prod-btn-buy" onclick="window.open('https://wa.me/573001234567?text=Hola! Quiero comprar el Helix de Titanio con Cristal','_blank')">Comprar</button>
+          <a href="https://wa.me/573001234567?text=Hola! Me interesa el Helix de Titanio" class="prod-btn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-animate style="transition-delay:0.1s">
+      <div class="product-img"><span class="product-badge">⭐ Nuevo</span>🌟</div>
+      <div class="product-info">
+        <div class="product-category">Nariz</div>
+        <div class="product-name">Aro Dorado con Opalo</div>
+        <div class="product-material">Acero quirúrgico 316L · Oro PVD 18k</div>
+        <div class="product-price">$28.000 <span>$38.000</span></div>
+        <div class="product-actions">
+          <button class="prod-btn-buy" onclick="window.open('https://wa.me/573001234567?text=Hola! Quiero comprar el Aro Dorado con Opalo','_blank')">Comprar</button>
+          <a href="https://wa.me/573001234567?text=Hola! Me interesa el Aro Dorado con Opalo" class="prod-btn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-animate style="transition-delay:0.2s">
+      <div class="product-img"><span class="product-badge">💫 Premium</span>🔮</div>
+      <div class="product-info">
+        <div class="product-category">Ombligo</div>
+        <div class="product-name">Curved Barbell con Zirconia</div>
+        <div class="product-material">Titanio G23 · Zirconia cúbica AAA</div>
+        <div class="product-price">$42.000 <span>$55.000</span></div>
+        <div class="product-actions">
+          <button class="prod-btn-buy" onclick="window.open('https://wa.me/573001234567?text=Hola! Quiero comprar el Curved Barbell con Zirconia','_blank')">Comprar</button>
+          <a href="https://wa.me/573001234567?text=Hola! Me interesa el Curved Barbell" class="prod-btn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-animate style="transition-delay:0.3s">
+      <div class="product-img"><span class="product-badge">🏆 Bestseller</span>⚡</div>
+      <div class="product-info">
+        <div class="product-category">Industrial</div>
+        <div class="product-name">Industrial Bar Minimalista</div>
+        <div class="product-material">Acero inoxidable 316L · Anodizado negro</div>
+        <div class="product-price">$38.000 <span>$50.000</span></div>
+        <div class="product-actions">
+          <button class="prod-btn-buy" onclick="window.open('https://wa.me/573001234567?text=Hola! Quiero comprar el Industrial Bar','_blank')">Comprar</button>
+          <a href="https://wa.me/573001234567?text=Hola! Me interesa el Industrial Bar Minimalista" class="prod-btn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-section">
+  <div class="section-header" data-animate>
+    <span class="section-eyebrow">✦ Por qué elegirnos</span>
+    <h2>Tu seguridad es<br><em>nuestra prioridad</em></h2>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card" data-animate>
+      <div class="benefit-icon">🛡️</div>
+      <div class="benefit-title">Materiales Seguros</div>
+      <div class="benefit-text">Solo usamos Titanio G23 y Acero 316L, los estándares más altos de la industria. Sin reacciones alérgicas.</div>
+    </div>
+    <div class="benefit-card" data-animate style="transition-delay:0.1s">
+      <div class="benefit-icon">💎</div>
+      <div class="benefit-title">Diseños Exclusivos</div>
+      <div class="benefit-text">Colecciones únicas que no encontrarás en otro lugar. Cada pieza es seleccionada por nuestros expertos.</div>
+    </div>
+    <div class="benefit-card" data-animate style="transition-delay:0.2s">
+      <div class="benefit-icon">🚀</div>
+      <div class="benefit-title">Envíos Rápidos</div>
+      <div class="benefit-text">Enviamos a todo el país en 2-5 días hábiles. Empaque discreto y seguro con número de seguimiento.</div>
+    </div>
+    <div class="benefit-card" data-animate style="transition-delay:0.3s">
+      <div class="benefit-icon">💬</div>
+      <div class="benefit-title">Soporte Personalizado</div>
+      <div class="benefit-text">Nuestro equipo te asesora para encontrar el piercing ideal según tu anatomía y estilo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header" data-animate>
+    <span class="section-eyebrow">✦ Testimonios</span>
+    <h2>Lo que dicen<br><em>nuestros clientes</em></h2>
+  </div>
+  <div style="overflow:hidden;margin: 0 -40px;">
+    <div class="testimonials-track">
+      <!-- First set -->
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Increíble calidad. El helix de titanio llegó perfecto, sin señales de irritación. Definitivamente compro de nuevo.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩</div>
+          <div>
+            <div class="testimonial-name">Valentina M.</div>
+            <div class="testimonial-location">Medellín, Antioquia</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Llegó en 3 días y el empaque era tan bonito que lo guardé. El piercing de nariz es exactamente lo que buscaba.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👱</div>
+          <div>
+            <div class="testimonial-name">Camila R.</div>
+            <div class="testimonial-location">Bogotá, Cundinamarca</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Llevo 3 piercings de Oasis y todos con calidad impecable. La atención por WhatsApp es rapidísima y muy amable.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🧑</div>
+          <div>
+            <div class="testimonial-name">Santiago P.</div>
+            <div class="testimonial-location">Cali, Valle del Cauca</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">El curved barbell para ombligo es hermoso. La zirconia brilla muchísimo y no me ha generado ninguna alergia.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩‍🦱</div>
+          <div>
+            <div class="testimonial-name">María F.</div>
+            <div class="testimonial-location">Barranquilla, Atlántico</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Me asesoraron perfecto para elegir el tamaño correcto. El industrial bar me quedó como anillo al dedo. 10/10.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🧑‍🎤</div>
+          <div>
+            <div class="testimonial-name">Julián A.</div>
+            <div class="testimonial-location">Pereira, Risaralda</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Increíble calidad. El helix de titanio llegó perfecto, sin señales de irritación. Definitivamente compro de nuevo.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩</div>
+          <div>
+            <div class="testimonial-name">Valentina M.</div>
+            <div class="testimonial-location">Medellín, Antioquia</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Llegó en 3 días y el empaque era tan bonito que lo guardé. El piercing de nariz es exactamente lo que buscaba.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👱</div>
+          <div>
+            <div class="testimonial-name">Camila R.</div>
+            <div class="testimonial-location">Bogotá, Cundinamarca</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Llevo 3 piercings de Oasis y todos con calidad impecable. La atención por WhatsApp es rapidísima y muy amable.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🧑</div>
+          <div>
+            <div class="testimonial-name">Santiago P.</div>
+            <div class="testimonial-location">Cali, Valle del Cauca</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">El curved barbell para ombligo es hermoso. La zirconia brilla muchísimo y no me ha generado ninguna alergia.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩‍🦱</div>
+          <div>
+            <div class="testimonial-name">María F.</div>
+            <div class="testimonial-location">Barranquilla, Atlántico</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-text">Me asesoraron perfecto para elegir el tamaño correcto. El industrial bar me quedó como anillo al dedo. 10/10.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🧑‍🎤</div>
+          <div>
+            <div class="testimonial-name">Julián A.</div>
+            <div class="testimonial-location">Pereira, Risaralda</div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="galeria">
+  <div class="section-header" data-animate>
+    <span class="section-eyebrow">✦ Galería</span>
+    <h2>Inspiración<br><em>sin límites</em></h2>
+    <p class="section-sub">Cada piercing, una historia. Descubre combinaciones únicas.</p>
+  </div>
+  <div class="gallery-masonry">
+    <div class="gallery-item gallery-h1" data-animate style="background:linear-gradient(135deg,#111520,#0D1525)">
+      <div class="gallery-img gallery-h1" style="font-size:60px">💎</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h3" data-animate style="transition-delay:0.1s;background:linear-gradient(135deg,#0D1525,#111520)">
+      <div class="gallery-img gallery-h3" style="font-size:80px">⭐</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h2" data-animate style="transition-delay:0.2s;background:linear-gradient(135deg,#0A1020,#111520)">
+      <div class="gallery-img gallery-h2" style="font-size:50px">🌟</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h4" data-animate style="transition-delay:0.05s;background:linear-gradient(135deg,#111520,#0A1020)">
+      <div class="gallery-img gallery-h4" style="font-size:55px">✨</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h2" data-animate style="transition-delay:0.15s;background:linear-gradient(135deg,#0D1525,#0A1020)">
+      <div class="gallery-img gallery-h2" style="font-size:50px">💫</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h1" data-animate style="transition-delay:0.25s;background:linear-gradient(135deg,#111520,#0D1525)">
+      <div class="gallery-img gallery-h1" style="font-size:65px">🔮</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h3" data-animate style="transition-delay:0.05s;background:linear-gradient(135deg,#0A1020,#111520)">
+      <div class="gallery-img gallery-h3" style="font-size:70px">⚡</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+    <div class="gallery-item gallery-h1" data-animate style="transition-delay:0.2s;background:linear-gradient(135deg,#0D1525,#111520)">
+      <div class="gallery-img gallery-h1" style="font-size:60px">🪩</div>
+      <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header" data-animate>
+    <span class="section-eyebrow">✦ FAQ</span>
+    <h2>Preguntas<br><em>frecuentes</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" data-animate>
+      <div class="faq-question" onclick="toggleFaq(this)">
+        ¿Qué materiales usan en sus piercings?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Trabajamos exclusivamente con Titanio G23 implant-grade, Acero Quirúrgico 316L y Oro PVD 18k. Todos nuestros materiales son hipoalergénicos, libres de níquel y cumplen con los estándares ASTM F136 para joyería corporal. Ideales incluso para piercings recién realizados.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-animate style="transition-delay:0.1s">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        ¿Cuánto tiempo tarda el envío?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Realizamos envíos a todo Colombia en 2-5 días hábiles dependiendo de tu ciudad. Ciudades principales (Bogotá, Medellín, Cali, Barranquilla) suelen recibir en 2-3 días. Cada pedido incluye número de seguimiento y empaque discreto para mayor privacidad.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-animate style="transition-delay:0.15s">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        ¿Cuáles son los métodos de pago?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Aceptamos Nequi, Daviplata, transferencias bancarias (Bancolombia, Davivienda, Banco de Bogotá) y pagos en efectivo contra entrega en ciudades principales. También puedes pagar contra entrega con un pequeño recargo. Coordinamos todo fácilmente por WhatsApp.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-animate style="transition-delay:0.2s">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        ¿Tienen garantía sus productos?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sí. Todos nuestros piercings tienen garantía de 30 días contra defectos de fabricación. Si tu piercing presenta algún problema de calidad, lo cambiamos sin costo adicional. Solo necesitas enviarnos el producto con su empaque original.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-animate style="transition-delay:0.25s">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        ¿Me pueden asesorar para elegir el tamaño correcto?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>¡Por supuesto! Nuestro equipo de asesores te guía por WhatsApp para elegir el gauge (grosor), diámetro y estilo adecuado según la zona de tu piercing. Solo necesitas enviarnos una foto y te recomendamos la mejor opción.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-animate style="transition-delay:0.3s">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        ¿Puedo hacer pedidos personalizados?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sí, manejamos pedidos por encargo para diseños especiales, combinaciones de colores o medidas específicas. El tiempo de entrega para pedidos personalizados es de 7-15 días hábiles. Contáctanos por WhatsApp para cotizar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-grid-lines"></div>
+  <div class="cta-content" data-animate>
+    <span class="section-eyebrow">✦ Tu estilo te espera</span>
+    <h2>Encuentra el piercing<br><em>perfecto para ti.</em></h2>
+    <p class="cta-sub">Más de 300 diseños disponibles. Asesoría gratuita. Envío seguro.</p>
+    <a href="https://wa.me/573001234567?text=Hola Oasis Piercing! Quiero ver el catálogo completo 💎" class="cta-wa-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <span>Hablar por WhatsApp ahora</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="logo">Oasis <span>Piercing</span></a>
+        <p class="footer-desc">Piercings de alta calidad para quienes no se conforman con lo ordinario. Materiales premium, diseños exclusivos y atención personalizada.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Instagram">📸</a>
+          <a href="https://wa.me/573001234567" class="social-btn" title="WhatsApp">💬</a>
+          <a href="#" class="social-btn" title="TikTok">🎵</a>
+          <a href="#" class="social-btn" title="Facebook">👤</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#productos">Más vendidos</a></li>
+          <li><a href="https://wa.me/573001234567">Catálogo completo</a></li>
+          <li><a href="https://wa.me/573001234567">Pedidos especiales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="https://wa.me/573001234567">Guía de tallas</a></li>
+          <li><a href="https://wa.me/573001234567">Política de envíos</a></li>
+          <li><a href="https://wa.me/573001234567">Garantías</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573001234567">+57 300 123 4567</a></li>
+          <li><a href="mailto:hola@oasispiercing.co">hola@oasispiercing.co</a></li>
+          <li><a href="#">@oasispiercing</a></li>
+          <li><a href="#">Colombia 🇨🇴</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Oasis Piercing. Todos los derechos reservados.</span>
+      <span>Hecho con <span class="footer-love">♥</span> para los amantes del estilo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/573001234567?text=Hola Oasis Piercing! 👋" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.067 23.213a.75.75 0 00.921.921l5.373-1.443A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.773-.518-5.349-1.424l-.38-.214-3.941 1.059 1.059-3.941-.214-.38A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursorFollower');
+let mx = 0, my = 0, fx = 0, fy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  fx += (mx - fx) * 0.12;
+  fy += (my - fy) * 0.12;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+  follower.style.left = fx + 'px';
+  follower.style.top = fy + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .cat-card, .product-card, .gallery-item, .faq-question').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '16px'; cursor.style.height = '16px';
+    cursor.style.background = 'var(--neon)';
+    follower.style.width = '56px'; follower.style.height = '56px';
+    follower.style.borderColor = 'rgba(79,200,255,0.5)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '10px'; cursor.style.height = '10px';
+    cursor.style.background = 'var(--gold)';
+    follower.style.width = '36px'; follower.style.height = '36px';
+    follower.style.borderColor = 'rgba(201,168,76,0.4)';
+  });
+});
+
+// NAVBAR SCROLL
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// COUNTER ANIMATION
+function animateCounter(el, target, duration = 2000) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = '+' + target.toLocaleString(); clearInterval(timer); }
+    else { el.textContent = '+' + Math.floor(start).toLocaleString(); }
+  }, 16);
+}
+
+// INTERSECTION OBSERVER
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Counter
+      const counter = entry.target.querySelector('[data-count]');
+      if (counter && !counter.dataset.animated) {
+        counter.dataset.animated = '1';
+        animateCounter(counter, parseInt(counter.dataset.count));
+      }
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('[data-animate], .stat-item, .cat-card, .product-card, .benefit-card, .gallery-item, .faq-item').forEach(el => observer.observe(el));
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
