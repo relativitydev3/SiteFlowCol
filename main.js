@@ -1,9 +1,9 @@
-// ---- GSAP ScrollTrigger setup ----
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// ---- i18n arranca solo en i18n.js ----
 
-// ---- i18n (async: detecta país, luego SEO) ----
-if (window.SiteFlowI18n) SiteFlowI18n.init();
-else if (window.SiteFlowSEO) SiteFlowSEO.init();
+// ---- GSAP ScrollTrigger setup ----
+if (typeof gsap !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+}
 
 // ---- Scroll Progress ----
 const progressBar = document.getElementById('scroll-progress');

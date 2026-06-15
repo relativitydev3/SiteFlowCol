@@ -825,14 +825,16 @@ window.SiteFlowI18n = (function () {
 
   async function detectLangFromCountry() {
     try {
-      const res = await fetch('/api/geo', { cache: 'no-store' });
+      const res = await fetch('/api/geo', { cache: 'no-store', credentials: 'same-origin' });
       if (res.ok) {
-        const { lang: geoLang } = await res.json();
-        if (LANGS.includes(geoLang)) return geoLang;
+        const data = await res.json();
+        if (LANGS.includes(data.lang)) return data.lang;
       }
     } catch (_) {}
     return langFromNavigator();
   }
+
+  const geoLangPromise = detectLangFromCountry();
 
   function resolve(obj, path) {
     return path.split('.').reduce((o, k) => (o && o[k] != null ? o[k] : null), obj);
@@ -935,20 +937,32 @@ window.SiteFlowI18n = (function () {
     });
   }
 
-  async function init() {
-    cacheElements();
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => setLang(btn.dataset.lang, true));
-    });
+  let initPromise = null;
 
-    lang = await detectLangFromCountry();
-    syncLangButtons();
-    document.querySelectorAll('.lang-switch').forEach(w => w.classList.add('ready'));
-    moveLangIndicators(false);
-    applyContent(false);
-    window.addEventListener('resize', () => moveLangIndicators(false), { passive: true });
-    window.addEventListener('load', () => moveLangIndicators(false));
-    if (window.SiteFlowSEO) SiteFlowSEO.init();
+  async function init() {
+    if (initPromise) return initPromise;
+    initPromise = (async () => {
+      cacheElements();
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLang(btn.dataset.lang, true));
+      });
+
+      lang = await geoLangPromise;
+      syncLangButtons();
+      document.querySelectorAll('.lang-switch').forEach(w => w.classList.add('ready'));
+      moveLangIndicators(false);
+      applyContent(false);
+      window.addEventListener('resize', () => moveLangIndicators(false), { passive: true });
+      window.addEventListener('load', () => moveLangIndicators(false));
+      if (window.SiteFlowSEO) SiteFlowSEO.init();
+    })();
+    return initPromise;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => init());
+  } else {
+    init();
   }
 
   return { init, setLang, t, getLang: () => lang };
