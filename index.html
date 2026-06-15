@@ -27,9 +27,10 @@
   <link rel="canonical" href="https://siteflowcol.com/">
   <link rel="alternate" hreflang="es" href="https://siteflowcol.com/">
   <link rel="alternate" hreflang="en" href="https://siteflowcol.com/">
+  <link rel="alternate" hreflang="de" href="https://siteflowcol.com/">
   <link rel="alternate" hreflang="x-default" href="https://siteflowcol.com/">
   <script>
-    (function(){var l=localStorage.getItem('siteflow-lang');var n=(navigator.language||'es').toLowerCase();document.documentElement.lang=l==='en'||l==='es'?l:(n.startsWith('en')?'en':'es');})();
+    (function(){var l=localStorage.getItem('siteflow-lang');var n=(navigator.language||'es').toLowerCase();document.documentElement.lang=l==='en'||l==='es'||l==='de'?l:(n.startsWith('en')?'en':n.startsWith('de')?'de':'es');})();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +70,7 @@
           <span class="lang-indicator" aria-hidden="true"></span>
           <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
         </div>
       </li>
       <li>
@@ -96,6 +98,7 @@
     <span class="lang-indicator" aria-hidden="true"></span>
     <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
     <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
   </div>
   <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
      data-wa="quote" target="_blank" rel="noopener" style="color: var(--accent-soft);" data-i18n="nav.waMobile">💬 Cotizar por WhatsApp</a>

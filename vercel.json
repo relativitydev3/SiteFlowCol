@@ -1,8 +1,13 @@
 {
   "rewrites": [
-    { "source": "/proyec", "destination": "/proyec/Oasis_Piercing.html" },
-    { "source": "/proyec/", "destination": "/proyec/Oasis_Piercing.html" },
-    { "source": "/proyec/oasis-piercing", "destination": "/proyec/Oasis_Piercing.html" },
-    { "source": "/proyec/oasis-piercing/", "destination": "/proyec/Oasis_Piercing.html" }
+    { "source": "/project", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/project/", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/project/oasis-piercing", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/project/oasis-piercing/", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/proyec", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/proyec/", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/proyec/oasis-piercing", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/proyec/oasis-piercing/", "destination": "/project/Oasis_Piercing.html" },
+    { "source": "/proyec/Oasis_Piercing.html", "destination": "/project/Oasis_Piercing.html" }
   ]
 }

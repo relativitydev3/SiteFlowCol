@@ -192,9 +192,9 @@ body::before {
 .lang-btn {
   position: relative;
   z-index: 1;
-  padding: .3rem .65rem;
+  padding: .3rem .5rem;
   border-radius: 50px;
-  font-size: .72rem;
+  font-size: .68rem;
   font-weight: 700;
   letter-spacing: .04em;
   color: var(--text-muted);

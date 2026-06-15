@@ -9,6 +9,18 @@ window.SiteFlowSEO = (function () {
   function siteUrl() { return (cfg().url || '').replace(/\/$/, '') || window.location.origin; }
   function t(key) { return window.SiteFlowI18n?.t(key) ?? ''; }
 
+  function langPick(lang, es, en, de) {
+    if (lang === 'en') return en;
+    if (lang === 'de') return de;
+    return es;
+  }
+
+  function ogLocale(lang) {
+    if (lang === 'en') return 'en_US';
+    if (lang === 'de') return 'de_DE';
+    return 'es_CO';
+  }
+
   function setMeta(attr, key, value) {
     let el = document.querySelector(`meta[${attr}="${key}"]`);
     if (!el) {
@@ -53,7 +65,7 @@ window.SiteFlowSEO = (function () {
         telephone: cfg().phone,
         email: cfg().email,
         contactType: 'customer service',
-        availableLanguage: ['Spanish', 'English']
+        availableLanguage: ['Spanish', 'English', 'German']
       },
       sameAs: [
         `https://wa.me/${cfg().whatsapp || '573239428161'}`
@@ -67,13 +79,16 @@ window.SiteFlowSEO = (function () {
       name,
       url,
       description: desc,
-      inLanguage: ['es', 'en'],
+      inLanguage: ['es', 'en', 'de'],
       publisher: { '@id': `${url}/#organization` }
     };
 
-    const serviceName = lang === 'en'
-      ? 'Website and landing page creation'
-      : 'Creación de páginas web y landing pages';
+    const serviceName = langPick(
+      lang,
+      'Creación de páginas web y landing pages',
+      'Website and landing page creation',
+      'Website- und Landing-Page-Erstellung'
+    );
 
     const service = {
       '@context': 'https://schema.org',
@@ -106,16 +121,19 @@ window.SiteFlowSEO = (function () {
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: lang === 'en' ? 'Web development plans' : 'Planes de páginas web',
+        name: langPick(lang, 'Planes de páginas web', 'Web development plans', 'Website-Entwicklungstarife'),
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: lang === 'en' ? 'Business website' : 'Página web para negocios' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: lang === 'en' ? 'Professional landing page' : 'Landing page profesional' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: lang === 'en' ? 'Web design and development' : 'Diseño y desarrollo web' } }
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: langPick(lang, 'Página web para negocios', 'Business website', 'Unternehmenswebsite') } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: langPick(lang, 'Landing page profesional', 'Professional landing page', 'Professionelle Landing Page') } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: langPick(lang, 'Diseño y desarrollo web', 'Web design and development', 'Webdesign und Entwicklung') } }
         ]
       },
-      serviceType: lang === 'en'
-        ? 'Website creation, landing page design, web development, hosting and maintenance'
-        : 'Creación de páginas web, diseño de landing pages, desarrollo web, hosting y mantenimiento'
+      serviceType: langPick(
+        lang,
+        'Creación de páginas web, diseño de landing pages, desarrollo web, hosting y mantenimiento',
+        'Website creation, landing page design, web development, hosting and maintenance',
+        'Website-Erstellung, Landing-Page-Design, Webentwicklung, Hosting und Wartung'
+      )
     };
 
     const webPage = {
@@ -125,7 +143,7 @@ window.SiteFlowSEO = (function () {
       url,
       name: t('meta.title'),
       description: desc,
-      inLanguage: lang === 'en' ? 'en' : 'es',
+      inLanguage: lang,
       isPartOf: { '@id': `${url}/#website` },
       about: cfg().services || ['Creación de páginas web', 'Landing pages', 'Desarrollo web'],
       primaryImageOfPage: ogImage
@@ -179,7 +197,7 @@ window.SiteFlowSEO = (function () {
     setMeta('property', 'og:title', ogTitle);
     setMeta('property', 'og:description', ogDesc);
     setMeta('property', 'og:url', url);
-    setMeta('property', 'og:locale', lang === 'en' ? 'en_US' : 'es_CO');
+    setMeta('property', 'og:locale', ogLocale(lang));
     setMeta('property', 'og:image', ogImage);
     setMeta('property', 'og:image:width', '1200');
     setMeta('property', 'og:image:height', '630');
@@ -194,6 +212,7 @@ window.SiteFlowSEO = (function () {
     setLink('canonical', url);
     setLink('alternate', `${url}/`, { hreflang: 'es' });
     setLink('alternate', `${url}/`, { hreflang: 'en' });
+    setLink('alternate', `${url}/`, { hreflang: 'de' });
     setLink('alternate', `${url}/`, { hreflang: 'x-default' });
 
     injectSchemas(buildSchemas(lang));

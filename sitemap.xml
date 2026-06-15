@@ -8,6 +8,7 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://siteflowcol.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://siteflowcol.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://siteflowcol.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://siteflowcol.com/"/>
   </url>
 </urlset>

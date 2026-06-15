@@ -1,6 +1,7 @@
-/* SiteFlowCol — i18n ligero (ES / EN) */
+/* SiteFlowCol — i18n ligero (ES / EN / DE) */
 window.SiteFlowI18n = (function () {
   const STORAGE_KEY = 'siteflow-lang';
+  const LANGS = ['es', 'en', 'de'];
   const WA_BASE = 'https://wa.me/573239428161?text=';
 
   const T = {
@@ -541,14 +542,285 @@ window.SiteFlowI18n = (function () {
         premium: 'Hi, I want the Premium plan',
         enterprise: 'Hi, I want a quote for an Enterprise plan'
       }
+    },
+    de: {
+      meta: {
+        title: 'Website- & Landing-Page-Erstellung | SiteFlowCol Kolumbien',
+        description: 'Wir erstellen professionelle Websites und Landing Pages für Ihr Unternehmen. Webdesign, Entwicklung, Hosting, Domain und Wartung. Kolumbien und Lateinamerika.',
+        keywords: 'Website-Erstellung, Landing Page Design, Webentwicklung, professionelles Webdesign Kolumbien, Unternehmenswebsite, Website erstellen, Webentwicklungsagentur, SiteFlowCol',
+        ogTitle: 'SiteFlowCol — Website- & Landing-Page-Erstellung',
+        ogDescription: 'Design, Entwicklung, Hosting und Wartung in einer monatlichen Zahlung. Fordern Sie noch heute ein Angebot für Ihre Website oder Landing Page an.'
+      },
+      nav: {
+        aria: 'Hauptnavigation',
+        services: 'Leistungen',
+        features: 'Funktionen',
+        pricing: 'Tarife',
+        why: 'Warum wir',
+        faq: 'FAQ',
+        contact: '✉️ Kontakt',
+        cta: '💬 Angebot anfordern',
+        menu: 'Menü',
+        skip: 'Zum Inhalt springen',
+        waMobile: '💬 Angebot per WhatsApp',
+        langAria: 'Sprache wählen'
+      },
+      hero: {
+        hfc1: 'SSL aktiv — Sicher',
+        hfc2: 'Lädt in < 2s',
+        hfc3: '+47 % mehr Kunden',
+        hfc4: 'Tägliches Backup',
+        badge: 'Webdesign · Landing Pages · Entwicklung',
+        title1: 'Ihre professionelle Website,',
+        title2: 'immer aktiv und gepflegt.',
+        sub: 'Wir erstellen Websites und Landing Pages für Ihr Unternehmen — Design, Entwicklung, Hosting, Sicherheit und Wartung — damit Sie sich auf das Wachstum Ihres Unternehmens konzentrieren können.',
+        ctaWa: 'Angebot per WhatsApp',
+        ctaPlans: 'Tarife ansehen →',
+        stat1: 'Erstellte Websites',
+        stat2: '% Zufriedenheit',
+        stat3: '% Engagement',
+        stat4: 'Antwortzeit'
+      },
+      benefits: {
+        eyebrow: 'Das Problem',
+        title: 'Arbeitet Ihre Website<br>für Sie oder gegen Sie?',
+        sub: 'Die meisten Unternehmen haben langsame, veraltete oder gar keine Website. Das ändern wir.',
+        without: 'Ohne SiteFlowCol',
+        with: 'Mit SiteFlowCol',
+        bad1t: 'Veraltete, langsame Website',
+        bad1p: 'Sie verlieren Kunden, bevor diese Sie erreichen können. Eine langsame Website kostet mehr als 7 % Conversions pro Sekunde Verzögerung.',
+        good1t: 'Immer schnell, immer aktuell',
+        good1p: 'Ihre Website lädt in unter 2 Sekunden, bleibt aktuell und schafft Vertrauen ab dem ersten Klick.',
+        bad2t: 'Drei verschiedene Anbieter',
+        bad2p: 'Hosting hier, Domain dort, Designer woanders. Mehrere Rechnungen, mehrere Ansprechpartner, mehrere Probleme.',
+        good2t: 'Alles in einer monatlichen Zahlung',
+        good2p: 'Design, Hosting, Domain, Sicherheit und Support. Ein Anbieter, eine Rechnung, null Aufwand.',
+        bentoTitle: 'Was wir wirklich bieten',
+        bentoP: 'Wir verkaufen keine Websites. Wir verkaufen <strong style="color:var(--text-primary)">digitale Ruhe</strong>: professionelle Präsenz, Geschäftskontinuität und ein Team, das Ihr wichtigstes Online-Asset schützt.',
+        b1t: 'Sicherheit inklusive',
+        b1p: 'SSL, automatische Backups und ständige Überwachung.',
+        b2t: 'Premium-Leistung',
+        b2p: 'Hosting optimiert für maximale Geschwindigkeit.',
+        b3t: 'Echter Support',
+        b3p: 'Echte Menschen, die schnell antworten.',
+        b4t: 'Laufende Wartung',
+        b4p: 'Ihre Website bleibt nicht stehen. Regelmäßige Updates, Inhaltsanpassungen und ständige Verbesserungen halten Ihre Präsenz frisch und relevant.',
+        b5t: 'Globale Reichweite',
+        b5p: 'Wir gestalten für jeden Markt.'
+      },
+      features: {
+        eyebrow: 'Funktionen',
+        title: 'Alles, was Sie brauchen,<br>nichts, was Sie nicht brauchen.',
+        sub: 'Jeder Tarif enthält eine solide Basis. Sie entscheiden, wie weit Sie Ihre digitale Präsenz ausbauen.',
+        f1t: 'Individuelles Webdesign',
+        f1p: 'Keine generischen Vorlagen. Jede Website spiegelt Ihre echte Markenidentität wider: Farben, Typografie, Ton und Struktur, die Besucher in Kunden verwandeln.',
+        f1tag: '100 % responsiv',
+        f2t: 'Hosting & Domain inklusive',
+        f2p: 'Schnelle Server, 99,9 % Verfügbarkeit und Ihre eigene Domain ab Tag eins. Keine versteckten Gebühren, keine komplizierten Migrationen.',
+        f2tag: '99,9 % Verfügbarkeit',
+        f3t: 'Sicherheit auf Unternehmensniveau',
+        f3p: 'Aktives SSL-Zertifikat, Firewall, automatische Backups und 24/7-Monitoring. Wenn etwas passiert, beheben wir es, bevor Ihr Kunde es merkt.',
+        f3tag: 'SSL · Firewall · Backups',
+        f4t: 'Monatliche Wartung',
+        f4p: 'Updates, Inhaltsverbesserungen und technische Anpassungen ohne Zusatzkosten. Ihre Website wächst mit Ihnen.',
+        f4tag: 'Updates inklusive',
+        f5t: 'SEO & Analytics',
+        f5p: 'Suchmaschinenoptimierte Struktur und echte Besuchermetriken. Wissen Sie, wer Ihre Website besucht und von wo.',
+        f5tag: 'Premium-Tarif'
+      },
+      stats: {
+        aria: 'Statistiken',
+        s1: 'Gelieferte Websites',
+        s2: 'Zufriedene Kunden',
+        s3: 'Durchschnittliche Ladezeit',
+        s4: 'Volles Engagement'
+      },
+      process: {
+        eyebrow: 'Prozess',
+        title: 'Von der Idee bis online in Tagen,<br>nicht in Monaten.',
+        sub: 'Ein klarer Prozess ohne Überraschungen — damit Sie so schnell wie möglich starten können.',
+        s1t: 'Sie schreiben uns',
+        s1p: 'Erzählen Sie uns per WhatsApp von Ihrem Unternehmen. Keine komplizierten Formulare, nur ein Gespräch.',
+        s2t: 'Wir gestalten Ihre Website',
+        s2p: 'Wir erstellen ein individuelles Design, abgestimmt auf Ihre Marke und Geschäftsziele.',
+        s3t: 'Sie prüfen und genehmigen',
+        s3p: 'Sie behalten die volle Kontrolle. Wir passen an, bis Sie vollständig zufrieden sind.',
+        s4t: 'Wir veröffentlichen und wachsen',
+        s4p: 'Ihre Website geht live und wir kümmern uns jeden Monat darum, damit sie nie ausfällt.'
+      },
+      pricing: {
+        eyebrow: 'Tarife',
+        title: 'Fairer Preis,<br>klarer Mehrwert.',
+        sub: 'Keine verpflichtenden Jahresverträge. Jederzeit kündbar.',
+        currencyAria: 'Währung wählen',
+        period: '/Monat',
+        popular: 'Am beliebtesten',
+        basic: 'Basis',
+        pro: 'Professional',
+        premium: 'Premium',
+        enterprise: 'Enterprise',
+        custom: 'Individuell',
+        customSub: 'Persönliches Angebot',
+        hire: 'Jetzt starten →',
+        quote: 'Angebot anfordern →',
+        b1: 'Bis zu 5 Abschnitte',
+        b2: 'Responsives Design',
+        b3: 'Hosting & Domain',
+        b4: 'SSL-Zertifikat',
+        b5: 'E-Mail-Support',
+        p1: 'Bis zu 10 Abschnitte',
+        p2: 'Individuelles Design',
+        p3: 'Hosting & Domain',
+        p4: 'SSL + tägliche Backups',
+        p5: 'Kontaktformular',
+        p6: 'Social-Media-Integration',
+        p7: 'Prioritäts-Support per WhatsApp',
+        pr1: 'Bis zu 15 Abschnitte',
+        pr2: 'Premium-Design',
+        pr3: 'Hosting & Domain',
+        pr4: 'Erweitertes SSL + Echtzeit-Backups',
+        pr5: 'Einfacher Online-Shop',
+        pr6: 'SEO-optimiert',
+        pr7: 'Integrierte Analytics',
+        pr8: '3 Updates/Monat',
+        pr9: 'Prioritäts-Support per WhatsApp',
+        e1: '100 % individuelle Lösung',
+        e2: 'Erweiterter E-Commerce',
+        e3: 'Individuelle Integrationen',
+        e4: 'Eigenes Verwaltungssystem',
+        e5: 'Premium-Hosting & Domain',
+        e6: 'Automatische Backups',
+        e7: 'Dedizierter Support 9–17 Uhr',
+        e8: 'Laufende Entwicklung'
+      },
+      why: {
+        eyebrow: 'Vorteile',
+        title: 'Warum SiteFlowCol<br>und nicht ein anderer?',
+        sub: 'Der Unterschied liegt in den Details, der Betreuung und unserer Arbeitsweise.',
+        w1t: 'Monatliche Zahlung, keine Überraschungen',
+        w1p: 'Eine monatliche Gebühr, die absolut alles abdeckt. Keine unerwarteten Rechnungen für Hosting, Domain oder Wartung.',
+        w2t: 'Echte Menschen, keine Bots',
+        w2p: 'Wenn Sie Hilfe brauchen, sprechen Sie mit jemandem, der Ihr Projekt von Anfang bis Ende kennt — nicht mit einem anonymen Support-Ticket.',
+        w3t: 'Lösungen für jeden Markt',
+        w3p: 'Wir gestalten für Unternehmen in Lateinamerika und weltweit, mit Preisen in USD, COP und EUR.',
+        w4t: 'Ihre Website wächst mit Ihnen',
+        w4p: 'Wir bleiben an Ihrer Seite, wenn Ihr Unternehmen wächst.',
+        colFeature: 'Merkmal',
+        colUs: 'SiteFlowCol',
+        colThem: 'Typischer Freelancer',
+        r1: 'Alles inklusive',
+        r1y: '✓ Ja',
+        r1n: '✕ Nein',
+        r2: 'Monatliche Wartung',
+        r2y: '✓ Inklusive',
+        r2n: '✕ Zusatzkosten',
+        r3: 'Schneller Support',
+        r3y: '✓ <48h',
+        r3m: '~ Variiert',
+        r4: 'Planbare Preise',
+        r4y: '✓ Fest monatlich',
+        r4n: '✕ Pro Projekt',
+        r5: 'Keine langen Verträge',
+        r5y: '✓ Monat für Monat',
+        r5m: '~ Variiert',
+        r6: 'Automatische Backups',
+        r6y: '✓ Inklusive',
+        r6n: '✕ Zusatzkosten'
+      },
+      testi: {
+        eyebrow: 'Referenzen',
+        title: 'Was unsere<br>Kunden sagen.',
+        sub: 'Echte Unternehmen, die bereits mit SiteFlowCol wachsen.',
+        t1: '„Früher hatte ich eine alte Website, die mehr Angst als Vertrauen schuf. In weniger als einer Woche lieferte SiteFlowCol etwas, das meine Marke wirklich repräsentiert. Meine Kunden merken den Unterschied."',
+        t1role: 'Inhaber — Ferretería El Progreso',
+        t2: '„Am meisten schätze ich die Ruhe. Früher musste ich mich um Hosting, Domain und Updates kümmern … Jetzt zahle ich monatlich und fertig. Einfach."',
+        t2role: 'Direktorin — Clínica Dental Smile',
+        t3: '„Ich brauchte schnell etwas, um meine Beratung zu starten. In wenigen Tagen hatte ich eine funktionierende Website mit eigener Domain. Das Team ist sehr professionell und antwortet blitzschnell."',
+        t3role: 'Berater — JR Estrategia Digital'
+      },
+      faq: {
+        eyebrow: 'FAQ',
+        title: 'Häufig gestellte<br>Fragen.',
+        sub: 'Keine Antwort gefunden? Schreiben Sie uns per WhatsApp.',
+        ask: 'Fragen →',
+        q1: 'Was passiert, wenn ich kündigen möchte?',
+        a1: 'Sie können jederzeit ohne Strafe kündigen. Ihre Website bleibt bis zum Ende des bezahlten Zeitraums aktiv. Keine Jahresverträge oder komplizierten Klauseln.',
+        q2: 'Wie lange dauert es, bis meine Website fertig ist?',
+        a2: 'In der Regel 5 bis 10 Werktage für Standardprojekte. Bei Enterprise-Tarifen mit besonderen Funktionen vereinbaren wir von Anfang an einen klaren Zeitplan.',
+        q3: 'Kann ich Inhalte selbst aktualisieren?',
+        a3: 'Ja. Je nach Tarif sind monatliche Updates inklusive, die wir für Sie übernehmen. Wenn Sie lieber ein CMS zur Selbstbearbeitung möchten, richten wir das ebenfalls ein.',
+        q4: 'Gehört die Domain mir?',
+        a4: 'Absolut. Die Domain wird auf Ihren Namen registriert. Wenn Sie jemals den Anbieter wechseln, gehört die Domain Ihnen und Sie können sie mitnehmen.',
+        q5: 'Können Sie Online-Shops erstellen?',
+        a5: 'Ja. Der Premium-Tarif enthält einen einfachen Shop. Für erweiterten E-Commerce mit Inventar, mehreren Zahlungsgateways und Bestellverwaltung bieten wir den Enterprise-Tarif.',
+        q6: 'Arbeiten Sie mit Unternehmen außerhalb Kolumbiens?',
+        a6: 'Ja, wir arbeiten mit Unternehmen in ganz Lateinamerika, Spanien und anderen Ländern. Wir akzeptieren Zahlungen in USD, COP und EUR.'
+      },
+      contact: {
+        eyebrow: 'Kontakt',
+        title: 'Schreiben Sie uns',
+        sub: 'Hinterlassen Sie Ihre Nachricht und wir antworten bald per E-Mail.',
+        metaEmailLbl: 'E-Mail',
+        metaReplyLbl: 'Antwortzeit',
+        metaReply: 'Unter 24 Stunden',
+        metaSecureLbl: 'Datenschutz',
+        metaSecure: 'Ihre Daten sind geschützt',
+        emailLbl: 'Ihre E-Mail',
+        emailPh: 'ihre@email.com',
+        phoneLbl: 'Ihre Telefonnummer',
+        phonePh: '+49 170 000 0000',
+        msgLbl: 'Nachricht',
+        msgPh: 'Erzählen Sie uns, was Sie brauchen …',
+        send: 'Nachricht senden',
+        sending: 'Wird gesendet …',
+        success: 'Nachricht gesendet! Wir melden uns bald bei Ihnen.',
+        error: 'Senden fehlgeschlagen. Versuchen Sie es erneut oder schreiben Sie uns per WhatsApp.',
+        noConfig: 'Formular nicht konfiguriert. Fügen Sie Ihren Web3Forms Access Key in contact-config.js ein.',
+        fillAll: 'Bitte füllen Sie E-Mail, Telefonnummer und Nachricht aus.',
+        formLink: 'Kontaktformular'
+      },
+      cta: {
+        title: 'Starten Sie heute.<br>Ihre Website wartet.',
+        sub: 'Schließen Sie sich den Unternehmen an, die SiteFlowCol bereits für ihre digitale Präsenz vertrauen.',
+        wa: 'Per WhatsApp schreiben',
+        plans: 'Tarife ansehen'
+      },
+      footer: {
+        tagline: 'Ihre professionelle Website, immer aktiv und gepflegt. Digitaler Partner für Unternehmen weltweit.',
+        services: 'Leistungen',
+        company: 'Unternehmen',
+        contact: 'Kontakt',
+        f1: 'Webdesign',
+        f2: 'Hosting & Domain',
+        f3: 'Wartung',
+        f4: 'SEO & Analytics',
+        c1: 'Warum wir',
+        c2: 'So funktioniert es',
+        c3: 'Referenzen',
+        c4: 'FAQ',
+        copy: '© 2025 SiteFlowCol. Alle Rechte vorbehalten.',
+        legal: 'Impressum',
+        privacy: 'Datenschutz'
+      },
+      wa: {
+        quote: 'Hallo, ich möchte ein Angebot für meine Website',
+        start: 'Hallo, ich möchte mit meiner professionellen Website starten',
+        question: 'Ich habe eine Frage zu SiteFlowCol',
+        basic: 'Hallo, ich möchte den Basis-Tarif',
+        pro: 'Hallo, ich möchte den Professional-Tarif',
+        premium: 'Hallo, ich möchte den Premium-Tarif',
+        enterprise: 'Hallo, ich möchte ein Angebot für den Enterprise-Tarif'
+      }
     }
   };
 
   function getStoredLang() {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'es' || saved === 'en') return saved;
+    if (LANGS.includes(saved)) return saved;
     const nav = (navigator.language || 'es').toLowerCase();
-    return nav.startsWith('en') ? 'en' : 'es';
+    if (nav.startsWith('en')) return 'en';
+    if (nav.startsWith('de')) return 'de';
+    return 'es';
   }
 
   function resolve(obj, path) {
@@ -620,7 +892,7 @@ window.SiteFlowI18n = (function () {
   }
 
   function setLang(next, animate = true) {
-    if (next !== 'es' && next !== 'en') return;
+    if (!LANGS.includes(next)) return;
     if (next === lang) return;
     lang = next;
     localStorage.setItem(STORAGE_KEY, lang);
