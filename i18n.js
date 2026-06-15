@@ -1,6 +1,5 @@
-/* SiteFlowCol — i18n ligero (ES / EN / DE) */
+/* SiteFlowCol — i18n (ES / EN / DE) + detección por país vía /api/geo */
 window.SiteFlowI18n = (function () {
-  const STORAGE_KEY = 'siteflow-lang';
   const LANGS = ['es', 'en', 'de'];
   const WA_BASE = 'https://wa.me/573239428161?text=';
 
@@ -814,20 +813,32 @@ window.SiteFlowI18n = (function () {
     }
   };
 
-  function getStoredLang() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (LANGS.includes(saved)) return saved;
-    const nav = (navigator.language || 'es').toLowerCase();
-    if (nav.startsWith('en')) return 'en';
-    if (nav.startsWith('de')) return 'de';
+  function langFromNavigator() {
+    for (const tag of navigator.languages?.length ? navigator.languages : [navigator.language || 'es']) {
+      const l = String(tag).toLowerCase();
+      if (l.startsWith('de')) return 'de';
+      if (l.startsWith('en')) return 'en';
+      if (l.startsWith('es')) return 'es';
+    }
     return 'es';
+  }
+
+  async function detectLangFromCountry() {
+    try {
+      const res = await fetch('/api/geo', { cache: 'no-store' });
+      if (res.ok) {
+        const { lang: geoLang } = await res.json();
+        if (LANGS.includes(geoLang)) return geoLang;
+      }
+    } catch (_) {}
+    return langFromNavigator();
   }
 
   function resolve(obj, path) {
     return path.split('.').reduce((o, k) => (o && o[k] != null ? o[k] : null), obj);
   }
 
-  let lang = getStoredLang();
+  let lang = 'es';
   let textEls = [];
   let htmlEls = [];
   let waEls = [];
@@ -891,15 +902,19 @@ window.SiteFlowI18n = (function () {
     }
   }
 
+  function syncLangButtons() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const on = btn.dataset.lang === lang;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
   function setLang(next, animate = true) {
     if (!LANGS.includes(next)) return;
     if (next === lang) return;
     lang = next;
-    localStorage.setItem(STORAGE_KEY, lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-      btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
-    });
+    syncLangButtons();
     moveLangIndicators(animate);
     applyContent(animate);
   }
@@ -920,20 +935,20 @@ window.SiteFlowI18n = (function () {
     });
   }
 
-  function init() {
+  async function init() {
     cacheElements();
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.lang, true));
     });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-      btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
-    });
+
+    lang = await detectLangFromCountry();
+    syncLangButtons();
     document.querySelectorAll('.lang-switch').forEach(w => w.classList.add('ready'));
     moveLangIndicators(false);
     applyContent(false);
     window.addEventListener('resize', () => moveLangIndicators(false), { passive: true });
     window.addEventListener('load', () => moveLangIndicators(false));
+    if (window.SiteFlowSEO) SiteFlowSEO.init();
   }
 
   return { init, setLang, t, getLang: () => lang };

@@ -1,9 +1,9 @@
 // ---- GSAP ScrollTrigger setup ----
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-// ---- i18n ----
+// ---- i18n (async: detecta país, luego SEO) ----
 if (window.SiteFlowI18n) SiteFlowI18n.init();
-if (window.SiteFlowSEO) SiteFlowSEO.init();
+else if (window.SiteFlowSEO) SiteFlowSEO.init();
 
 // ---- Scroll Progress ----
 const progressBar = document.getElementById('scroll-progress');
