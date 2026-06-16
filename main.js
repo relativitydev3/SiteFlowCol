@@ -274,9 +274,9 @@ document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
 const curBtns = document.querySelectorAll('.cur-btn');
 const curIndicator = document.querySelector('.cur-indicator');
 const currencyTabs = document.querySelector('.currency-tabs');
-const amounts = document.querySelectorAll('.plan-price .amount');
-const curLabels = document.querySelectorAll('.cur-code');
-const symEls = document.querySelectorAll('.currency-sym');
+const amounts = document.querySelectorAll('.plan-card .amount');
+const curLabels = document.querySelectorAll('.plan-card .cur-code');
+const symEls = document.querySelectorAll('.plan-card .currency-sym');
 const priceValues = document.querySelectorAll('.plan-price .price-value');
 const plansGrid = document.querySelector('.plans-grid');
 

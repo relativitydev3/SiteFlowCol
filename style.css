@@ -843,7 +843,58 @@ section { position: relative; z-index: 1; }
   color: var(--accent-soft);
 }
 .plan-features {
+  margin-bottom: 0;
+}
+.plan-features-group {
+  margin-bottom: 1.25rem;
+}
+.plan-features-group:last-of-type {
   margin-bottom: 2rem;
+}
+.plan-features-heading {
+  font-family: var(--font-display);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: .65rem;
+}
+.plan-features-heading-maint {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .35rem .5rem;
+  color: var(--accent-soft);
+}
+.plan-maint-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .1rem;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.plan-maint-price .amount {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent-soft);
+}
+.plan-maint-price .currency-sym,
+.plan-maint-price .currency-lbl {
+  font-size: .7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.maint-period {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: none;
+  letter-spacing: 0;
 }
 .plan-features li {
   padding: .5rem 0;
