@@ -7,10 +7,15 @@ const COUNTRY_TO_LANG = {
   ZA: 'en', SG: 'en', PH: 'en'
 };
 
-/** Formato Node.js (Vercel static). Response.json solo funciona en Edge. */
-export default function handler(req, res) {
-  const country = String(req.headers['x-vercel-ip-country'] || '').toUpperCase();
+export const config = { runtime: 'edge' };
+
+export default function handler(request) {
+  const country = String(request.headers.get('x-vercel-ip-country') || '').toUpperCase();
   const lang = COUNTRY_TO_LANG[country] || 'es';
-  res.setHeader('Cache-Control', 'private, no-store');
-  res.status(200).json({ lang, country: country || null });
+  return new Response(JSON.stringify({ lang, country: country || null }), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'private, no-store'
+    }
+  });
 }

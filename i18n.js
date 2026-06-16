@@ -823,28 +823,65 @@ window.SiteFlowI18n = (function () {
     return 'es';
   }
 
-  async function detectLangFromCountry() {
+  const GEO_SESSION_KEY = 'sf-geo-lang';
+
+  function readSessionGeo() {
     try {
-      const res = await fetch('/api/geo', { cache: 'no-store', credentials: 'same-origin' });
-      if (res.ok) {
-        const data = await res.json();
-        if (LANGS.includes(data.lang)) return data.lang;
-      }
-    } catch (_) {}
-    return langFromNavigator();
+      const v = sessionStorage.getItem(GEO_SESSION_KEY);
+      return LANGS.includes(v) ? v : null;
+    } catch (_) {
+      return null;
+    }
   }
 
-  const geoLangPromise = detectLangFromCountry();
+  function saveSessionGeo(next) {
+    try { sessionStorage.setItem(GEO_SESSION_KEY, next); } catch (_) {}
+  }
+
+  async function fetchGeoLang() {
+    const cached = readSessionGeo();
+    if (cached) return cached;
+
+    const pending = window.__geoP;
+    const data = pending
+      ? await Promise.race([
+          pending,
+          new Promise(r => setTimeout(() => r(null), 2000))
+        ])
+      : null;
+
+    if (data?.lang && LANGS.includes(data.lang)) {
+      saveSessionGeo(data.lang);
+      return data.lang;
+    }
+
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 2000);
+      const res = await fetch('/api/geo', { cache: 'no-store', credentials: 'same-origin', signal: ctrl.signal });
+      clearTimeout(timer);
+      if (res.ok) {
+        const json = await res.json();
+        if (LANGS.includes(json.lang)) {
+          saveSessionGeo(json.lang);
+          return json.lang;
+        }
+      }
+    } catch (_) {}
+
+    return langFromNavigator();
+  }
 
   function resolve(obj, path) {
     return path.split('.').reduce((o, k) => (o && o[k] != null ? o[k] : null), obj);
   }
 
-  let lang = 'es';
+  let lang = langFromNavigator();
   let textEls = [];
   let htmlEls = [];
   let waEls = [];
   let attrEls = [];
+  let seoReady = false;
 
   function t(key) {
     return resolve(T[lang], key) ?? resolve(T.es, key) ?? '';
@@ -868,16 +905,43 @@ window.SiteFlowI18n = (function () {
     }
   }
 
+  function initSeo() {
+    if (seoReady) return;
+    seoReady = true;
+    const run = () => {
+      if (window.SiteFlowSEO) {
+        SiteFlowSEO.init();
+        return;
+      }
+      const s = document.createElement('script');
+      s.src = 'seo.js';
+      s.onload = () => window.SiteFlowSEO?.init();
+      document.head.appendChild(s);
+    };
+    if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 1200 });
+    else setTimeout(run, 0);
+  }
+
   function applyContent(animate) {
     const update = () => {
-      textEls.forEach(el => { el.textContent = t(el.dataset.i18n); });
-      htmlEls.forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+      textEls.forEach(el => {
+        const next = t(el.dataset.i18n);
+        if (el.textContent !== next) el.textContent = next;
+      });
+      htmlEls.forEach(el => {
+        const next = t(el.dataset.i18nHtml);
+        if (el.innerHTML !== next) el.innerHTML = next;
+      });
       waEls.forEach(el => {
-        el.href = WA_BASE + encodeURIComponent(t('wa.' + el.dataset.wa));
+        const href = WA_BASE + encodeURIComponent(t('wa.' + el.dataset.wa));
+        if (el.href !== href) el.href = href;
       });
       attrEls.forEach(el => {
         const [attr, key] = el.dataset.i18nAttr.split(':');
-        if (attr && key) el.setAttribute(attr, t(key));
+        if (attr && key) {
+          const next = t(key);
+          if (el.getAttribute(attr) !== next) el.setAttribute(attr, next);
+        }
       });
       applyMeta();
       document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
@@ -947,23 +1011,29 @@ window.SiteFlowI18n = (function () {
         btn.addEventListener('click', () => setLang(btn.dataset.lang, true));
       });
 
-      lang = await geoLangPromise;
+      const sessionGeo = readSessionGeo();
+      if (sessionGeo) lang = sessionGeo;
+
       syncLangButtons();
       document.querySelectorAll('.lang-switch').forEach(w => w.classList.add('ready'));
       moveLangIndicators(false);
       applyContent(false);
+      initSeo();
+
+      const geoLang = await fetchGeoLang();
+      if (geoLang !== lang) {
+        lang = geoLang;
+        syncLangButtons();
+        moveLangIndicators(false);
+        applyContent(false);
+      }
+
       window.addEventListener('resize', () => moveLangIndicators(false), { passive: true });
-      window.addEventListener('load', () => moveLangIndicators(false));
-      if (window.SiteFlowSEO) SiteFlowSEO.init();
     })();
     return initPromise;
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => init());
-  } else {
-    init();
-  }
+  init();
 
   return { init, setLang, t, getLang: () => lang };
 })();
