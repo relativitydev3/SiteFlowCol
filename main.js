@@ -281,28 +281,27 @@ const priceValues = document.querySelectorAll('.plan-price .price-value');
 const plansGrid = document.querySelector('.plans-grid');
 
 const SYMBOLS = { USD: '$', COP: '$', EUR: '€' };
+const VALID_CURRENCIES = ['USD', 'COP', 'EUR'];
 let activeCurrency = 'USD';
 let currencyAnimating = false;
 
-function moveCurIndicator(btn, animate = true) {
-  if (!curIndicator || !btn || !currencyTabs) return;
-  const tabsRect = currencyTabs.getBoundingClientRect();
-  const btnRect = btn.getBoundingClientRect();
-  const x = btnRect.left - tabsRect.left;
-  const props = { x, width: btnRect.width, duration: animate ? 0.45 : 0, ease: 'power3.inOut' };
-  gsap.to(curIndicator, props);
-}
-
-function initCurIndicator() {
-  const activeBtn = document.querySelector('.cur-btn.active');
-  if (activeBtn) {
-    moveCurIndicator(activeBtn, false);
-    if (currencyTabs) currencyTabs.classList.add('ready');
-  }
+function applyCurrency(cur) {
+  if (!VALID_CURRENCIES.includes(cur)) return;
+  amounts.forEach(el => {
+    const val = el.dataset[cur.toLowerCase()];
+    if (val !== undefined) el.textContent = val;
+  });
+  curLabels.forEach(el => { el.textContent = cur; });
+  symEls.forEach(el => { el.textContent = SYMBOLS[cur]; });
+  curBtns.forEach(b => b.classList.toggle('active', b.dataset.cur === cur));
+  activeCurrency = cur;
+  const activeBtn = [...curBtns].find(b => b.dataset.cur === cur);
+  moveCurIndicator(activeBtn, false);
 }
 
 function switchCurrency(cur) {
   if (cur === activeCurrency || currencyAnimating) return;
+  if (!VALID_CURRENCIES.includes(cur)) return;
   currencyAnimating = true;
 
   const activeBtn = [...curBtns].find(b => b.dataset.cur === cur);
@@ -317,7 +316,6 @@ function switchCurrency(cur) {
 
   const tl = gsap.timeline({
     onComplete() {
-      activeCurrency = cur;
       currencyAnimating = false;
       curBtns.forEach(b => b.classList.remove('switching'));
       document.querySelectorAll('.plan-price').forEach(el => el.classList.remove('is-switching'));
@@ -336,14 +334,7 @@ function switchCurrency(cur) {
     transformPerspective: 600
   });
 
-  tl.add(() => {
-    amounts.forEach(el => {
-      const val = el.dataset[cur.toLowerCase()];
-      if (val !== undefined) el.textContent = val;
-    });
-    curLabels.forEach(el => { el.textContent = cur; });
-    symEls.forEach(el => { el.textContent = SYMBOLS[cur]; });
-  });
+  tl.add(() => applyCurrency(cur));
 
   tl.fromTo(priceValues,
     { opacity: 0, y: 20, scale: 0.88, rotateX: 25 },
@@ -374,10 +365,44 @@ function switchCurrency(cur) {
   });
 }
 
+function initCurrencyFromGeo() {
+  const sessionCur = window.SiteFlowI18n?.getDefaultCurrency?.();
+  if (sessionCur && sessionCur !== activeCurrency) applyCurrency(sessionCur);
+
+  const applyGeo = prefs => {
+    const cur = prefs?.currency;
+    if (cur && cur !== activeCurrency) applyCurrency(cur);
+  };
+
+  if (window.SiteFlowI18n?.whenGeoReady) {
+    SiteFlowI18n.whenGeoReady().then(applyGeo);
+  } else {
+    document.addEventListener('geoready', e => applyGeo(e.detail), { once: true });
+  }
+}
+
+function moveCurIndicator(btn, animate = true) {
+  if (!curIndicator || !btn || !currencyTabs) return;
+  const tabsRect = currencyTabs.getBoundingClientRect();
+  const btnRect = btn.getBoundingClientRect();
+  const x = btnRect.left - tabsRect.left;
+  const props = { x, width: btnRect.width, duration: animate ? 0.45 : 0, ease: 'power3.inOut' };
+  gsap.to(curIndicator, props);
+}
+
+function initCurIndicator() {
+  const activeBtn = document.querySelector('.cur-btn.active');
+  if (activeBtn) {
+    moveCurIndicator(activeBtn, false);
+    if (currencyTabs) currencyTabs.classList.add('ready');
+  }
+}
+
 curBtns.forEach(btn => {
   btn.addEventListener('click', () => switchCurrency(btn.dataset.cur));
 });
 
+initCurrencyFromGeo();
 initCurIndicator();
 window.addEventListener('load', initCurIndicator);
 window.addEventListener('resize', () => {

@@ -838,24 +838,53 @@ window.SiteFlowI18n = (function () {
     return 'es';
   }
 
-  const GEO_SESSION_KEY = 'sf-geo-lang';
+  const GEO_SESSION_KEY = 'sf-geo';
+  const GEO_SESSION_LEGACY = 'sf-geo-lang';
+  const CURRENCIES = ['USD', 'COP', 'EUR'];
+  let lastGeoPrefs = null;
+
+  function normalizeCurrency(cur) {
+    const c = String(cur || '').toUpperCase();
+    return CURRENCIES.includes(c) ? c : null;
+  }
 
   function readSessionGeo() {
     try {
-      const v = sessionStorage.getItem(GEO_SESSION_KEY);
-      return LANGS.includes(v) ? v : null;
-    } catch (_) {
-      return null;
-    }
+      const raw = sessionStorage.getItem(GEO_SESSION_KEY);
+      if (raw) {
+        const o = JSON.parse(raw);
+        if (LANGS.includes(o.lang)) {
+          return {
+            lang: o.lang,
+            currency: normalizeCurrency(o.currency)
+          };
+        }
+      }
+      const legacy = sessionStorage.getItem(GEO_SESSION_LEGACY);
+      if (legacy && LANGS.includes(legacy)) return { lang: legacy, currency: null };
+    } catch (_) {}
+    return null;
   }
 
-  function saveSessionGeo(next) {
-    try { sessionStorage.setItem(GEO_SESSION_KEY, next); } catch (_) {}
+  function saveSessionGeo(prefs) {
+    try {
+      sessionStorage.setItem(
+        GEO_SESSION_KEY,
+        JSON.stringify({
+          lang: prefs.lang,
+          currency: normalizeCurrency(prefs.currency)
+        })
+      );
+      sessionStorage.removeItem(GEO_SESSION_LEGACY);
+    } catch (_) {}
   }
 
-  async function fetchGeoLang() {
+  async function fetchGeoPrefs() {
     const cached = readSessionGeo();
-    if (cached) return cached;
+    if (cached?.lang && cached.currency) {
+      lastGeoPrefs = cached;
+      return cached;
+    }
 
     const pending = window.__geoP;
     const data = pending
@@ -866,8 +895,13 @@ window.SiteFlowI18n = (function () {
       : null;
 
     if (data?.lang && LANGS.includes(data.lang)) {
-      saveSessionGeo(data.lang);
-      return data.lang;
+      const prefs = {
+        lang: data.lang,
+        currency: normalizeCurrency(data.currency) || 'USD'
+      };
+      saveSessionGeo(prefs);
+      lastGeoPrefs = prefs;
+      return prefs;
     }
 
     try {
@@ -878,13 +912,20 @@ window.SiteFlowI18n = (function () {
       if (res.ok) {
         const json = await res.json();
         if (LANGS.includes(json.lang)) {
-          saveSessionGeo(json.lang);
-          return json.lang;
+          const prefs = {
+            lang: json.lang,
+            currency: normalizeCurrency(json.currency) || 'USD'
+          };
+          saveSessionGeo(prefs);
+          lastGeoPrefs = prefs;
+          return prefs;
         }
       }
     } catch (_) {}
 
-    return langFromNavigator();
+    const prefs = { lang: langFromNavigator(), currency: 'USD' };
+    lastGeoPrefs = prefs;
+    return prefs;
   }
 
   function resolve(obj, path) {
@@ -1025,7 +1066,7 @@ window.SiteFlowI18n = (function () {
       });
 
       const sessionGeo = readSessionGeo();
-      if (sessionGeo) lang = sessionGeo;
+      if (sessionGeo) lang = sessionGeo.lang;
 
       syncLangButtons();
       document.querySelectorAll('.lang-switch').forEach(w => w.classList.add('ready'));
@@ -1033,9 +1074,10 @@ window.SiteFlowI18n = (function () {
       applyContent(false);
       initSeo();
 
-      const geoLang = await fetchGeoLang();
-      if (geoLang !== lang) {
-        lang = geoLang;
+      const geoPrefs = await fetchGeoPrefs();
+      document.dispatchEvent(new CustomEvent('geoready', { detail: geoPrefs }));
+      if (geoPrefs.lang !== lang) {
+        lang = geoPrefs.lang;
         syncLangButtons();
         moveLangIndicators(false);
         applyContent(false);
@@ -1046,7 +1088,16 @@ window.SiteFlowI18n = (function () {
     return initPromise;
   }
 
+  function getDefaultCurrency() {
+    const s = readSessionGeo();
+    return s?.currency || lastGeoPrefs?.currency || 'USD';
+  }
+
+  function whenGeoReady() {
+    return init().then(() => lastGeoPrefs || fetchGeoPrefs());
+  }
+
   init();
 
-  return { init, setLang, t, getLang: () => lang };
+  return { init, setLang, t, getLang: () => lang, getDefaultCurrency, whenGeoReady };
 })();
