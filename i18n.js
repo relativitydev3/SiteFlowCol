@@ -911,9 +911,7 @@ window.SiteFlowI18n = (function () {
 
   function applyMeta() {
     document.documentElement.lang = lang;
-    if (window.SiteFlowSEO) {
-      SiteFlowSEO.apply(lang);
-    } else {
+    if (!window.SiteFlowSEO) {
       document.title = t('meta.title');
       const desc = document.querySelector('meta[name="description"]');
       if (desc) desc.setAttribute('content', t('meta.description'));

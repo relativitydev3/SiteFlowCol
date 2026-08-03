@@ -59,7 +59,13 @@ window.SiteFlowSEO = (function () {
       url,
       email: cfg().email,
       telephone: cfg().phone,
-      logo: `${url}/og-image.png`,
+      logo: ogImage,
+      image: ogImage,
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'CO',
+        addressRegion: cfg().country || 'Colombia'
+      },
       contactPoint: {
         '@type': 'ContactPoint',
         telephone: cfg().phone,
@@ -175,6 +181,8 @@ window.SiteFlowSEO = (function () {
   }
 
   function apply(lang) {
+    if (lastSchemaLang === lang && document.querySelector('script[data-seo-schema]')) return;
+    lastSchemaLang = lang;
     const url = siteUrl();
     const title = t('meta.title');
     const desc = t('meta.description');
@@ -218,7 +226,12 @@ window.SiteFlowSEO = (function () {
     injectSchemas(buildSchemas(lang));
   }
 
+  let seoInitialized = false;
+  let lastSchemaLang = null;
+
   function init() {
+    if (seoInitialized) return;
+    seoInitialized = true;
     const lang = window.SiteFlowI18n?.getLang?.() || 'es';
     apply(lang);
     document.addEventListener('langchange', e => apply(e.detail?.lang || 'es'));
