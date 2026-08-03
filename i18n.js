@@ -872,20 +872,14 @@ window.SiteFlowI18n = (function () {
         GEO_SESSION_KEY,
         JSON.stringify({
           lang: prefs.lang,
-          currency: normalizeCurrency(prefs.currency)
+          currency: normalizeCurrency(prefs.currency) || 'USD'
         })
       );
       sessionStorage.removeItem(GEO_SESSION_LEGACY);
     } catch (_) {}
   }
 
-  async function fetchGeoPrefs() {
-    const cached = readSessionGeo();
-    if (cached?.lang && cached.currency) {
-      lastGeoPrefs = cached;
-      return cached;
-    }
-
+  async function loadGeoFromNetwork() {
     const pending = window.__geoP;
     const data = pending
       ? await Promise.race([
@@ -895,13 +889,10 @@ window.SiteFlowI18n = (function () {
       : null;
 
     if (data?.lang && LANGS.includes(data.lang)) {
-      const prefs = {
+      return {
         lang: data.lang,
         currency: normalizeCurrency(data.currency) || 'USD'
       };
-      saveSessionGeo(prefs);
-      lastGeoPrefs = prefs;
-      return prefs;
     }
 
     try {
@@ -912,16 +903,42 @@ window.SiteFlowI18n = (function () {
       if (res.ok) {
         const json = await res.json();
         if (LANGS.includes(json.lang)) {
-          const prefs = {
+          return {
             lang: json.lang,
             currency: normalizeCurrency(json.currency) || 'USD'
           };
-          saveSessionGeo(prefs);
-          lastGeoPrefs = prefs;
-          return prefs;
         }
       }
     } catch (_) {}
+
+    return null;
+  }
+
+  async function fetchGeoPrefs() {
+    const cached = readSessionGeo();
+
+    if (cached?.lang) {
+      const prefs = {
+        lang: cached.lang,
+        currency: normalizeCurrency(cached.currency) || 'USD'
+      };
+      if (!cached.currency) {
+        const fromNet = await loadGeoFromNetwork();
+        if (fromNet?.currency) {
+          prefs.currency = fromNet.currency;
+          saveSessionGeo(prefs);
+        }
+      }
+      lastGeoPrefs = prefs;
+      return prefs;
+    }
+
+    const fromNet = await loadGeoFromNetwork();
+    if (fromNet) {
+      saveSessionGeo(fromNet);
+      lastGeoPrefs = fromNet;
+      return fromNet;
+    }
 
     const prefs = { lang: langFromNavigator(), currency: 'USD' };
     lastGeoPrefs = prefs;
@@ -938,6 +955,7 @@ window.SiteFlowI18n = (function () {
   let waEls = [];
   let attrEls = [];
   let seoReady = false;
+  let userPickedLang = false;
 
   function t(key) {
     return resolve(T[lang], key) ?? resolve(T.es, key) ?? '';
@@ -1033,6 +1051,7 @@ window.SiteFlowI18n = (function () {
   function setLang(next, animate = true) {
     if (!LANGS.includes(next)) return;
     if (next === lang) return;
+    userPickedLang = true;
     lang = next;
     syncLangButtons();
     moveLangIndicators(animate);
@@ -1076,7 +1095,7 @@ window.SiteFlowI18n = (function () {
 
       const geoPrefs = await fetchGeoPrefs();
       document.dispatchEvent(new CustomEvent('geoready', { detail: geoPrefs }));
-      if (geoPrefs.lang !== lang) {
+      if (!userPickedLang && geoPrefs.lang !== lang) {
         lang = geoPrefs.lang;
         syncLangButtons();
         moveLangIndicators(false);
