@@ -45,6 +45,18 @@ window.SiteFlowSEO = (function () {
     Object.entries(extra).forEach(([k, v]) => el.setAttribute(k, v));
   }
 
+  function postalAddress() {
+    const a = cfg().address || {};
+    return {
+      '@type': 'PostalAddress',
+      streetAddress: a.streetAddress || 'Sabaneta, Antioquia',
+      addressLocality: a.addressLocality || 'Sabaneta',
+      addressRegion: a.addressRegion || 'Antioquia',
+      postalCode: a.postalCode || '055450',
+      addressCountry: a.countryCode || 'CO'
+    };
+  }
+
   function buildSchemas(lang) {
     const url = siteUrl();
     const name = cfg().name || 'SiteFlowCol';
@@ -61,11 +73,7 @@ window.SiteFlowSEO = (function () {
       telephone: cfg().phone,
       logo: ogImage,
       image: ogImage,
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'CO',
-        addressRegion: cfg().country || 'Colombia'
-      },
+      address: postalAddress(),
       contactPoint: {
         '@type': 'ContactPoint',
         telephone: cfg().phone,
@@ -106,11 +114,7 @@ window.SiteFlowSEO = (function () {
       email: cfg().email,
       telephone: cfg().phone,
       image: ogImage,
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'CO',
-        addressRegion: cfg().country || 'Colombia'
-      },
+      address: postalAddress(),
       areaServed: [
         { '@type': 'Country', name: 'Colombia' },
         { '@type': 'Country', name: 'Mexico' },

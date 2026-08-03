@@ -8,6 +8,14 @@ window.SITE_CONFIG = {
   locale: 'es_CO',
   country: 'Colombia',
   twitter: '',
+  /* Dirección para Google (Schema.org) — pon tu dirección real si tienes oficina */
+  address: {
+    streetAddress: 'Sabaneta, Antioquia',
+    addressLocality: 'Sabaneta',
+    addressRegion: 'Antioquia',
+    postalCode: '055450',
+    countryCode: 'CO'
+  },
   services: [
     'Creación de páginas web',
     'Diseño de landing pages',
