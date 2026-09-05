@@ -25,6 +25,7 @@
   <meta name="twitter:image" content="https://siteflowcol.com/og-image.png">
   <title>Creación de Páginas Web y Landing Pages | SiteFlowCol Colombia</title>
   <link rel="canonical" href="https://siteflowcol.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23050505'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='25' font-weight='700' fill='white'%3ESF%3C/text%3E%3C/svg%3E">
   <link rel="alternate" hreflang="es" href="https://siteflowcol.com/">
   <link rel="alternate" hreflang="en" href="https://siteflowcol.com/">
   <link rel="alternate" hreflang="de" href="https://siteflowcol.com/">
@@ -35,8 +36,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
 
   <meta name="google-site-verification" content="Om4xstEI-jgtLRXqWz0g2L0LCf7kBVErc-Q3UtX0xqU" />
@@ -55,10 +56,10 @@
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">SiteFlowCol</a>
     <ul class="nav-links" role="list">
-      <li><a href="#benefits" data-i18n="nav.services">Servicios</a></li>
-      <li><a href="#features" data-i18n="nav.features">Características</a></li>
+      <li><a href="#included" data-i18n="nav.services">Servicios</a></li>
+      <li><a href="#portfolio" data-i18n="nav.projects">Proyectos</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Planes</a></li>
-      <li><a href="#why" data-i18n="nav.why">Por qué nosotros</a></li>
+      <li><a href="#infrastructure" data-i18n="nav.why">Infraestructura</a></li>
       <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
       <li>
         <a href="#contact" class="nav-contact" data-i18n="nav.contact"> Contacto</a>
@@ -86,10 +87,10 @@
 
 <!-- Mobile nav -->
 <nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
-  <a href="#benefits" class="mobile-link" data-i18n="nav.services">Servicios</a>
-  <a href="#features" class="mobile-link" data-i18n="nav.features">Características</a>
+  <a href="#included" class="mobile-link" data-i18n="nav.services">Servicios</a>
+  <a href="#portfolio" class="mobile-link" data-i18n="nav.projects">Proyectos</a>
   <a href="#pricing" class="mobile-link" data-i18n="nav.pricing">Planes</a>
-  <a href="#why" class="mobile-link" data-i18n="nav.why">Por qué nosotros</a>
+  <a href="#infrastructure" class="mobile-link" data-i18n="nav.why">Infraestructura</a>
   <a href="#faq" class="mobile-link" data-i18n="nav.faq">FAQ</a>
   <a href="#contact" class="mobile-link" data-i18n="nav.contact"> Contacto</a>
   <div class="lang-switch lang-switch-mobile" role="group" data-i18n-attr="aria-label:nav.langAria">
@@ -108,83 +109,61 @@
      HERO
 =================================================== -->
 <section id="hero" aria-labelledby="hero-heading">
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="orb orb-2" aria-hidden="true"></div>
-  <div class="orb orb-3" aria-hidden="true"></div>
-
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
-
-  <!-- Floating context cards -->
-  <div class="hero-float-cards" aria-hidden="true">
-    <div class="hfc hfc-1">
-      <span class="icon">🔒</span>
-      <span data-i18n="hero.hfc1">SSL Activo — Seguro</span>
-    </div>
-    <div class="hfc hfc-2">
-      <span class="icon">⚡</span>
-      <span data-i18n="hero.hfc2">Carga en &lt; 2s</span>
-    </div>
-    <div class="hfc hfc-3">
-      <span class="icon">📈</span>
-      <span data-i18n="hero.hfc3">+47% más clientes</span>
-    </div>
-    <div class="hfc hfc-4">
-      <span class="icon">🛡️</span>
-      <span data-i18n="hero.hfc4">Backup diario</span>
-    </div>
-  </div>
-
-  <div class="hero-content">
-    <div class="hero-badge" aria-hidden="true">
-      <span class="dot"></span>
-      <span data-i18n="hero.badge">Diseño · Hosting · Mantenimiento</span>
-    </div>
-
-    <h1 class="hero-title" id="hero-heading">
-      <span class="line-1" data-i18n="hero.title1">Siteflow 
-        nsitreflow js]hhh 
-      </span>
-      <span class="line-2" data-i18n="hero.title2">siempre activa y cuidada.</span>
-    </h1>
-
-    <p class="hero-sub" data-i18n="hero.sub">
-      Nos ocupamos de todo — diseño, hosting, seguridad y mantenimiento — 
-      para que tú te enfoques en lo que realmente importa: hacer crecer tu negocio.
-    </p>
-
-    <div class="hero-actions">
-      <div class="magnetic-wrap">
-        <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
-           class="btn-primary" data-wa="quote" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          <span data-i18n="hero.ctaWa">Cotizar por WhatsApp</span>
-        </a>
-      </div>
-      <div class="magnetic-wrap">
-        <a href="#pricing" class="btn-ghost" data-i18n="hero.ctaPlans">
-          Ver planes →
-        </a>
+  <div class="sequence-sticky">
+    <canvas id="hero-sequence" aria-hidden="true"></canvas>
+    <div class="sequence-fallback" aria-hidden="true">
+      <div class="chrome-core">
+        <span class="chrome-ring chrome-ring--one"></span>
+        <span class="chrome-ring chrome-ring--two"></span>
+        <span class="chrome-mark">SF</span>
       </div>
     </div>
+    <div class="sequence-shade" aria-hidden="true"></div>
 
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="num" data-target="50">0</span>
-        <span class="lbl" data-i18n="hero.stat1">Páginas web</span>
+    <div class="hero-content sequence-copy sequence-copy--intro" data-sequence-step="0">
+      <span class="scene-index">01 / SITEFLOWCOL</span>
+      <h1 class="hero-title" id="hero-heading">
+        <span data-i18n="hero.title1">Tu negocio merece</span>
+        <span data-i18n="hero.title2">una web que venda por ti.</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">Diseñamos, publicamos y cuidamos tu página web. Tú te ocupas de tu negocio. Nosotros del resto.</p>
+      <div class="hero-actions">
+        <div class="magnetic-wrap">
+          <a href="https://wa.me/573239428161?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
+             class="btn-primary" data-wa="quote" target="_blank" rel="noopener">
+            <span data-i18n="hero.ctaWa">Quiero mi página</span><span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <a href="#portfolio" class="btn-ghost" data-i18n="hero.ctaPlans">Ver proyectos</a>
       </div>
-      <div class="hero-stat">
-        <span class="num" data-target="98">0</span>
-        <span class="lbl" data-i18n="hero.stat2">% satisfacción</span>
-      </div>
-      <div class="hero-stat">
-        <span class="num" data-target="100">0</span>
-        <span class="lbl" data-i18n="hero.stat3">% compromiso</span>
-      </div>
-      <div class="hero-stat">
-        <span class="num" data-static="true">&#60;48h</span>
-        <span class="lbl" data-i18n="hero.stat4">Tiempo respuesta</span>
-      </div>
+      <p class="hero-includes" data-i18n="hero.badge">Diseño · Dominio · Hosting · Mantenimiento</p>
+    </div>
+
+    <div class="sequence-copy sequence-copy--statement" data-sequence-step="1">
+      <p data-i18n="sequence.web">UNA WEB.</p>
+    </div>
+    <div class="sequence-copy sequence-copy--statement" data-sequence-step="2">
+      <p data-i18n="sequence.everything">TODO LO QUE NECESITA.</p>
+    </div>
+    <div class="sequence-copy sequence-copy--services" data-sequence-step="3">
+      <span>DESIGN</span><span>HOSTING</span><span>DOMAIN</span>
+      <span>SSL</span><span>SEO</span><span>SUPPORT</span>
+    </div>
+    <div class="sequence-copy sequence-copy--statement" data-sequence-step="4">
+      <p data-i18n="sequence.connected">TODO CONECTADO.</p>
+    </div>
+    <div class="sequence-copy sequence-copy--statement" data-sequence-step="5">
+      <p data-i18n="sequence.onePlace">TODO EN UN SOLO LUGAR.</p>
+    </div>
+    <div class="sequence-copy sequence-copy--brand" data-sequence-step="6" aria-hidden="true">SITEFLOW</div>
+
+    <button type="button" class="sequence-play" id="sequence-play" aria-pressed="false" hidden>
+      <span class="sequence-play-icon" aria-hidden="true"></span>
+      <span class="sequence-play-label">Ver animación</span>
+    </button>
+
+    <div class="sequence-progress" aria-hidden="true">
+      <span></span><b>SCROLL</b>
     </div>
   </div>
 </section>
@@ -192,9 +171,96 @@
 <!-- ===================================================
      BENEFITS & PROBLEMS
 =================================================== -->
-<section id="benefits" aria-labelledby="benefits-heading">
-  <div class="section-wrap">
-    <div class="benefits-header">
+<section id="included" aria-labelledby="included-heading">
+  <div class="core-scene" id="core-scene">
+    <div class="core-stage">
+      <div class="core-head">
+        <span class="scene-index">02 / TODO INCLUIDO</span>
+        <h2 class="display-title" id="included-heading" data-i18n-html="included.title">Una web.<br><span>Todo incluido.</span></h2>
+        <p data-i18n="included.sub">Una sola solución conecta lo que antes estaba repartido entre varios proveedores.</p>
+      </div>
+
+      <div class="core-field" id="core-field">
+        <svg class="core-orbits" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+          <g class="core-rings">
+            <ellipse class="core-ring" cx="50" cy="50" rx="45" ry="41"/>
+            <ellipse class="core-ring" cx="50" cy="50" rx="34" ry="30"/>
+            <ellipse class="core-ring" cx="50" cy="50" rx="23" ry="20"/>
+          </g>
+          <circle class="core-shield" cx="50" cy="50" r="16"/>
+          <g class="core-links" id="core-links"></g>
+        </svg>
+
+        <div class="core-sphere" id="core-sphere">
+          <span class="core-glass" aria-hidden="true"></span>
+          <span class="core-gloss" aria-hidden="true"></span>
+          <span class="core-dust core-dust--1" aria-hidden="true"></span>
+          <span class="core-dust core-dust--2" aria-hidden="true"></span>
+          <span class="core-dust core-dust--3" aria-hidden="true"></span>
+          <span class="core-dust core-dust--4" aria-hidden="true"></span>
+          <span class="core-tag">SF/</span>
+        </div>
+
+        <ul class="core-services" id="core-services">
+          <li class="core-service" data-core-node="1">
+            <span class="core-service-num">01</span>
+            <b class="core-service-name" data-i18n="included.design">DISEÑO</b>
+            <span class="core-service-rule" aria-hidden="true"></span>
+            <small class="core-service-desc" data-i18n="included.designDesc">A medida</small>
+          </li>
+          <li class="core-service" data-core-node="2">
+            <span class="core-service-num">02</span>
+            <b class="core-service-name" data-i18n="included.domain">DOMINIO</b>
+            <span class="core-service-rule" aria-hidden="true"></span>
+            <small class="core-service-desc" data-i18n="included.domainDesc">Incluido desde el día uno</small>
+          </li>
+          <li class="core-service" data-core-node="3">
+            <span class="core-service-num">03</span>
+            <b class="core-service-name" data-i18n="included.hosting">HOSTING</b>
+            <span class="core-service-rule" aria-hidden="true"></span>
+            <small class="core-service-desc" data-i18n="included.hostingDesc">99.9% uptime</small>
+          </li>
+          <li class="core-service" data-core-node="4">
+            <span class="core-service-num">04</span>
+            <b class="core-service-name">SSL</b>
+            <span class="core-service-rule" aria-hidden="true"></span>
+            <small class="core-service-desc" data-i18n="included.sslDesc">Certificado activo</small>
+          </li>
+          <li class="core-service" data-core-node="5">
+            <span class="core-service-num">05</span>
+            <b class="core-service-name" data-i18n="included.maintenance">MANTENIMIENTO</b>
+            <span class="core-service-rule" aria-hidden="true"></span>
+            <small class="core-service-desc" data-i18n="included.maintenanceDesc">Actualizaciones incluidas</small>
+          </li>
+          <li class="core-service" data-core-node="6">
+            <span class="core-service-num">06</span>
+            <b class="core-service-name" data-i18n="included.support">SOPORTE</b>
+            <span class="core-service-rule" aria-hidden="true"></span>
+            <small class="core-service-desc" data-i18n="included.supportDesc">Personas reales</small>
+          </li>
+        </ul>
+
+        <div class="core-words" id="core-words" aria-hidden="true">
+          <span class="core-word" data-core-word="1" data-i18n="included.word1">CREATIVO</span>
+          <span class="core-word" data-core-word="2" data-i18n="included.word2">CONECTADO</span>
+          <span class="core-word core-word--stretch" data-core-word="3" data-i18n="included.word3">RÁPIDO</span>
+          <span class="core-word core-word--solid" data-core-word="4" data-i18n="included.word4">SEGURO</span>
+          <span class="core-word core-word--stack" data-core-word="5" data-i18n-html="included.word5">Siempre<br>activo</span>
+          <span class="core-word" data-core-word="6" data-i18n="included.word6">ACOMPAÑADO</span>
+        </div>
+      </div>
+
+      <div class="core-outro" id="core-outro">
+        <p class="core-outro-title" data-i18n-html="included.outro">Todo<br>conectado.</p>
+        <span class="core-outro-sub" data-i18n="included.core">UNA SOLA SOLUCIÓN</span>
+        <span class="core-outro-brand">SITEFLOW</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrap" hidden aria-hidden="true">
+
+    <div class="benefits-header" hidden aria-hidden="true">
       <span class="s-eyebrow" data-i18n="benefits.eyebrow">El problema</span>
       <h2 class="s-title" id="benefits-heading" data-i18n-html="benefits.title">¿Tu web trabaja para ti<br>o en tu contra?</h2>
       <p class="s-subtitle reveal" data-i18n="benefits.sub">
@@ -203,7 +269,7 @@
       </p>
     </div>
 
-    <div class="pain-grid reveal">
+    <div class="pain-grid reveal" hidden aria-hidden="true">
       <div class="pain-cell bad">
         <div class="pain-label" data-i18n="benefits.without">Sin SiteFlowCol</div>
         <h3 data-i18n="benefits.bad1t">Web desactualizada y lenta</h3>
@@ -226,7 +292,7 @@
       </div>
     </div>
 
-    <div class="bento reveal">
+    <div class="bento reveal" hidden aria-hidden="true">
       <div class="bento-card accent-card span-2">
         <h3 data-i18n="benefits.bentoTitle">Lo que realmente ofrecemos</h3>
         <p data-i18n-html="benefits.bentoP">No vendemos páginas web. Vendemos <strong style="color:var(--text-primary)">tranquilidad digital</strong>: presencia profesional, continuidad de negocio y un equipo que cuida tu activo más importante en internet.</p>
@@ -273,15 +339,76 @@
 <!-- ===================================================
      FEATURES
 =================================================== -->
-<section id="features" aria-labelledby="features-heading">
+<section id="transformation" aria-labelledby="transformation-heading">
   <div class="section-wrap">
-    <div class="features-header reveal">
+    <div class="transformation-head">
+      <span class="scene-index">03 / TRANSFORMACIÓN</span>
+      <h2 class="sr-only" id="transformation-heading" data-i18n="transformation.heading">Sin SiteFlow y con SiteFlow</h2>
+    </div>
+    <div class="transformation-stage">
+      <div class="chaos-label">
+        <span data-i18n="transformation.without">SIN SITEFLOW</span>
+        <strong data-i18n="transformation.chaos">TODO SEPARADO.</strong>
+      </div>
+      <div class="chaos-piece chaos-piece--1" data-i18n="transformation.slow">LENTA</div>
+      <div class="chaos-piece chaos-piece--2" data-i18n="transformation.old">DESACTUALIZADA</div>
+      <div class="chaos-piece chaos-piece--3" data-i18n="transformation.noSupport">SIN SOPORTE</div>
+      <div class="chaos-piece chaos-piece--4" data-i18n="transformation.separate">HOSTING SEPARADO</div>
+      <div class="chaos-piece chaos-piece--5" data-i18n="transformation.problems">PROBLEMAS</div>
+      <div class="resolved-interface">
+        <div class="resolved-top"><span>siteflow.system</span><b>● ONLINE</b></div>
+        <div class="resolved-center">
+          <small data-i18n="transformation.with">CON SITEFLOW</small>
+          <strong data-i18n="transformation.resolved">TODO CONECTADO.</strong>
+          <ul class="resolved-list">
+            <li class="resolved-row">
+              <span class="resolved-num">01</span>
+              <b data-i18n="transformation.adv1">Carga en menos de 2 segundos</b>
+              <small data-i18n="transformation.slow">LENTA</small>
+            </li>
+            <li class="resolved-row">
+              <span class="resolved-num">02</span>
+              <b data-i18n="transformation.adv2">Diseño propio, sin plantillas</b>
+              <small data-i18n="transformation.generic">PLANTILLA GENÉRICA</small>
+            </li>
+            <li class="resolved-row">
+              <span class="resolved-num">03</span>
+              <b data-i18n="transformation.adv3">Hosting y dominio incluidos</b>
+              <small data-i18n="transformation.separate">HOSTING SEPARADO</small>
+            </li>
+            <li class="resolved-row">
+              <span class="resolved-num">04</span>
+              <b data-i18n="transformation.adv4">SSL, backups y monitoreo</b>
+              <small data-i18n="transformation.noBackup">SIN RESPALDOS</small>
+            </li>
+            <li class="resolved-row">
+              <span class="resolved-num">05</span>
+              <b data-i18n="transformation.adv5">Actualizaciones cada mes</b>
+              <small data-i18n="transformation.old">DESACTUALIZADA</small>
+            </li>
+            <li class="resolved-row">
+              <span class="resolved-num">06</span>
+              <b data-i18n="transformation.adv6">Soporte real que responde</b>
+              <small data-i18n="transformation.noSupport">SIN SOPORTE</small>
+            </li>
+          </ul>
+        </div>
+        <div class="resolved-grid">
+          <span data-i18n="transformation.fast">RÁPIDA</span>
+          <span data-i18n="transformation.secure">SEGURA</span>
+          <span data-i18n="transformation.professional">PROFESIONAL</span>
+          <span data-i18n="transformation.maintained">MANTENIDA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="features-header reveal" hidden aria-hidden="true">
       <span class="s-eyebrow" data-i18n="features.eyebrow">Características</span>
       <h2 class="s-title" id="features-heading" data-i18n-html="features.title">Todo lo que necesitas,<br>nada de lo que no.</h2>
       <p class="s-subtitle" data-i18n="features.sub">Cada plan incluye una base sólida. Tú eliges hasta dónde llevar tu presencia digital.</p>
     </div>
 
-    <div class="features-grid">
+    <div class="features-grid" hidden aria-hidden="true">
       <div class="feature-card reveal">
         <div class="feature-num">01</div>
         <div class="feature-icon">🎨</div>
@@ -337,10 +464,89 @@
 </section>
 
 <!-- ===================================================
-     STATS
+     PORTFOLIO
 =================================================== -->
-<section id="stats" data-i18n-attr="aria-label:stats.aria">
-  <div class="section-wrap">
+<section id="portfolio" aria-labelledby="portfolio-heading">
+  <div class="portfolio-sticky">
+    <div class="section-wrap portfolio-head">
+      <span class="scene-index">04 / PROYECTOS</span>
+      <h2 class="display-title" id="portfolio-heading" data-i18n-html="portfolio.title">Trabajo que se<br><span>hace notar.</span></h2>
+      <p data-i18n="portfolio.sub">Espacios preparados para tus proyectos publicados. Sin clientes ni resultados inventados.</p>
+    </div>
+    <div class="portfolio-track">
+      <article class="project-panel">
+        <a class="project-screen" href="https://menova-frontend.vercel.app/" target="_blank" rel="noopener">
+          <div class="screen-nav"><span>SF — 01</span><span data-i18n="portfolio.t1">PLATAFORMA QR</span></div>
+          <img src="assets/projects/menova.webp" width="1440" height="900" loading="lazy" decoding="async"
+               alt="Menova, plataforma de pedidos por QR para restaurantes">
+          <span class="project-open" data-i18n="portfolio.visit">Ver sitio</span>
+        </a>
+        <div class="project-info">
+          <span>MENOVA / 2026</span>
+          <h3 data-i18n="portfolio.p1">Menova</h3>
+          <p data-i18n="portfolio.d1">Carta QR, sala en vivo y cocina conectadas en un solo panel para restaurantes.</p>
+          <a class="project-link" href="https://menova-frontend.vercel.app/" target="_blank" rel="noopener">menova-frontend.vercel.app</a>
+        </div>
+      </article>
+      <article class="project-panel">
+        <a class="project-screen" href="https://oasispiercing.com/" target="_blank" rel="noopener">
+          <div class="screen-nav"><span>SF — 02</span><span data-i18n="portfolio.t2">E-COMMERCE</span></div>
+          <img src="assets/projects/oasispiercing.webp" width="1440" height="900" loading="lazy" decoding="async"
+               alt="Oasis Piercing, tienda online de joyería corporal en acero quirúrgico">
+          <span class="project-open" data-i18n="portfolio.visit">Ver sitio</span>
+        </a>
+        <div class="project-info">
+          <span>OASIS PIERCING / 2026</span>
+          <h3 data-i18n="portfolio.p2">Oasis Piercing</h3>
+          <p data-i18n="portfolio.d2">Catálogo de joyería corporal con carrito y pedidos directos por WhatsApp.</p>
+          <a class="project-link" href="https://oasispiercing.com/" target="_blank" rel="noopener">oasispiercing.com</a>
+        </div>
+      </article>
+      <article class="project-panel">
+        <a class="project-screen" href="https://asistmed.vercel.app/" target="_blank" rel="noopener">
+          <div class="screen-nav"><span>SF — 03</span><span data-i18n="portfolio.t3">SITIO DE SERVICIOS</span></div>
+          <img src="assets/projects/asistmed.webp" width="1440" height="900" loading="lazy" decoding="async"
+               alt="ASISTMED, sitio de servicios de salud a domicilio en Medellín">
+          <span class="project-open" data-i18n="portfolio.visit">Ver sitio</span>
+        </a>
+        <div class="project-info">
+          <span>ASISTMED / 2026</span>
+          <h3 data-i18n="portfolio.p3">ASISTMED</h3>
+          <p data-i18n="portfolio.d3">Salud a domicilio en Medellín: servicios, cobertura y contacto directo por WhatsApp.</p>
+          <a class="project-link" href="https://asistmed.vercel.app/" target="_blank" rel="noopener">asistmed.vercel.app</a>
+        </div>
+      </article>
+      <article class="project-panel">
+        <a class="project-screen" href="http://gosolutions.co/" target="_blank" rel="noopener">
+          <div class="screen-nav"><span>SF — 04</span><span data-i18n="portfolio.t4">SITIO CORPORATIVO</span></div>
+          <img src="assets/projects/gosolutions.webp" width="1440" height="900" loading="lazy" decoding="async"
+               alt="GO Solutions, sitio corporativo de servicios tecnológicos">
+          <span class="project-open" data-i18n="portfolio.visit">Ver sitio</span>
+        </a>
+        <div class="project-info">
+          <span>GO SOLUTIONS / 2026</span>
+          <h3 data-i18n="portfolio.p4">GO Solutions</h3>
+          <p data-i18n="portfolio.d4">Sitio corporativo de software a medida, con servicios, productos y cotización.</p>
+          <a class="project-link" href="http://gosolutions.co/" target="_blank" rel="noopener">gosolutions.co</a>
+        </div>
+      </article>
+      <article class="project-panel">
+        <a class="project-screen" href="https://kannabyte.com/" target="_blank" rel="noopener">
+          <div class="screen-nav"><span>SF — 05</span><span data-i18n="portfolio.t5">SITIO B2B</span></div>
+          <img src="assets/projects/kannabyte.webp" width="1440" height="900" loading="lazy" decoding="async"
+               alt="Kannabyte S.A.S., sitio corporativo de exportación de cannabis medicinal">
+          <span class="project-open" data-i18n="portfolio.visit">Ver sitio</span>
+        </a>
+        <div class="project-info">
+          <span>KANNABYTE / 2026</span>
+          <h3 data-i18n="portfolio.p5">Kannabyte</h3>
+          <p data-i18n="portfolio.d5">Sitio B2B de exportación medicinal: productos, calidad, licencias y contacto comercial.</p>
+          <a class="project-link" href="https://kannabyte.com/" target="_blank" rel="noopener">kannabyte.com</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="section-wrap" hidden aria-hidden="true">
     <div class="stats-inner">
       <div class="stat-block">
         <span class="big" data-count="50" data-suffix="+">0+</span>
@@ -368,32 +574,34 @@
 <section id="process" aria-labelledby="process-heading">
   <div class="section-wrap">
     <div class="process-header reveal">
+      <span class="scene-index">05 / PROCESO</span>
       <span class="s-eyebrow" data-i18n="process.eyebrow">Proceso</span>
-      <h2 class="s-title" id="process-heading" data-i18n-html="process.title">De idea a online en días,<br>no en meses.</h2>
+      <h2 class="display-title" id="process-heading" data-i18n-html="process.title">De una idea<br><span>a una web viva.</span></h2>
       <p class="s-subtitle" data-i18n="process.sub">Un proceso claro, sin sorpresas, diseñado para que estés listo lo antes posible.</p>
     </div>
     <div class="process-timeline">
       <div class="process-step reveal">
         <div class="step-dot">01</div>
-        <h4 data-i18n="process.s1t">Nos escribes</h4>
+        <h4 data-i18n="process.s1t">Nos cuentas tu idea.</h4>
         <p data-i18n="process.s1p">Cuéntanos tu negocio por WhatsApp. Sin formularios complicados, solo una conversación.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-dot">02</div>
-        <h4 data-i18n="process.s2t">Diseñamos tu web</h4>
+        <h4 data-i18n="process.s2t">Nosotros diseñamos.</h4>
         <p data-i18n="process.s2p">Creamos un diseño personalizado alineado con tu marca y objetivos de negocio.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-dot">03</div>
-        <h4 data-i18n="process.s3t">Revisas y apruebas</h4>
+        <h4 data-i18n="process.s3t">Tú apruebas.</h4>
         <p data-i18n="process.s3p">Tienes el control total. Ajustamos hasta que estés completamente satisfecho.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-dot">04</div>
-        <h4 data-i18n="process.s4t">Publicamos y crecemos</h4>
+        <h4 data-i18n="process.s4t">Publicamos y cuidamos tu web.</h4>
         <p data-i18n="process.s4p">Tu web va live y nosotros la cuidamos cada mes para que nunca pare de funcionar.</p>
       </div>
     </div>
+    <div class="process-progress" aria-hidden="true"><span></span></div>
   </div>
 </section>
 
@@ -403,17 +611,18 @@
 <section id="pricing" aria-labelledby="pricing-heading">
   <div class="section-wrap">
     <div class="pricing-header reveal">
+      <span class="scene-index">06 / PLANES</span>
       <span class="s-eyebrow" data-i18n="pricing.eyebrow">Planes</span>
-      <h2 class="s-title" id="pricing-heading" data-i18n-html="pricing.title">Precio justo,<br>valor claro.</h2>
+      <h2 class="display-title" id="pricing-heading" data-i18n-html="pricing.title">Creación + cuidado.<br><span>Sin letra pequeña.</span></h2>
       <p class="s-subtitle" data-i18n="pricing.sub">Sin contratos anuales obligatorios. Cancela cuando quieras.</p>
     </div>
 
     <div style="text-align:center">
       <div class="currency-tabs" role="group" data-i18n-attr="aria-label:pricing.currencyAria">
         <span class="cur-indicator" aria-hidden="true"></span>
-        <button class="cur-btn active" data-cur="USD">💵 USD</button>
-        <button class="cur-btn" data-cur="COP">🇨🇴 COP</button>
-        <button class="cur-btn" data-cur="EUR">💶 EUR</button>
+        <button class="cur-btn active" data-cur="USD">USD</button>
+        <button class="cur-btn" data-cur="COP">COP</button>
+        <button class="cur-btn" data-cur="EUR">EUR</button>
       </div>
     </div>
 
@@ -576,11 +785,34 @@
 </section>
 
 <!-- ===================================================
-     WHY US
+     INFRASTRUCTURE
 =================================================== -->
-<section id="why" aria-labelledby="why-heading">
+<section id="infrastructure" aria-labelledby="infrastructure-heading">
   <div class="section-wrap">
-    <div class="why-split">
+    <div class="infrastructure-head">
+      <span class="scene-index">07 / INFRAESTRUCTURA</span>
+      <h2 class="display-title" id="infrastructure-heading" data-i18n-html="infrastructure.title">Lo que no ves<br><span>también importa.</span></h2>
+      <p data-i18n="infrastructure.sub">Tu web funciona sobre una base preparada para mantenerse rápida, segura y acompañada.</p>
+    </div>
+    <div class="system-dashboard">
+      <div class="dashboard-bar">
+        <span>SITEFLOW / SYSTEM STATUS</span>
+        <span class="live-dot"><i></i> <b data-i18n="infrastructure.operational">OPERATIVO</b></span>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dashboard-row"><span>SECURITY</span><strong>● ACTIVE</strong><small>SSL</small></div>
+        <div class="dashboard-row"><span>UPTIME</span><strong>99.9%</strong><small>HOSTING</small></div>
+        <div class="dashboard-row"><span>BACKUPS</span><strong>● DAILY</strong><small>AUTOMATIC</small></div>
+        <div class="dashboard-row"><span>SUPPORT</span><strong>&lt;48H</strong><small>HUMAN</small></div>
+        <div class="dashboard-row"><span>SEO</span><strong>● READY</strong><small>PREMIUM</small></div>
+        <div class="dashboard-row"><span>ANALYTICS</span><strong>● READY</strong><small>PREMIUM</small></div>
+      </div>
+      <div class="dashboard-orb" aria-hidden="true">
+        <div class="metal-sphere"></div>
+        <span>PROTECTED<br>BY SITEFLOW</span>
+      </div>
+    </div>
+    <div class="why-split" hidden aria-hidden="true">
       <div class="why-left reveal">
         <span class="s-eyebrow" data-i18n="why.eyebrow">Ventajas</span>
         <h2 class="s-title" id="why-heading" data-i18n-html="why.title">¿Por qué SiteFlowCol<br>y no otro?</h2>
@@ -664,7 +896,7 @@
 <!-- ===================================================
      TESTIMONIALS
 =================================================== -->
-<section id="testimonials" aria-labelledby="testi-heading">
+<section id="testimonials" aria-labelledby="testi-heading" hidden aria-hidden="true">
   <div class="section-wrap">
     <div class="testimonials-header reveal">
       <span class="s-eyebrow" data-i18n="testi.eyebrow">Testimonios</span>
@@ -716,6 +948,7 @@
   <div class="section-wrap">
     <div class="faq-wrap">
       <div class="faq-left reveal">
+        <span class="scene-index">08 / FAQ</span>
         <span class="s-eyebrow" data-i18n="faq.eyebrow">FAQ</span>
         <h2 class="s-title" id="faq-heading" data-i18n-html="faq.title">Preguntas<br>frecuentes.</h2>
         <p class="s-subtitle" data-i18n="faq.sub">¿No encuentras tu respuesta? Escríbenos por WhatsApp.</p>
@@ -781,9 +1014,14 @@
       <div class="contact-glow" aria-hidden="true"></div>
       <div class="contact-wrap">
         <div class="contact-intro">
+          <span class="scene-index">09 / CONTACTO</span>
           <span class="s-eyebrow" data-i18n="contact.eyebrow">Contacto</span>
-          <h2 class="s-title" id="contact-heading" data-i18n="contact.title">Escríbenos</h2>
-          <p class="s-subtitle" data-i18n="contact.sub">Déjanos tu mensaje y te respondemos pronto a tu correo.</p>
+          <h2 class="display-title" id="contact-heading" data-i18n-html="contact.title">¿Hacemos algo<br><span>increíble?</span></h2>
+          <p class="s-subtitle" data-i18n="contact.sub">Cuéntanos qué necesita tu negocio.</p>
+          <a href="https://wa.me/573239428161?text=Hola,%20quiero%20hablar%20sobre%20mi%20página%20web"
+             class="contact-whatsapp" data-wa="start" target="_blank" rel="noopener">
+            <span data-i18n="contact.whatsapp">Hablar por WhatsApp</span><span aria-hidden="true">↗</span>
+          </a>
           <ul class="contact-meta" role="list">
             <li>
               <span class="contact-meta-icon" aria-hidden="true">
@@ -875,7 +1113,7 @@
 <!-- ===================================================
      CTA FINAL
 =================================================== -->
-<section id="cta-final" aria-labelledby="cta-heading">
+<section id="cta-final" aria-labelledby="cta-heading" hidden aria-hidden="true">
   <div class="section-wrap">
     <div class="cta-box reveal">
       <h2 id="cta-heading" data-i18n-html="cta.title">Empieza hoy.<br>Tu web te espera.</h2>
@@ -917,18 +1155,18 @@
       <div class="footer-col">
         <h5 data-i18n="footer.services">Servicios</h5>
         <ul>
-          <li><a href="#benefits" data-i18n="footer.f1">Diseño Web</a></li>
-          <li><a href="#benefits" data-i18n="footer.f2">Hosting & Dominio</a></li>
-          <li><a href="#benefits" data-i18n="footer.f3">Mantenimiento</a></li>
-          <li><a href="#features" data-i18n="footer.f4">SEO & Analytics</a></li>
+          <li><a href="#included" data-i18n="footer.f1">Diseño Web</a></li>
+          <li><a href="#included" data-i18n="footer.f2">Hosting & Dominio</a></li>
+          <li><a href="#included" data-i18n="footer.f3">Mantenimiento</a></li>
+          <li><a href="#infrastructure" data-i18n="footer.f4">SEO & Analytics</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5 data-i18n="footer.company">Empresa</h5>
         <ul>
-          <li><a href="#why" data-i18n="footer.c1">Por qué nosotros</a></li>
+          <li><a href="#infrastructure" data-i18n="footer.c1">Infraestructura</a></li>
           <li><a href="#process" data-i18n="footer.c2">Cómo funciona</a></li>
-          <li><a href="#testimonials" data-i18n="footer.c3">Testimonios</a></li>
+          <li><a href="#portfolio" data-i18n="footer.c3">Proyectos</a></li>
           <li><a href="#faq" data-i18n="footer.c4">FAQ</a></li>
         </ul>
       </div>
@@ -966,7 +1204,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
 <script src="site-config.js"></script>
 <script src="contact-config.js"></script>
+<script src="frame-manifest.js"></script>
 <script src="i18n.js"></script>
+<script src="scroll-sequence.js" defer></script>
+<script src="core-system.js" defer></script>
 <script src="main.js" defer></script>
 </body>
 </html>
